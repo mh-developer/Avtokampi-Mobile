@@ -1,4 +1,4 @@
-name: CI
+name: Build Android APK
 
 on: [push]
 
@@ -16,8 +16,6 @@ jobs:
         with:
           flutter-version: '1.9.1+hotfix.6'
       - run: flutter pub get
-        working-directory: avtokampi
-      - run: flutter test
         working-directory: avtokampi
       - run: flutter build apk
         working-directory: avtokampi
