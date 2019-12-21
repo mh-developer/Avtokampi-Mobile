@@ -1,9 +1,9 @@
-import 'dart:io';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
 
+import '../home_screen.dart';
 import 'help_screen.dart';
 
 const users = const {
@@ -13,6 +13,7 @@ const users = const {
 
 class LoginScreen extends StatelessWidget {
     Duration get loginTime => Duration(milliseconds: 2250);
+    ApiController apiController = ApiController();
 
     _login(String username, String password) async {
         String url = 'https://api.kampiraj.ga/api/Auth/login';
@@ -32,6 +33,20 @@ class LoginScreen extends StatelessWidget {
         } else {
             return "Something went wrong!";
         }
+    }
+
+    Future<String> _onLogin(LoginData data) {
+        print('Name: ${data.name}, Password: ${data.password}');
+        Response response = apiController.login(data.name, data.password);
+        print(response.body);
+        return Future.delayed(loginTime).then((_) {
+            if (response.statusCode != 200) {
+                return 'Wrong username or password!';
+            }
+//            Route route = MaterialPageRoute(builder: (context) => MyHomePage());
+//            Navigator.pushReplacement(, route);
+            return null;
+        });
     }
 
     Future<String> _authUser(LoginData data) {
@@ -60,13 +75,14 @@ class LoginScreen extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return FlutterLogin(
-            title: 'ECORP',
-            logo: 'assets/images/ecorp-lightblue.png',
+            title: 'AVTOKAMPI',
+            logo: 'assets/images/userImage.png',
+            emailValidator: null,
             onLogin: _authUser,
             onSignup: _authUser,
             onSubmitAnimationCompleted: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => HelpScreen(),
+                    builder: (context) => MyHomePage(),
                 ));
             },
             onRecoverPassword: _recoverPassword,

@@ -9,7 +9,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="best_flutter_ui_templates"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/kampi_logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
