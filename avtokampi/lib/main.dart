@@ -36,26 +36,7 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.android,
       ),
-      home: new SplashScreen(
-          seconds: 5,
-          navigateAfterSeconds: new LoginPage(),
-          title: new Text('Kampiranje in važno je samo to!',
-              style: new TextStyle(
-                  color: Colors.white,
-                  background: Paint()..color = Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  fontFamily: 'Roboto-Bold'
-              ),
-          textAlign: TextAlign.center),
-          image: Image.asset('assets/images/kampi_logo.png'),
-          imageBackground: new AssetImage('assets/images/prikolica.jpg'),
-          backgroundColor: Colors.white,
-          styleTextUnderTheLoader: new TextStyle(),
-          photoSize: 100.0,
-          onClick: ()=>print("Flutter Egypt"),
-          loaderColor: Colors.green
-      ),
+      home: new LoginScreen()
     );
   }
 }

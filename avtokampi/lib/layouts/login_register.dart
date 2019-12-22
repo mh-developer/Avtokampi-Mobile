@@ -1,62 +1,39 @@
-import 'package:http/http.dart';
+import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
+import 'package:http/http.dart';
 
 import '../home_screen.dart';
-import 'help_screen.dart';
-
-const users = const {
-    'dribbble@gmail.com': '12345',
-    'hunter@gmail.com': 'hunter',
-};
 
 class LoginScreen extends StatelessWidget {
     Duration get loginTime => Duration(milliseconds: 2250);
     ApiController apiController = ApiController();
 
-    _login(String username, String password) async {
-        String url = 'https://api.kampiraj.ga/api/Auth/login';
-        Map<String, String> headers = {"Content-type": "application/json"};
-        String json = '{"username": $username, "password": $password}';
-        Response response = await post(url, headers: headers, body: json);
-        print(response.body);
-    }
-
-    _register() async {
-        String url = 'https://api.kampiraj.ga/api/Auth/register';
-        Map<String, String> headers = {"Content-type": "application/json"};
-        String json = '{"ime": "Jane", "priimek": "Doe", "email": "jane.doe@gmail.com", "geslo": "disibila91"}';
-        Response response = await post(url, headers: headers, body: json);
-        if (response.statusCode == 201) {
-            return "Registration successfull!";
-        } else {
-            return "Something went wrong!";
-        }
-    }
-
     Future<String> _onLogin(LoginData data) {
         print('Name: ${data.name}, Password: ${data.password}');
-        Response response = apiController.login(data.name, data.password);
-        print(response.body);
+        Response response;
+        apiController.login(data.name, data.password).then((apiResponse) {
+            response = apiResponse;
+            print(response.body);
+        });
         return Future.delayed(loginTime).then((_) {
             if (response.statusCode != 200) {
                 return 'Wrong username or password!';
             }
-//            Route route = MaterialPageRoute(builder: (context) => MyHomePage());
-//            Navigator.pushReplacement(, route);
             return null;
         });
     }
 
-    Future<String> _authUser(LoginData data) {
+    Future<String> _onRegister(LoginData data) {
         print('Name: ${data.name}, Password: ${data.password}');
+        Response response;
+        apiController.register(data.name, data.name, data.name, data.password).then((apiResponse) {
+            response = apiResponse;
+            print(response.statusCode);
+        });
         return Future.delayed(loginTime).then((_) {
-            if (!users.containsKey(data.name)) {
-                return 'Username not exists';
-            }
-            if (users[data.name] != data.password) {
-                return 'Password does not match';
+            if (response.statusCode != 201) {
+                return 'Something went wrong!';
             }
             return null;
         });
@@ -65,9 +42,6 @@ class LoginScreen extends StatelessWidget {
     Future<String> _recoverPassword(String name) {
         print('Name: $name');
         return Future.delayed(loginTime).then((_) {
-            if (!users.containsKey(name)) {
-                return 'Username not exists';
-            }
             return null;
         });
     }
@@ -75,17 +49,25 @@ class LoginScreen extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return FlutterLogin(
-            title: 'AVTOKAMPI',
-            logo: 'assets/images/userImage.png',
-            emailValidator: null,
-            onLogin: _authUser,
-            onSignup: _authUser,
+            title: 'PRIJAVI SE',
+            onLogin: _onLogin,
+            onSignup: _onRegister,
             onSubmitAnimationCompleted: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => MyHomePage(),
                 ));
             },
             onRecoverPassword: _recoverPassword,
+            messages: LoginMessages(
+                usernameHint: 'Uporabniško ime',
+                passwordHint: 'Geslo',
+                confirmPasswordHint: 'Potrdi geslo',
+                loginButton: 'PRIJAVA',
+                signupButton: 'REGISTRACIJA',
+                forgotPasswordButton: 'Pozabljeno geslo',
+                recoverPasswordButton: 'POMOČ',
+                goBackButton: 'NAZAJ',
+                confirmPasswordError: 'Gesli se ne ujemata!'),
         );
     }
 }
