@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'layouts/login.dart';
 import 'layouts/login_register.dart';
-import 'navigation_home_screen.dart';
+import 'layouts/navigation_home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
