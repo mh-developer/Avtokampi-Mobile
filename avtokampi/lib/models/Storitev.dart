@@ -1,11 +1,21 @@
-import 'package:best_flutter_ui_templates/models/Cenik.dart';
-import 'package:best_flutter_ui_templates/models/KategorijaStoritve.dart';
+
 
 class Storitev {
     int id;
     String naziv;
-    KategorijaStoritve kategorijaStoritve;
-    Cenik cenik;
+    int kategorijaStoritve;
+    int cenik;
+
+    Storitev.nov();
 
     Storitev(this.id, this.naziv, this.kategorijaStoritve, this.cenik);
+
+    static Storitev fromJson(json) {
+        Storitev s = new Storitev.nov();
+        s.id = json['storitevId'];
+        s.naziv = json['naziv'];
+        s.kategorijaStoritve = json['kategorijaStoritve'];
+        s.cenik = json['cenik'];
+        return s;
+    }
 }

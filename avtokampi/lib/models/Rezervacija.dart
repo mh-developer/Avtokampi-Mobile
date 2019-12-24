@@ -1,19 +1,16 @@
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/StatusRezervacije.dart';
-import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
-
 class Rezervacija {
     int id;
-    DateTime datumOd;
-    DateTime datumDo;
-    DateTime createdAt;
-    DateTime updatedAt;
-    String uporabnik;
-    Avtokamp avtokamp;
-    KampirnoMesto kampirnoMesto;
-    VrstaKampiranja vrstaKampiranja;
-    StatusRezervacije statusRezervacije;
+    String datumOd;
+    String datumDo;
+    String createdAt;
+    String updatedAt;
+    int uporabnik;
+    int avtokamp;
+    int kampirnoMesto;
+    int vrstaKampiranja;
+    int statusRezervacije;
+
+    Rezervacija.nov();
 
     Rezervacija(this.id,
         this.datumOd,
@@ -25,4 +22,19 @@ class Rezervacija {
         this.kampirnoMesto,
         this.vrstaKampiranja,
         this.statusRezervacije);
+
+    static Rezervacija fromJson(json) {
+        Rezervacija r = new Rezervacija.nov();
+        r.id = json['cenikId'];
+        r.datumOd = json['datumOd'];
+        r.datumDo = json['datumDo'];
+        r.createdAt = json['createdAt'];
+        r.updatedAt = json['updatedAt'];
+        r.avtokamp = json['uporabnik'];
+        r.avtokamp = json['avtokamp'];
+        r.avtokamp = json['kampirnoMesto'];
+        r.avtokamp = json['vrstaKampiranja'];
+        r.avtokamp = json['statusRezervacije'];
+        return r;
+    }
 }
