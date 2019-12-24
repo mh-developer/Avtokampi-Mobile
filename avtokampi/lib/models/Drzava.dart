@@ -1,6 +1,6 @@
 class Drzava {
-  int id;
-  String naziv;
+    int id;
+    String naziv;
 
-  Drzava(this.id, this.naziv);
+    Drzava(this.id, this.naziv);
 }

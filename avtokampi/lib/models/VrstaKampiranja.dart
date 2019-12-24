@@ -1,6 +1,6 @@
 class VrstaKampiranja {
-  int id;
-  String naziv;
+    int id;
+    String naziv;
 
-  VrstaKampiranja(this.id, this.naziv);
+    VrstaKampiranja(this.id, this.naziv);
 }

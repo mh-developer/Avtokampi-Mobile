@@ -10,6 +10,8 @@ class ApiRoutes {
     static const SLIKA_BRISI = 'https://api.kampiraj.ga/api/Avtokampi/%s/slika';
     static const REGIJE = 'https://api.kampiraj.ga/api/Avtokampi/regije';
     static const DRZAVE = 'https://api.kampiraj.ga/api/Avtokampi/drzave';
+    static const CENIKI_ZA_KAMP = 'https://api.kampiraj.ga/api/Avtokampi/%s/ceniki';
+    static const CENIK_PODROBNOSTI = 'https://api.kampiraj.ga/api/Avtokampi/%s/cenik';
 
     static const KAMPIRNA_MESTA_SEZNAM = 'https://api.kampiraj.ga/api/KampirnaMesta/avtokamp/%s';
     static const KAMPIRNA_MESTA_PODATKI = 'https://api.kampiraj.ga/api/KampirnaMesta/%s';

@@ -1,7 +1,7 @@
 class Pravica {
-  int id;
-  String naziv;
-  String opis;
+    int id;
+    String naziv;
+    String opis;
 
-  Pravica(this.id, this.naziv, this.opis);
+    Pravica(this.id, this.naziv, this.opis);
 }

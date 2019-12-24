@@ -139,9 +139,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                     Padding(
                                         padding: const EdgeInsets.only(
                                             top: 8, left: 4),
-                                        child: Text(
-                                            globals.currentUser.email
-                                                .toString(),
+                                        child: Text((() {
+                                            if (globals.currentUser != null) {
+                                                return globals.currentUser.email.toString();
+                                            }
+                                            return "anze.luzar@gmail.com";
+                                        })(),
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w600,
                                                 color: AppTheme.grey,

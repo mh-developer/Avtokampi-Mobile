@@ -1,6 +1,6 @@
 class KategorijaStoritve {
-  int id;
-  String naziv;
+    int id;
+    String naziv;
 
-  KategorijaStoritve(this.id, this.naziv);
+    KategorijaStoritve(this.id, this.naziv);
 }

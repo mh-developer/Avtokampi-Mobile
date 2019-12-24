@@ -32,7 +32,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'How can we help you?',
+                  'Kako vam lahko pomagamo?',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 child: const Text(
-                  'It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us',
+                  'Izgleda kot da imate neke probleme.\nTu smo da vam pomagamo.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -75,7 +75,7 @@ class _HelpScreenState extends State<HelpScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
-                                'Chat with Us',
+                                'Poklepetajte z nami',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white,

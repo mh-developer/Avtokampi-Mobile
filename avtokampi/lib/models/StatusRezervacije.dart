@@ -1,6 +1,6 @@
 class StatusRezervacije {
-  int id;
-  String naziv;
+    int id;
+    String naziv;
 
-  StatusRezervacije(this.id, this.naziv);
+    StatusRezervacije(this.id, this.naziv);
 }
