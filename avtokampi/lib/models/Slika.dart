@@ -1,8 +1,8 @@
-import 'dart:html';
+import 'package:flutter/cupertino.dart';
 
 class Slika {
     int id;
-    Blob slika;
+    Image slika;
     String createdAt;
     String updatedAt;
     int uporabnik;
