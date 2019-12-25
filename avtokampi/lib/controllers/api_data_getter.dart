@@ -15,31 +15,31 @@ import 'package:best_flutter_ui_templates/models/StatusRezervacije.dart';
 import 'package:best_flutter_ui_templates/models/Storitev.dart';
 import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
 import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 import 'api_controller.dart';
 
 class ApiDataGetter {
     ApiController apiController = new ApiController();
 
-    List<Avtokamp> getAvtokampi() {
-        List<Avtokamp> avtokampi = [];
+    getAvtokampi() {
         Response response;
         apiController.getAvtokampi().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                avtokampi = l.map((model) => Avtokamp.fromJson(model)).toList();
+                globals.avtokampi =
+                    l.map((model) => Avtokamp.fromJson(model)).toList();
             }
+            print("Avtokampi: ${globals.avtokampi.toString()}");
         });
-        print("Avtokampi: ${avtokampi.toString()}");
-        return avtokampi;
     }
 
-    List<Cenik> getCeniki(List<Avtokamp> avtokampi) {
-        List<Cenik> ceniki = [];
-        for (Avtokamp avtokamp in avtokampi) {
+    getCeniki() {
+        for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getCenikiForKamp(avtokamp.id).then((apiResponse) {
                 response = apiResponse;
@@ -49,35 +49,32 @@ class ApiDataGetter {
                     List<Cenik> cenikiZaKamp = l.map((model) =>
                         Cenik.fromJson(model)).toList();
                     for (Cenik c in cenikiZaKamp) {
-                        if (!ceniki.contains(c)) {
-                            ceniki.add(c);
+                        if (!globals.ceniki.contains(c)) {
+                            globals.ceniki.add(c);
                         }
                     }
                 }
+                print("Ceniki: ${globals.ceniki.toString()}");
             });
         }
-        print("Ceniki: ${ceniki.toString()}");
-        return ceniki;
     }
 
     List<Drzava> getDrzave() {
-        List<Drzava> drzave = [];
         Response response;
         apiController.getDrzave().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                drzave = l.map((model) => Drzava.fromJson(model)).toList();
+                globals.drzave =
+                    l.map((model) => Drzava.fromJson(model)).toList();
             }
+            print("Drzave: ${globals.drzave.toString()}");
         });
-        print("Drzave: ${drzave.toString()}");
-        return drzave;
     }
 
-    List<KampirnoMesto> getKampirnaMesta(List<Avtokamp> avtokampi) {
-        List<KampirnoMesto> kampirnaMesta = [];
-        for (Avtokamp avtokamp in avtokampi) {
+    List<KampirnoMesto> getKampirnaMesta() {
+        for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getKampirnaMestaForKamp(avtokamp.id).then((
                 apiResponse) {
@@ -88,53 +85,48 @@ class ApiDataGetter {
                     List<KampirnoMesto> kampirnaMestaZaKamp = l.map((model) =>
                         KampirnoMesto.fromJson(model)).toList();
                     for (KampirnoMesto km in kampirnaMestaZaKamp) {
-                        if (!kampirnaMesta.contains(km)) {
-                            kampirnaMesta.add(km);
+                        if (!globals.kampirnaMesta.contains(km)) {
+                            globals.kampirnaMesta.add(km);
                         }
                     }
                 }
+                print("Kampirna mesta: ${globals.kampirnaMesta.toString()}");
             });
         }
-        print("Kampirna mesta: ${kampirnaMesta.toString()}");
-        return kampirnaMesta;
     }
 
     List<Kategorija> getKategorije() {
-        List<Kategorija> kategorije = [];
         Response response;
         apiController.getKategorije().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                kategorije =
+                globals.kategorije =
                     l.map((model) => Kategorija.fromJson(model)).toList();
             }
+            print("Kategorije: ${globals.kategorije.toString()}");
         });
-        print("Kategorije: ${kategorije.toString()}");
-        return kategorije;
     }
 
     List<KategorijaStoritve> getKategorijeStoritev() {
-        List<KategorijaStoritve> kategorijeStoritev = [];
         Response response;
         apiController.getKategorije().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                kategorijeStoritev = l
+                globals.kategorijeStoritev = l
                     .map((model) => KategorijaStoritve.fromJson(model))
                     .toList();
             }
+            print("Kategorije storitev: ${globals.kategorijeStoritev
+                .toString()}");
         });
-        print("Kategorije storitev: ${kategorijeStoritev.toString()}");
-        return kategorijeStoritev;
     }
 
-    List<Mnenje> getMnenja(List<Avtokamp> avtokampi) {
-        List<Mnenje> mnenja = [];
-        for (Avtokamp avtokamp in avtokampi) {
+    getMnenja() {
+        for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getMnenjaForKamp(avtokamp.id).then((apiResponse) {
                 response = apiResponse;
@@ -144,51 +136,46 @@ class ApiDataGetter {
                     List<Mnenje> mnenjaZaKamp = l.map((model) =>
                         Mnenje.fromJson(model)).toList();
                     for (Mnenje km in mnenjaZaKamp) {
-                        if (!mnenja.contains(km)) {
-                            mnenja.add(km);
+                        if (!globals.mnenja.contains(km)) {
+                            globals.mnenja.add(km);
                         }
                     }
                 }
+                print("Mnenja: ${globals.mnenja.toString()}");
             });
         }
-        print("Mnenja: ${mnenja.toString()}");
-        return mnenja;
     }
 
     List<Regija> getRegije() {
-        List<Regija> regije = [];
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                regije = l.map((model) => Regija.fromJson(model)).toList();
+                globals.regije =
+                    l.map((model) => Regija.fromJson(model)).toList();
             }
+            print("Regije: ${globals.regije.toString()}");
         });
-        print("Regije: ${regije.toString()}");
-        return regije;
     }
 
     List<Rezervacija> getRezervacije() {
-        List<Rezervacija> rezervacije = [];
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                rezervacije =
+                globals.rezervacije =
                     l.map((model) => Rezervacija.fromJson(model)).toList();
             }
+            print("Rezervacije: ${globals.rezervacije.toString()}");
         });
-        print("Rezervacije: ${rezervacije.toString()}");
-        return rezervacije;
     }
 
-    List<Slika> getSlike(List<Avtokamp> avtokampi) {
-        List<Slika> slike = [];
-        for (Avtokamp avtokamp in avtokampi) {
+    List<Slika> getSlike() {
+        for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getSlikeForKamp(avtokamp.id).then((apiResponse) {
                 response = apiResponse;
@@ -198,37 +185,34 @@ class ApiDataGetter {
                     List<Slika> slikeZaKamp = l.map((model) =>
                         Slika.fromJson(model)).toList();
                     for (Slika km in slikeZaKamp) {
-                        if (!slike.contains(km)) {
-                            slike.add(km);
+                        if (!globals.slike.contains(km)) {
+                            globals.slike.add(km);
                         }
                     }
                 }
+                print("Slike: ${globals.slike.toString()}");
             });
         }
-        print("Slike: ${slike.toString()}");
-        return slike;
     }
 
     List<StatusRezervacije> getStatusiRezervacij() {
-        List<StatusRezervacije> statusiRezervacij = [];
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                statusiRezervacij = l
+                globals.statusiRezervacij = l
                     .map((model) => StatusRezervacije.fromJson(model))
                     .toList();
             }
+            print(
+                "Statusi rezervacij: ${globals.statusiRezervacij.toString()}");
         });
-        print("Statusi rezervacij: ${statusiRezervacij.toString()}");
-        return statusiRezervacij;
     }
 
-    List<Storitev> getStoritve(List<Avtokamp> avtokampi) {
-        List<Storitev> storitve = [];
-        for (Avtokamp avtokamp in avtokampi) {
+    List<Storitev> getStoritve() {
+        for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getStoritveForKamp(avtokamp.id).then((apiResponse) {
                 response = apiResponse;
@@ -238,21 +222,18 @@ class ApiDataGetter {
                     List<Storitev> slikeZaKamp = l.map((model) =>
                         Storitev.fromJson(model)).toList();
                     for (Storitev km in slikeZaKamp) {
-                        if (!storitve.contains(km)) {
-                            storitve.add(km);
+                        if (!globals.storitve.contains(km)) {
+                            globals.storitve.add(km);
                         }
                     }
                 }
+                print("Storitev: ${globals.storitve.toString()}");
             });
         }
-        print("Storitev: ${storitve.toString()}");
-        return storitve;
     }
 
-    List<StoritevKampirnegaMesta> getStoritveKampirnihMest(
-        List<KampirnoMesto> kampirnaMesta) {
-        List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
-        for (KampirnoMesto kampirnoMesto in kampirnaMesta) {
+    List<StoritevKampirnegaMesta> getStoritveKampirnihMest() {
+        for (KampirnoMesto kampirnoMesto in globals.kampirnaMesta) {
             Response response;
             apiController.getStoritveForKampirnoMesto(kampirnoMesto.id).then((
                 apiResponse) {
@@ -264,47 +245,89 @@ class ApiDataGetter {
                         .map((model) => StoritevKampirnegaMesta.fromJson(model))
                         .toList();
                     for (StoritevKampirnegaMesta km in storitveZaKampirnoMesto) {
-                        if (!storitveKampirnihMest.contains(km)) {
-                            storitveKampirnihMest.add(km);
+                        if (!globals.storitveKampirnihMest.contains(km)) {
+                            globals.storitveKampirnihMest.add(km);
                         }
                     }
                 }
+                print("Storitve kampirnih mest: ${globals.storitveKampirnihMest
+                    .toString()}");
             });
         }
-        print("Storitve kampirnih mest: ${storitveKampirnihMest.toString()}");
-        return storitveKampirnihMest;
     }
 
     List<VrstaKampiranja> getVrsteKampiranj() {
-        List<VrstaKampiranja> vrsteKampiranj = [];
         Response response;
         apiController.getVrsteKampiranj().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                vrsteKampiranj =
+                globals.vrsteKampiranj =
                     l.map((model) => VrstaKampiranja.fromJson(model)).toList();
             }
+            print("Vrste kampiranj: ${globals.vrsteKampiranj.toString()}");
         });
-        print("Vrste kampiranj: ${vrsteKampiranj.toString()}");
-        return vrsteKampiranj;
     }
 
     setGlobals() {
-        globals.avtokampi = getAvtokampi();
-        globals.ceniki = getCeniki(globals.avtokampi);
-        globals.drzave = getDrzave();
-        globals.kampirnaMesta = getKampirnaMesta(globals.avtokampi);
-        globals.kategorije = getKategorije();
-        globals.kategorijeStoritev = getKategorijeStoritev();
-        globals.mnenja = getMnenja(globals.avtokampi);
-        globals.regije = getRegije();
-        globals.rezervacije = getRezervacije();
-        globals.slike = getSlike(globals.avtokampi);
-        globals.statusiRezervacij = getStatusiRezervacij();
-        globals.storitve = getStoritve(globals.avtokampi);
-        globals.storitveKampirnihMest = getStoritveKampirnihMest(globals.kampirnaMesta);
-        globals.vrsteKampiranj = getVrsteKampiranj();
+        getAvtokampi();
+        getCeniki();
+        getDrzave();
+        getKampirnaMesta();
+        getKategorije();
+        getKategorijeStoritev();
+        getMnenja();
+        getRegije();
+        getRezervacije();
+        getSlike();
+        getStatusiRezervacij();
+        getStoritve();
+        getStoritveKampirnihMest();
+        getVrsteKampiranj();
+    }
+
+    static loadData(context) {
+        ProgressDialog pr = new ProgressDialog(
+            context, type: ProgressDialogType.Normal,
+            isDismissible: false,
+            showLogs: true);
+        pr.style(
+            message: 'Pridobivam podatke iz API-ja.',
+            borderRadius: 10.0,
+            backgroundColor: Colors.white,
+            progressWidget: CircularProgressIndicator(),
+            elevation: 10.0,
+            insetAnimCurve: Curves.easeInOut,
+            progress: 0.0,
+            maxProgress: 100.0,
+            progressTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 13.0,
+                fontWeight: FontWeight.w400),
+            messageTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 19.0,
+                fontWeight: FontWeight.w600)
+        );
+        pr.show();
+        ApiDataGetter apiDataGetter = new ApiDataGetter();
+        apiDataGetter.setGlobals();
+        pr.update(
+            message: "Potrpite malo! Podatki so skoraj že pridobljeni.",
+            progressWidget: Container(
+                padding: EdgeInsets.all(8.0),
+                child: CircularProgressIndicator()),
+            maxProgress: 100.0,
+            progressTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 13.0,
+                fontWeight: FontWeight.w400),
+            messageTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 19.0,
+                fontWeight: FontWeight.w600),
+        );
+        pr.hide();
     }
 }

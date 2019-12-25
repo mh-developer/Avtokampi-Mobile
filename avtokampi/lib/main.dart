@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
                 platform: TargetPlatform.android,
             ),
             home: new SplashScreen(
-                seconds: 5,
+                seconds: 4,
                 navigateAfterSeconds: new LoginScreen(),
                 title: new Text(
                     'APLIKACIJA\nZA KAMPIRANJE', style: new TextStyle(
