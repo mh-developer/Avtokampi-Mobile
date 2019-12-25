@@ -31,6 +31,7 @@ dependencies:
   sprintf: ^4.0.0
   splashscreen: ^1.2.0
   flutter_email_sender: ^2.2.2
+  progress_dialog: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,15 @@ flutter:
         - asset: assets/fonts/Roboto-Regular.ttf
         - asset: assets/fonts/Roboto-Medium.ttf
           weight: 400
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico-Regular.ttf
+          weight: 400
+    - family: BalooBhai
+      fonts:
+        - asset: assets/fonts/BalooBhai-Regular.ttf
+          weight: 400
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

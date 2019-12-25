@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return FlutterLogin(
-            title: 'PRIJAVI SE',
+            title: 'KAMPIRAJ!',
             onLogin: _onLogin,
             onSignup: _onRegister,
             onSubmitAnimationCompleted: () {

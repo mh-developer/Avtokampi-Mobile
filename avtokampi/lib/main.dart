@@ -4,6 +4,7 @@ import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 import 'layouts/login_register.dart';
 
@@ -35,7 +36,26 @@ class MyApp extends StatelessWidget {
                 textTheme: AppTheme.textTheme,
                 platform: TargetPlatform.android,
             ),
-            home: new LoginScreen());
+            home: new SplashScreen(
+                seconds: 5,
+                navigateAfterSeconds: new LoginScreen(),
+                title: new Text(
+                    'APLIKACIJA\nZA KAMPIRANJE', style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellow,
+                    fontSize: 45.0,
+                    fontFamily: "BalooBhai",
+                ), textAlign: TextAlign.center,),
+                image: new Image.asset('assets/images/ikona.png'),
+                backgroundColor: Colors.black,
+                loadingText: new Text("Ne čakaj na maj, kampiraj zdaj!", style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.0,
+                    color: Colors.yellow,
+                    fontFamily: "Pacifico",),),
+                photoSize: 100.0,
+                loaderColor: Colors.white
+            ));
     }
 }
 
