@@ -16,6 +16,7 @@ class LoginScreen extends StatelessWidget {
         apiController = ApiController();
         globals.currentUser = null;
         globals.jwtToken = "";
+        globals.dataLoaded = false;
     }
 
     Duration get loginTime => Duration(milliseconds: 2250);

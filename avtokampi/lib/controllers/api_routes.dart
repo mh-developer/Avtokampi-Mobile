@@ -25,7 +25,7 @@ class ApiRoutes {
     static const REZERVACIJE_VRSTA_KAMPIRANJA = 'https://api.kampiraj.ga/api/Rezervacije/vrsta_kampiranja';
     static const REZERVACIJE_STATUSI = 'https://api.kampiraj.ga/api/Rezervacije/status';
 
-    static const STORITVE_KAMPA = 'https://api.kampiraj.ga/api/StoritveKampa/%s';
+    static const STORITVE_KAMPA = 'https://api.kampiraj.ga/api/StoritveKampa/%s/avtokamp';
     static const STORITVE_KAMPA_KATEGORIJE = 'https://api.kampiraj.ga/api/StoritveKampa/kategorije';
 
     static const UPORABNIKI = 'https://api.kampiraj.ga/api/Uporabniki/%s';

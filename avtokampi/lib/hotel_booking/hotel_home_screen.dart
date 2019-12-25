@@ -18,7 +18,7 @@ class HotelHomeScreen extends StatefulWidget {
 class _HotelHomeScreenState extends State<HotelHomeScreen>
     with TickerProviderStateMixin {
     AnimationController animationController;
-    List<HotelListData> hotelList = HotelListData.getKampiList();
+    List<HotelListData> hotelList = [];
     final ScrollController _scrollController = ScrollController();
 
     DateTime startDate = DateTime.now();
@@ -29,6 +29,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
         animationController = AnimationController(
             duration: const Duration(milliseconds: 1000), vsync: this);
         super.initState();
+        hotelList = HotelListData.getKampiList();
     }
 
     Future<bool> getData() async {

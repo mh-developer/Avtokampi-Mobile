@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class Slika {
     int id;
-    Image slika;
+    String slika;
     String createdAt;
     String updatedAt;
     int uporabnik;

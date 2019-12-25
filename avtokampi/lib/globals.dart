@@ -15,8 +15,8 @@ import 'models/Uporabnik.dart';
 import 'models/VrstaKampiranja.dart';
 
 String jwtToken = "";
-Uporabnik currentUser = Uporabnik(
-    "Anže", "Luzar", "anze.luzar@gmail.com", "lala");
+Uporabnik currentUser = Uporabnik("Anže", "Luzar", "anze.luzar@gmail.com", "lala");
+bool dataLoaded = false;
 
 List<Avtokamp> avtokampi = [];
 List<Cenik> ceniki = [];

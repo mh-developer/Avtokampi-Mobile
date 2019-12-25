@@ -59,7 +59,7 @@ class ApiDataGetter {
         }
     }
 
-    List<Drzava> getDrzave() {
+    getDrzave() {
         Response response;
         apiController.getDrzave().then((apiResponse) {
             response = apiResponse;
@@ -73,7 +73,7 @@ class ApiDataGetter {
         });
     }
 
-    List<KampirnoMesto> getKampirnaMesta() {
+    getKampirnaMesta() {
         for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getKampirnaMestaForKamp(avtokamp.id).then((
@@ -95,7 +95,7 @@ class ApiDataGetter {
         }
     }
 
-    List<Kategorija> getKategorije() {
+    getKategorije() {
         Response response;
         apiController.getKategorije().then((apiResponse) {
             response = apiResponse;
@@ -109,7 +109,7 @@ class ApiDataGetter {
         });
     }
 
-    List<KategorijaStoritve> getKategorijeStoritev() {
+    getKategorijeStoritev() {
         Response response;
         apiController.getKategorije().then((apiResponse) {
             response = apiResponse;
@@ -146,7 +146,7 @@ class ApiDataGetter {
         }
     }
 
-    List<Regija> getRegije() {
+    getRegije() {
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
@@ -160,7 +160,7 @@ class ApiDataGetter {
         });
     }
 
-    List<Rezervacija> getRezervacije() {
+    getRezervacije() {
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
@@ -174,7 +174,7 @@ class ApiDataGetter {
         });
     }
 
-    List<Slika> getSlike() {
+    getSlike() {
         for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getSlikeForKamp(avtokamp.id).then((apiResponse) {
@@ -195,7 +195,7 @@ class ApiDataGetter {
         }
     }
 
-    List<StatusRezervacije> getStatusiRezervacij() {
+    getStatusiRezervacij() {
         Response response;
         apiController.getRegije().then((apiResponse) {
             response = apiResponse;
@@ -211,7 +211,7 @@ class ApiDataGetter {
         });
     }
 
-    List<Storitev> getStoritve() {
+    getStoritve() {
         for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getStoritveForKamp(avtokamp.id).then((apiResponse) {
@@ -219,9 +219,9 @@ class ApiDataGetter {
             }).whenComplete(() {
                 if (response.statusCode == 200) {
                     Iterable l = json.decode(response.body);
-                    List<Storitev> slikeZaKamp = l.map((model) =>
+                    List<Storitev> storitveZaKamp = l.map((model) =>
                         Storitev.fromJson(model)).toList();
-                    for (Storitev km in slikeZaKamp) {
+                    for (Storitev km in storitveZaKamp) {
                         if (!globals.storitve.contains(km)) {
                             globals.storitve.add(km);
                         }
@@ -232,7 +232,7 @@ class ApiDataGetter {
         }
     }
 
-    List<StoritevKampirnegaMesta> getStoritveKampirnihMest() {
+    getStoritveKampirnihMest() {
         for (KampirnoMesto kampirnoMesto in globals.kampirnaMesta) {
             Response response;
             apiController.getStoritveForKampirnoMesto(kampirnoMesto.id).then((
@@ -250,13 +250,12 @@ class ApiDataGetter {
                         }
                     }
                 }
-                print("Storitve kampirnih mest: ${globals.storitveKampirnihMest
-                    .toString()}");
+                print("Storitve kampirnih mest: ${globals.storitveKampirnihMest.toString()}");
             });
         }
     }
 
-    List<VrstaKampiranja> getVrsteKampiranj() {
+    getVrsteKampiranj() {
         Response response;
         apiController.getVrsteKampiranj().then((apiResponse) {
             response = apiResponse;
@@ -271,20 +270,23 @@ class ApiDataGetter {
     }
 
     setGlobals() {
-        getAvtokampi();
-        getCeniki();
-        getDrzave();
-        getKampirnaMesta();
-        getKategorije();
-        getKategorijeStoritev();
-        getMnenja();
-        getRegije();
-        getRezervacije();
-        getSlike();
-        getStatusiRezervacij();
-        getStoritve();
-        getStoritveKampirnihMest();
-        getVrsteKampiranj();
+        if (!globals.dataLoaded) {
+            getAvtokampi();
+            getCeniki();
+            getDrzave();
+            getKampirnaMesta();
+            getKategorije();
+            getKategorijeStoritev();
+            getMnenja();
+            getRegije();
+            getRezervacije();
+            getSlike();
+            getStatusiRezervacij();
+            getStoritve();
+            getStoritveKampirnihMest();
+            getVrsteKampiranj();
+            globals.dataLoaded = true;
+        }
     }
 
     static loadData(context) {
