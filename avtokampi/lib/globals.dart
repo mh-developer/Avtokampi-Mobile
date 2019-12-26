@@ -32,3 +32,5 @@ List<StatusRezervacije> statusiRezervacij = [];
 List<Storitev> storitve = [];
 List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
 List<VrstaKampiranja> vrsteKampiranj = [];
+
+List<String> priljubljeniKampi = [];

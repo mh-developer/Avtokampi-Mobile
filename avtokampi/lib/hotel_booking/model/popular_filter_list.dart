@@ -9,50 +9,50 @@ class PopularFilterListData {
 
   static List<PopularFilterListData> popularFList = <PopularFilterListData>[
     PopularFilterListData(
-      titleTxt: 'Free Breakfast',
+      titleTxt: 'Zatonj Wi-Fi',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Free Parking',
+      titleTxt: 'Živalim prijazno',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Pool',
+      titleTxt: 'Bazen',
       isSelected: true,
     ),
     PopularFilterListData(
-      titleTxt: 'Pet Friendly',
+      titleTxt: 'Športne površine',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Free wifi',
+      titleTxt: 'Restavracije',
       isSelected: false,
     ),
   ];
 
   static List<PopularFilterListData> accomodationList = [
     PopularFilterListData(
-      titleTxt: 'All',
+      titleTxt: 'Vse',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Apartment',
+      titleTxt: 'Bungalovi',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Home',
+      titleTxt: 'Mobilne hiške',
       isSelected: true,
     ),
     PopularFilterListData(
-      titleTxt: 'Villa',
+      titleTxt: 'Avtodomi',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Hotel',
+      titleTxt: 'Prikolice',
       isSelected: false,
     ),
     PopularFilterListData(
-      titleTxt: 'Resort',
+      titleTxt: 'Šotori',
       isSelected: false,
     ),
   ];

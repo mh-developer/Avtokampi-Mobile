@@ -78,7 +78,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     },
                     child: Center(
                       child: Text(
-                        'Apply',
+                        'Potrdi',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
@@ -104,7 +104,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           padding:
               const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Text(
-            'Type of Accommodation',
+            'Tipi nastanitve',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,
@@ -217,7 +217,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           padding:
               const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Text(
-            'Distance from city center',
+            'Oddaljenost kampa od plaže',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,
@@ -247,7 +247,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           padding:
               const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Text(
-            'Popular filters',
+            'Različni filtri',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,
@@ -338,7 +338,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-            'Price (for 1 night)',
+            'Cena v € (za eno noč)',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,
@@ -398,7 +398,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             Expanded(
               child: Center(
                 child: Text(
-                  'Filters',
+                  'Filtri',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,

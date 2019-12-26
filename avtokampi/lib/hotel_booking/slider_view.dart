@@ -36,7 +36,7 @@ class _SliderViewState extends State<SliderView> {
               Container(
                 width: 170,
                 child: Text(
-                  'Less than ${(distValue / 10).toStringAsFixed(1)} Km',
+                  'Manj kot ${(distValue / 10).toStringAsFixed(1)} km',
                   textAlign: TextAlign.center,
                 ),
               ),

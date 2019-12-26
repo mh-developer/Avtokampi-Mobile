@@ -1,11 +1,13 @@
 import 'dart:ui';
 
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/calendar_popup_view.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_list_view.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/layouts/avtokampi_map.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:intl/intl.dart';
 
 import 'filters_screen.dart';
@@ -36,6 +38,75 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
     Future<bool> getData() async {
         await Future<dynamic>.delayed(const Duration(milliseconds: 200));
         return true;
+    }
+
+    Future<void> _showPriljubljene(BuildContext context) {
+        if (globals.priljubljeniKampi.isNotEmpty) {
+            String priljubljeniKampi = "";
+            for (String kamp in globals.priljubljeniKampi) {
+                priljubljeniKampi += "$kamp\n";
+            }
+            priljubljeniKampi.trim();
+            return showDialog(
+                context: context,
+                builder: (_) =>
+                    NetworkGiffyDialog(
+                        key: Key("Network"),
+                        image: Image.network(
+                            "https://media3.giphy.com/media/xUPGclNlLxRs6cVfW0/giphy.gif",
+                            fit: BoxFit.cover,
+                        ),
+                        entryAnimation: EntryAnimation.TOP_LEFT,
+                        buttonOkText: Text("Ok"),
+                        buttonCancelText: Text("Zapri"),
+                        title: Text(
+                            'PRILJUBLJENI KAMPI',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 22.0, fontWeight: FontWeight.w600),
+                        ),
+                        description: Text(
+                            priljubljeniKampi,
+                            textAlign: TextAlign.center,
+                        ),
+                        onOkButtonPressed: () {
+                            Navigator.of(context).pop();
+                        },
+                        onCancelButtonPressed: () {
+                            Navigator.of(context).pop();
+                        },
+                    ));
+        } else {
+            return showDialog(
+                context: context,
+                builder: (_) =>
+                    NetworkGiffyDialog(
+                        key: Key("Network"),
+                        image: Image.network(
+                            "https://media3.giphy.com/media/xUPGclNlLxRs6cVfW0/giphy.gif",
+                            fit: BoxFit.cover,
+                        ),
+                        entryAnimation: EntryAnimation.TOP_LEFT,
+                        buttonOkText: Text("Ok"),
+                        buttonCancelText: Text("Prekliči"),
+                        title: Text(
+                            'PRILJUBLJENI KAMPI',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 22.0, fontWeight: FontWeight.w600),
+                        ),
+                        description: Text(
+                            "Ni kampov med priljubljenimi!",
+                            textAlign: TextAlign.center,
+                        ),
+                        onOkButtonPressed: () {
+                            Navigator.of(context).pop();
+                        },
+                        onCancelButtonPressed: () {
+                            Navigator.of(context).pop();
+                        },
+                    ));
+        }
     }
 
     @override
@@ -286,7 +357,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                     .start,
                                                 children: <Widget>[
                                                     Text(
-                                                        'Choose date',
+                                                        'Izberi datum',
                                                         style: TextStyle(
                                                             fontWeight: FontWeight
                                                                 .w100,
@@ -357,7 +428,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                     .start,
                                                 children: <Widget>[
                                                     Text(
-                                                        'Number of Rooms',
+                                                        'Število rezervacij:',
                                                         style: TextStyle(
                                                             fontWeight: FontWeight
                                                                 .w100,
@@ -370,7 +441,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                         height: 8,
                                                     ),
                                                     Text(
-                                                        '1 Room - 2 Adults',
+                                                        'Več kot 10000',
                                                         style: TextStyle(
                                                             fontWeight: FontWeight
                                                                 .w100,
@@ -428,7 +499,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                             .primaryColor,
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: 'London...',
+                                            hintText: 'Kamp Njivice...',
                                         ),
                                     ),
                                 ),
@@ -512,7 +583,8 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                     child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                            '530 hotels found',
+                                            'Število najdenih kampov: ${hotelList
+                                                .length}',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w100,
                                                 fontSize: 16,
@@ -549,7 +621,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                             child: Row(
                                                 children: <Widget>[
                                                     Text(
-                                                        'Filtter',
+                                                        'Filtriraj',
                                                         style: TextStyle(
                                                             fontWeight: FontWeight
                                                                 .w100,
@@ -674,7 +746,9 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                 .all(
                                                 Radius.circular(32.0),
                                             ),
-                                            onTap: () {},
+                                            onTap: () {
+                                                _showPriljubljene(context);
+                                            },
                                             child: Padding(
                                                 padding: const EdgeInsets.all(
                                                     8.0),
@@ -692,7 +766,9 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                             ),
                                             onTap: () {
                                                 Navigator.push(context,
-                                                    MaterialPageRoute(builder: (context) => AvtokampiMap()),);
+                                                    MaterialPageRoute(builder: (
+                                                        context) =>
+                                                        AvtokampiMap()),);
                                             },
                                             child: Padding(
                                                 padding: const EdgeInsets.all(

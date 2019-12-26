@@ -33,6 +33,7 @@ dependencies:
   flutter_email_sender: ^2.2.2
   progress_dialog: ^1.2.0
   google_maps_flutter: ^0.5.21+15
+  giffy_dialog: ^1.6.1
 
 dev_dependencies:
   flutter_test:

@@ -4,26 +4,38 @@ import 'package:best_flutter_ui_templates/hotel_booking/hotel_home_screen.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeList {
-  HomeList({
-    this.navigateScreen,
-    this.imagePath = '',
-  });
+    HomeList({
+        this.navigateScreen,
+        this.imagePath = '',
+    });
 
-  Widget navigateScreen;
-  String imagePath;
+    Widget navigateScreen;
+    String imagePath;
 
-  static List<HomeList> homeList = [
-    HomeList(
-      imagePath: 'assets/hotel/hotel_booking.png',
-      navigateScreen: HotelHomeScreen(),
-    ),
-    HomeList(
-      imagePath: 'assets/fitness_app/fitness_app.png',
-      navigateScreen: FitnessAppHomeScreen(),
-    ),
-    HomeList(
-      imagePath: 'assets/design_course/design_course.png',
-      navigateScreen: DesignCourseHomeScreen(),
-    ),
-  ];
+    static List<HomeList> homeList = [
+        HomeList(
+            imagePath: 'assets/images/kampi_ikona.png',
+            navigateScreen: HotelHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/rezerviraj_ikona.png',
+            navigateScreen: FitnessAppHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/dodaj_ikona.png',
+            navigateScreen: DesignCourseHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/mnenja_ikona.png',
+            navigateScreen: FitnessAppHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/mapa_ikona.png',
+            navigateScreen: DesignCourseHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/user_ikona.png',
+            navigateScreen: DesignCourseHomeScreen(),
+        ),
+    ];
 }

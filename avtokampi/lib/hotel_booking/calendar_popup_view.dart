@@ -110,7 +110,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        'From',
+                                        'Od',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w100,
@@ -147,7 +147,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
-                                        'To',
+                                        'Do',
                                         style: TextStyle(
                                             fontWeight: FontWeight.w100,
                                             fontSize: 16,
@@ -222,7 +222,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                     },
                                     child: Center(
                                       child: Text(
-                                        'Apply',
+                                        'Potrdi',
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 18,
