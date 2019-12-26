@@ -6,6 +6,7 @@ import 'package:best_flutter_ui_templates/layouts/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/home_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
     @override
@@ -73,7 +74,39 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
                     screenView = InviteFriend();
                 });
             } else {
-                //do in your way......
+                setState(() {
+                    showDialog(
+                        context: context,
+                        builder: (_) =>
+                            NetworkGiffyDialog(
+                                key: Key("Network"),
+                                image: Image.network(
+                                    "https://giffiles.alphacoders.com/208/208893.gif",
+                                    fit: BoxFit.cover,
+                                ),
+                                entryAnimation: EntryAnimation.RIGHT,
+                                buttonOkText: Text("Ok"),
+                                buttonCancelText: Text("Nazaj"),
+                                title: Text(
+                                    'APPLIKACIJA ZA KAMPIRANJE',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 22.0, fontWeight: FontWeight.w600),
+                                ),
+                                description: Text(
+                                    'Aplikacija nudi pregled nad avtokampi, rezervacijo kampiranja, oddajo mnenj o kampih in še mnoge druge stvari.',
+                                    textAlign: TextAlign.center,
+                                ),
+                                onOkButtonPressed: () {
+                                    Navigator.pop(context);
+                                    screenView = const MyHomePage();
+                                },
+                                onCancelButtonPressed: () {
+                                    Navigator.pop(context);
+                                    screenView = const MyHomePage();
+                                },
+                            ));
+                });
             }
         }
     }

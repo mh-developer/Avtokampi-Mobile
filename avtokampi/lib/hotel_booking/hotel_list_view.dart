@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_app_theme.dart';
 import 'package:flutter/material.dart';
@@ -125,6 +126,15 @@ class HotelListView extends StatelessWidget {
                 ));
     }
 
+    void moveTo(context) {
+        Navigator.push<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => CourseInfoScreen(),
+            ),
+        );
+    }
+
     @override
     Widget build(BuildContext context) {
         return AnimatedBuilder(
@@ -142,6 +152,7 @@ class HotelListView extends StatelessWidget {
                                 splashColor: Colors.transparent,
                                 onTap: () {
                                     callback();
+                                    moveTo(context);
                                 },
                                 child: Container(
                                     decoration: BoxDecoration(
