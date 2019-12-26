@@ -35,6 +35,11 @@ class ApiDataGetter {
                     l.map((model) => Avtokamp.fromJson(model)).toList();
             }
             print("Avtokampi: ${globals.avtokampi.toString()}");
+            getCeniki();
+            getMnenja();
+            getSlike();
+            getKampirnaMesta();
+            getStoritve();
         });
     }
 
@@ -91,6 +96,7 @@ class ApiDataGetter {
                     }
                 }
                 print("Kampirna mesta: ${globals.kampirnaMesta.toString()}");
+                getStoritveKampirnihMest();
             });
         }
     }
@@ -250,7 +256,8 @@ class ApiDataGetter {
                         }
                     }
                 }
-                print("Storitve kampirnih mest: ${globals.storitveKampirnihMest.toString()}");
+                print("Storitve kampirnih mest: ${globals.storitveKampirnihMest
+                    .toString()}");
             });
         }
     }
@@ -269,23 +276,41 @@ class ApiDataGetter {
         });
     }
 
-    setGlobals() {
+    setGlobals() async {
         if (!globals.dataLoaded) {
-            getAvtokampi();
-            getCeniki();
-            getDrzave();
-            getKampirnaMesta();
-            getKategorije();
-            getKategorijeStoritev();
-            getMnenja();
-            getRegije();
-            getRezervacije();
-            getSlike();
-            getStatusiRezervacij();
-            getStoritve();
-            getStoritveKampirnihMest();
-            getVrsteKampiranj();
+            await getAvtokampi();
+            //await getCeniki();
+            await getDrzave();
+            //await getKampirnaMesta();
+            await getKategorije();
+            await getKategorijeStoritev();
+            //await getMnenja();
+            await getRegije();
+            await getRezervacije();
+            //await getSlike();
+            await getStatusiRezervacij();
+            //await getStoritve();
+            //await getStoritveKampirnihMest();
+            await getVrsteKampiranj();
             globals.dataLoaded = true;
+            print("KONČNI PODATKI:");
+            print("Avtokampi: ${globals.avtokampi.toString()}");
+            print("Ceniki: ${globals.ceniki.toString()}");
+            print("Drzave: ${globals.drzave.toString()}");
+            print("Kampirna mesta: ${globals.kampirnaMesta.toString()}");
+            print("Kategorije: ${globals.kategorije.toString()}");
+            print("Kategorije storitev: ${globals.kategorijeStoritev
+                .toString()}");
+            print("Mnenja: ${globals.mnenja.toString()}");
+            print("Regije: ${globals.regije.toString()}");
+            print("Rezervacije: ${globals.rezervacije.toString()}");
+            print("Slike: ${globals.slike.toString()}");
+            print(
+                "Statusi rezervacij: ${globals.statusiRezervacij.toString()}");
+            print("Storitev: ${globals.storitve.toString()}");
+            print("Storitve kampirnih mest: ${globals.storitveKampirnihMest
+                .toString()}");
+            print("Vrste kampiranj: ${globals.vrsteKampiranj.toString()}");
         }
     }
 

@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     Future<bool> getData() async {
         ApiDataGetter apiDataGetter = new ApiDataGetter();
-        apiDataGetter.setGlobals();
+        await apiDataGetter.setGlobals();
         await Future<dynamic>.delayed(const Duration(milliseconds: 0));
         return true;
     }

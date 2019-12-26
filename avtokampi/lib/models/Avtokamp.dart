@@ -28,9 +28,10 @@ class Avtokamp {
         a.telefon = json['telefon'];
         a.nazivLokacije = json['nazivLokacije'];
         a.koordinataX = json['koordinataX'];
-        a.koordinataY = json['isActive'];
+        a.koordinataY = json['koordinataY'];
         a.createdAt = json['createdAt'];
         a.updatedAt = json['updatedAt'];
+        a.regija = json['regija'];
         return a;
     }
 }

@@ -112,7 +112,7 @@ class HotelListView extends StatelessWidget {
                                                 ),
                                                 Expanded(
                                                   child: Text(
-                                                    '${hotelData.dist.toStringAsFixed(1)} km to city',
+                                                    '${hotelData.dist}',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
@@ -141,7 +141,7 @@ class HotelListView extends StatelessWidget {
                                                         .primaryColor,
                                                   ),
                                                   Text(
-                                                    ' ${hotelData.reviews} Reviews',
+                                                    '    Število mnenj: ${hotelData.reviews}',
                                                     style: TextStyle(
                                                         fontSize: 14,
                                                         color: Colors.grey
@@ -165,7 +165,7 @@ class HotelListView extends StatelessWidget {
                                           CrossAxisAlignment.end,
                                       children: <Widget>[
                                         Text(
-                                          '\$${hotelData.perNight}',
+                                          '\€${hotelData.perNight}',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,
@@ -173,7 +173,7 @@ class HotelListView extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          '/per night',
+                                          '/na noč',
                                           style: TextStyle(
                                               fontSize: 14,
                                               color:

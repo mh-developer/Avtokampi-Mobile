@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:best_flutter_ui_templates/hotel_booking/calendar_popup_view.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_list_view.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
+import 'package:best_flutter_ui_templates/layouts/avtokampi_map.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -651,7 +652,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                         Expanded(
                             child: Center(
                                 child: Text(
-                                    'Explore',
+                                    'Avtokampi',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 22,
@@ -689,7 +690,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                 .all(
                                                 Radius.circular(32.0),
                                             ),
-                                            onTap: () {},
+                                            onTap: () {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context) => AvtokampiMap()),);
+                                            },
                                             child: Padding(
                                                 padding: const EdgeInsets.all(
                                                     8.0),

@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                 title: new Text(
                     'APLIKACIJA\nZA KAMPIRANJE', style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.yellow,
+                    color: Colors.white,
                     fontSize: 45.0,
                     fontFamily: "BalooBhai",
                 ), textAlign: TextAlign.center,),
