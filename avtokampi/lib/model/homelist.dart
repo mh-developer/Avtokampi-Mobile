@@ -1,6 +1,9 @@
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
 import 'package:best_flutter_ui_templates/fitness_app/fitness_app_home_screen.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_home_screen.dart';
+import 'package:best_flutter_ui_templates/layouts/kampi_mnenja_list.dart';
+import 'package:best_flutter_ui_templates/layouts/kampi_web_view.dart';
+import 'package:best_flutter_ui_templates/layouts/lastniki_kampov_list.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeList {
@@ -22,20 +25,28 @@ class HomeList {
             navigateScreen: FitnessAppHomeScreen(),
         ),
         HomeList(
-            imagePath: 'assets/images/dodaj_ikona.png',
-            navigateScreen: DesignCourseHomeScreen(),
-        ),
-        HomeList(
             imagePath: 'assets/images/mnenja_ikona.png',
-            navigateScreen: FitnessAppHomeScreen(),
+            navigateScreen: KampiList(),
         ),
         HomeList(
             imagePath: 'assets/images/mapa_ikona.png',
             navigateScreen: DesignCourseHomeScreen(),
         ),
         HomeList(
+            imagePath: 'assets/images/dodaj_ikona.png',
+            navigateScreen: DesignCourseHomeScreen(),
+        ),
+        HomeList(
             imagePath: 'assets/images/user_ikona.png',
             navigateScreen: DesignCourseHomeScreen(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/modify.png',
+            navigateScreen: LatnikiKampovList(),
+        ),
+        HomeList(
+            imagePath: 'assets/images/web.png',
+            navigateScreen: KampiWeb(),
         ),
     ];
 }

@@ -34,6 +34,9 @@ dependencies:
   progress_dialog: ^1.2.0
   google_maps_flutter: ^0.5.21+15
   giffy_dialog: ^1.6.1
+  flutter_slidable: ^0.5.4
+  grouped_list: ^1.2.1
+  easy_web_view: ^1.0.1
 
 dev_dependencies:
   flutter_test:
