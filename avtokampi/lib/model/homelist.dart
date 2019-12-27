@@ -42,7 +42,7 @@ class HomeList {
         ),
         HomeList(
             imagePath: 'assets/images/modify.png',
-            navigateScreen: LatnikiKampovList(),
+            navigateScreen: LastnikiKampovList(),
         ),
         HomeList(
             imagePath: 'assets/images/web.png',

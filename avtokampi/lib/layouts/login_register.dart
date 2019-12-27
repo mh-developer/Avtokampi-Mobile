@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
     Duration get loginTime => Duration(milliseconds: 2250);
     ApiController apiController;
 
-
     Future<String> _onLogin(LoginData data) {
         print('Name: ${data.name}, Password: ${data.password}');
         Response response;
@@ -36,6 +35,7 @@ class LoginScreen extends StatelessWidget {
             }
             globals.jwtToken = json.decode(response.body)['token'];
             globals.currentUser = Uporabnik(data.name, data.name, data.name, data.password);
+            globals.currentUser.pravica = 2;
             return null;
         });
     }

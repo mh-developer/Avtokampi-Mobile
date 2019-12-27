@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/controllers/api_data_getter.dart';
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:flutter/material.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
 import '../model/homelist.dart';
 
@@ -28,6 +30,38 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         await apiDataGetter.setGlobals();
         await Future<dynamic>.delayed(const Duration(milliseconds: 0));
         return true;
+    }
+
+    Future<void> _showDialog(BuildContext context) {
+        return showDialog(
+            context: context,
+            builder: (_) =>
+                NetworkGiffyDialog(
+                    key: Key("Network"),
+                    image: Image.network(
+                        "https://cdn.dribbble.com/users/1056629/screenshots/2482134/bw-4.gif",
+                        fit: BoxFit.cover,
+                    ),
+                    entryAnimation: EntryAnimation.TOP,
+                    buttonOkText: Text("OK"),
+                    buttonCancelText: Text("NAZAJ"),
+                    title: Text(
+                        'DOSTOP ZAVRNJEN',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 22.0, fontWeight: FontWeight.w600),
+                    ),
+                    description: Text(
+                        'Žal je dostop do te opcije dovoljen le posebnim uporabnikom!',
+                        textAlign: TextAlign.center,
+                    ),
+                    onOkButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                    onCancelButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                ));
     }
 
     @override
@@ -104,18 +138,28 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                                     animationController: animationController,
                                                                     listData: homeList[index],
                                                                     callBack: () {
-                                                                        Navigator
-                                                                            .push<
-                                                                            dynamic>(
-                                                                            context,
-                                                                            MaterialPageRoute<
+                                                                        if (globals
+                                                                            .currentUser
+                                                                            .pravica !=
+                                                                            2) {
+                                                                            Navigator
+                                                                                .push<
                                                                                 dynamic>(
-                                                                                builder: (
-                                                                                    BuildContext context) =>
-                                                                                homeList[index]
-                                                                                    .navigateScreen,
-                                                                            ),
-                                                                        );
+                                                                                context,
+                                                                                MaterialPageRoute<
+                                                                                    dynamic>(
+                                                                                    builder: (
+                                                                                        BuildContext context) =>
+                                                                                    homeList[index]
+                                                                                        .navigateScreen
+
+
+                                                                                ),
+                                                                            );
+                                                                        } else {
+                                                                            _showDialog(
+                                                                                context);
+                                                                        }
                                                                     },
                                                                 );
                                                             },

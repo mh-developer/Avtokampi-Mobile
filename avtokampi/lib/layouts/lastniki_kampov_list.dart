@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 primarySwatch: Colors.blue,
             ),
-            home: LatnikiKampovList(),
+            home: LastnikiKampovList(),
         );
     }
 }
 
-class LatnikiKampovList extends StatelessWidget {
+class LastnikiKampovList extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -34,19 +34,19 @@ class LatnikiKampovList extends StatelessWidget {
                             IconSlideAction(
                                 caption: 'Mesta',
                                 color: Colors.green,
-                                icon: Icons.archive,
+                                icon: Icons.filter_tilt_shift,
                             ),
                             IconSlideAction(
                                 caption: 'Storitve',
                                 color: Colors.blue,
-                                icon: Icons.share,
+                                icon: Icons.wifi,
                             ),
                         ],
                         secondaryActions: <Widget>[
                             IconSlideAction(
                                 caption: 'Popravi',
                                 color: Colors.yellow,
-                                icon: Icons.more_horiz,
+                                icon: Icons.build,
                             ),
                             IconSlideAction(
                                 caption: 'Izbriši',

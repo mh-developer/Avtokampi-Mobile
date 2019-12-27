@@ -12,7 +12,7 @@ class Uporabnik {
     String geslo;
     DateTime createdAt;
     DateTime updatedAt;
-    Pravica pravica;
+    int pravica;
 
     Uporabnik.fromUporabnik(this.id, this.ime, this.priimek, this.slika,
         this.telefon,
