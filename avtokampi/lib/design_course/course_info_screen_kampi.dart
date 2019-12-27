@@ -2,10 +2,12 @@ import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/layouts/avtokamp_map.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
 import 'design_course_app_theme.dart';
+import 'home_design_course.dart';
 
 class CourseInfoScreen extends StatefulWidget {
 
@@ -35,6 +37,16 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
     _CourseInfoScreenState();
 
     _CourseInfoScreenState.avtokamp(this.avtokamp, this.avtokampElement);
+
+    int getStKampirnihMest() {
+        int stMest = 0;
+        for (KampirnoMesto km in globals.kampirnaMesta) {
+            if (km.avtokamp == this.avtokamp.id) {
+                stMest++;
+            }
+        }
+        return stMest;
+    }
 
     Future<void> _ackAlert2(BuildContext context, HotelListData kamp) {
         if (globals.priljubljeniKampi.contains(kamp.titleTxt)) {
@@ -233,7 +245,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                 Text(
                                                                     '${avtokampElement
                                                                         .perNight
-                                                                        .toString()}€ na nočitev',
+                                                                        .toString()}€/noč',
                                                                     textAlign: TextAlign
                                                                         .left,
                                                                     style: TextStyle(
@@ -252,6 +264,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                             Text(
                                                                                 avtokampElement
                                                                                     .rating
+                                                                                    .toInt()
                                                                                     .toString(),
                                                                                 textAlign: TextAlign
                                                                                     .left,
@@ -299,7 +312,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                             .toString()),
                                                                     getTimeBoxUI(
                                                                         'Mesta',
-                                                                        '35'),
+                                                                        getStKampirnihMest()
+                                                                            .toString()),
                                                                 ],
                                                             ),
                                                         ),
@@ -329,7 +343,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                         color: DesignCourseAppTheme
                                                                             .grey,
                                                                     ),
-                                                                    maxLines: 3,
+                                                                    maxLines: 8,
                                                                     overflow: TextOverflow
                                                                         .ellipsis,
                                                                 ),
@@ -356,42 +370,52 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                     Container(
                                                                         width: 48,
                                                                         height: 48,
-                                                                        child: InkWell(child: Container(
-                                                                            decoration: BoxDecoration(
-                                                                                color: DesignCourseAppTheme
-                                                                                    .nearlyWhite,
-                                                                                borderRadius: const BorderRadius
-                                                                                    .all(
-                                                                                    Radius
-                                                                                        .circular(
-                                                                                        16.0),
-                                                                                ),
-                                                                                border: Border
-                                                                                    .all(
+                                                                        child: InkWell(
+                                                                            child: Container(
+                                                                                decoration: BoxDecoration(
                                                                                     color: DesignCourseAppTheme
-                                                                                        .grey
-                                                                                        .withOpacity(
-                                                                                        0.2)),
-                                                                            ),
-                                                                            child: Icon(
-                                                                                Icons.location_on,
-                                                                                color: Colors.red,
-                                                                                size: 28,
-                                                                            ),
-                                                                        ), onTap: () {
-                                                                            Navigator.push<dynamic>(
-                                                                                context,
-                                                                                MaterialPageRoute<dynamic>(
-                                                                                    builder: (BuildContext context) => AvtokampMap(a: avtokamp,),
+                                                                                        .nearlyWhite,
+                                                                                    borderRadius: const BorderRadius
+                                                                                        .all(
+                                                                                        Radius
+                                                                                            .circular(
+                                                                                            16.0),
+                                                                                    ),
+                                                                                    border: Border
+                                                                                        .all(
+                                                                                        color: DesignCourseAppTheme
+                                                                                            .grey
+                                                                                            .withOpacity(
+                                                                                            0.2)),
                                                                                 ),
-                                                                            );
-                                                                        },),
+                                                                                child: Icon(
+                                                                                    Icons
+                                                                                        .location_on,
+                                                                                    color: Colors
+                                                                                        .red,
+                                                                                    size: 28,
+                                                                                ),
+                                                                            ),
+                                                                            onTap: () {
+                                                                                Navigator
+                                                                                    .push<
+                                                                                    dynamic>(
+                                                                                    context,
+                                                                                    MaterialPageRoute<
+                                                                                        dynamic>(
+                                                                                        builder: (
+                                                                                            BuildContext context) =>
+                                                                                            AvtokampMap(
+                                                                                                a: avtokamp,),
+                                                                                    ),
+                                                                                );
+                                                                            },),
                                                                     ),
                                                                     const SizedBox(
                                                                         width: 16,
                                                                     ),
                                                                     Expanded(
-                                                                        child: Container(
+                                                                        child: InkWell(child: Container(
                                                                             height: 48,
                                                                             decoration: BoxDecoration(
                                                                                 color: DesignCourseAppTheme
@@ -430,7 +454,14 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                                     ),
                                                                                 ),
                                                                             ),
-                                                                        ),
+                                                                        ), onTap: () {
+                                                                            Navigator.push<dynamic>(
+                                                                                context,
+                                                                                MaterialPageRoute<dynamic>(
+                                                                                    builder: (BuildContext context) => DesignCourseHomeScreen(avtokamp: avtokamp, hotelListData: avtokampElement,),
+                                                                                ),
+                                                                            );
+                                                                        },),
                                                                     )
                                                                 ],
                                                             ),

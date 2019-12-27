@@ -34,3 +34,5 @@ List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
 List<VrstaKampiranja> vrsteKampiranj = [];
 
 List<String> priljubljeniKampi = [];
+
+int kategorija = 1;

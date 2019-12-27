@@ -1,6 +1,7 @@
 import 'package:best_flutter_ui_templates/design_course/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_app_theme.dart';
+import 'package:best_flutter_ui_templates/models/Mnenje.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
@@ -126,6 +127,49 @@ class HotelListView extends StatelessWidget {
                 ));
     }
 
+    Future<void> showMnenja(BuildContext context, HotelListData kamp) {
+        String mnenjaTekst = "";
+        if (kamp.mnenja.isNotEmpty) {
+            int stMnenj = 0;
+            for (Mnenje m in kamp.mnenja) {
+                stMnenj++;
+                mnenjaTekst += '$stMnenj: ${m.mnenje}\n';
+            }
+        } else {
+            mnenjaTekst = "Ta kamp trenutno še nima mnenj";
+        }
+        return showDialog(
+            context: context,
+            builder: (_) =>
+                NetworkGiffyDialog(
+                    key: Key("Network"),
+                    image: Image.network(
+                        "https://www.animatedimages.org/data/media/630/animated-sms-and-text-message-image-0033.gif",
+                        fit: BoxFit.cover,
+                    ),
+                    entryAnimation: EntryAnimation.BOTTOM,
+                    buttonOkText: Text("Ok"),
+                    buttonCancelText: Text("Nazaj"),
+                    title: Text(
+                        'MNENJA O KAMPU',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 22.0, fontWeight: FontWeight.w600),
+                    ),
+                    description: Text(
+                        mnenjaTekst,
+                        textAlign: TextAlign.left,
+                        maxLines: 5,
+                    ),
+                    onOkButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                    onCancelButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                ));
+    }
+
     void moveTo(context) {
         Navigator.push<dynamic>(
             context,
@@ -153,6 +197,9 @@ class HotelListView extends StatelessWidget {
                                 onTap: () {
                                     callback();
                                     moveTo(context);
+                                },
+                                onLongPress: () {
+                                    showMnenja(context, hotelData);
                                 },
                                 child: Container(
                                     decoration: BoxDecoration(

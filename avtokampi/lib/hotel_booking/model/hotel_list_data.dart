@@ -14,7 +14,8 @@ class HotelListData {
         this.reviews = 80,
         this.rating = 4.5,
         this.perNight = 180,
-        this.avtokamp
+        this.avtokamp,
+        this.mnenja
     });
 
     String imagePath;
@@ -25,6 +26,7 @@ class HotelListData {
     int reviews;
     int perNight;
     Avtokamp avtokamp;
+    List<Mnenje> mnenja;
 
     static List<Cenik> getCenikiZaKamp(int kampId) {
         List<Cenik> cenikiList = [];
@@ -37,15 +39,17 @@ class HotelListData {
     }
 
     static List getStMnenjZaKamp(int kampId) {
+        List<Mnenje> mnenja = [];
         int stMnenj = 0;
         double povprecnaOcena = 0;
         for (Mnenje m in globals.mnenja) {
             if (m.avtokamp == kampId) {
                 stMnenj++;
+                mnenja.add(m);
                 povprecnaOcena += m.ocena;
             }
         }
-        return [stMnenj, povprecnaOcena / stMnenj];
+        return [stMnenj, povprecnaOcena / stMnenj, mnenja];
     }
 
     static String getDrzavaZaKamp(int regijaId) {
@@ -73,6 +77,7 @@ class HotelListData {
                 List l = getStMnenjZaKamp(kamp.id);
                 int stMnenj = l[0];
                 double povprOcena = l[1];
+                List<Mnenje> mnenja = l[2];
                 avtokampiList.add(HotelListData(
                     imagePath: 'assets/hotel/hotel_1.png',
                     titleTxt: kamp.naziv,
@@ -81,7 +86,8 @@ class HotelListData {
                     reviews: stMnenj,
                     rating: povprOcena,
                     perNight: cena,
-                    avtokamp: kamp));
+                    avtokamp: kamp,
+                    mnenja: mnenja));
             }
         } else {
             avtokampiList = hotelList;
