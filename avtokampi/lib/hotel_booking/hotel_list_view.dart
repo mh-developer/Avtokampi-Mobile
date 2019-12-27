@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
+import 'package:best_flutter_ui_templates/design_course/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/hotel_app_theme.dart';
 import 'package:flutter/material.dart';
@@ -130,7 +130,7 @@ class HotelListView extends StatelessWidget {
         Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => CourseInfoScreen(),
+                builder: (BuildContext context) => CourseInfoScreen(hotelData, hotelData.avtokamp),
             ),
         );
     }

@@ -14,6 +14,7 @@ class HotelListData {
         this.reviews = 80,
         this.rating = 4.5,
         this.perNight = 180,
+        this.avtokamp
     });
 
     String imagePath;
@@ -23,6 +24,7 @@ class HotelListData {
     double rating;
     int reviews;
     int perNight;
+    Avtokamp avtokamp;
 
     static List<Cenik> getCenikiZaKamp(int kampId) {
         List<Cenik> cenikiList = [];
@@ -43,7 +45,7 @@ class HotelListData {
                 povprecnaOcena += m.ocena;
             }
         }
-        return [stMnenj, povprecnaOcena/stMnenj];
+        return [stMnenj, povprecnaOcena / stMnenj];
     }
 
     static String getDrzavaZaKamp(int regijaId) {
@@ -78,7 +80,8 @@ class HotelListData {
                     dist: getDrzavaZaKamp(kamp.regija),
                     reviews: stMnenj,
                     rating: povprOcena,
-                    perNight: cena));
+                    perNight: cena,
+                    avtokamp: kamp));
             }
         } else {
             avtokampiList = hotelList;
