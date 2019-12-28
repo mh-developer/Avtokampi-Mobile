@@ -137,7 +137,7 @@ class _ReservationFormState extends State<ReservationForm> {
                     buttonOkText: Text("Ok"),
                     buttonCancelText: Text("Nazaj"),
                     title: Text(
-                        'MNENJE',
+                        'REZERVACIJA',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 22.0, fontWeight: FontWeight.w600),
@@ -237,6 +237,7 @@ class _ReservationFormState extends State<ReservationForm> {
                                                         izbraniKamp = newValue;
                                                         state.didChange(
                                                             newValue);
+                                                        izbranoKampirnoMesto = getKampirnaMestaZaKamp(izbraniKamp)[0];
                                                     });
                                                 },
                                                 items: globals.avtokampi.map((
@@ -272,8 +273,7 @@ class _ReservationFormState extends State<ReservationForm> {
                                                             newValue);
                                                     });
                                                 },
-                                                items: getKampirnaMestaZaKamp(
-                                                    izbraniKamp).map((
+                                                items: getKampirnaMestaZaKamp(izbraniKamp).map((
                                                     KampirnoMesto value) {
                                                     return new DropdownMenuItem(
                                                         value: value,

@@ -211,7 +211,7 @@ class ApiController {
         try {
             String url = ApiRoutes.REZERVACIJE_DODAJ;
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
-            String json = '{"trajanjeOd": "$datumOd", "trajanjeDo": "$datumDo", "avtokamp": $avtokampId, "kampirnoMeso": $kampirnoMestoId, "vrstaKampiranja": $vrstaKampiranjaid, "uporabnik": $uporabnikId, "statusRezervacije": 1}';
+            String json = '{"trajanjeOd": "$datumOd", "trajanjeDo": "$datumDo", "avtokamp": $avtokampId, "kampirnoMesto": $kampirnoMestoId, "vrstaKampiranja": $vrstaKampiranjaid, "uporabnik": $uporabnikId, "statusRezervacije": 1}';
             Response response = await post(url, headers: headers, body: json);
             return response;
         } catch (e) {
