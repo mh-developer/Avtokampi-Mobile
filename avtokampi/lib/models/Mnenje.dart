@@ -12,6 +12,8 @@ class Mnenje {
     Mnenje(this.id, this.mnenje, this.ocena, this.createdAt,
         this.updatedAt, this.uporabnik, this.avtokamp);
 
+    Mnenje.novo(this.mnenje, this.ocena, this.uporabnik, this.avtokamp);
+
     static Mnenje fromJson(json) {
         Mnenje m = new Mnenje.nov();
         m.id = json['mnenjeId'];

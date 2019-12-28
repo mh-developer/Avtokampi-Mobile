@@ -1,13 +1,16 @@
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category_kampirno_mesto.dart';
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
+import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
-    CategoryListView({Key key, this.callBack, this.avtokamp, this.hotelListData, this.kategorija}) : super(key: key);
+    CategoryListView(
+        {Key key, this.callBack, this.avtokamp, this.hotelListData, this.kategorija})
+        : super(key: key);
 
     final Function callBack;
     final Avtokamp avtokamp;
@@ -15,7 +18,8 @@ class CategoryListView extends StatefulWidget {
     final int kategorija;
 
     @override
-    _CategoryListViewState createState() => _CategoryListViewState(avtokamp, hotelListData, kategorija);
+    _CategoryListViewState createState() =>
+        _CategoryListViewState(avtokamp, hotelListData, kategorija);
 }
 
 class _CategoryListViewState extends State<CategoryListView>
@@ -34,11 +38,13 @@ class _CategoryListViewState extends State<CategoryListView>
         animationController = AnimationController(
             duration: const Duration(milliseconds: 2000), vsync: this);
         super.initState();
-        categoryList = Category.getKampirnaMestaForKamp(avtokamp, hotelListData, globals.kategorija);
+        categoryList = Category.getKampirnaMestaForKamp(
+            avtokamp, hotelListData, globals.kategorija);
     }
 
     Future<bool> getData() async {
-        categoryList = Category.getKampirnaMestaForKamp(avtokamp, hotelListData, globals.kategorija);
+        categoryList = Category.getKampirnaMestaForKamp(
+            avtokamp, hotelListData, globals.kategorija);
         await Future<dynamic>.delayed(const Duration(milliseconds: 50));
         return true;
     }
@@ -120,7 +126,10 @@ class CategoryView extends StatelessWidget {
                         child: InkWell(
                             splashColor: Colors.transparent,
                             onTap: () {
-                                callback();
+                                Navigator.push<dynamic>(context,
+                                    MaterialPageRoute<dynamic>(
+                                        builder: (BuildContext context) =>
+                                            ReservationForm()));
                             },
                             child: SizedBox(
                                 width: 280,
@@ -212,7 +221,9 @@ class CategoryView extends StatelessWidget {
                                                                                                             Widget>[
                                                                                                             Text(
                                                                                                                 '${category
-                                                                                                                    .rating.toInt().toString()}',
+                                                                                                                    .rating
+                                                                                                                    .toInt()
+                                                                                                                    .toString()}',
                                                                                                                 textAlign:
                                                                                                                 TextAlign
                                                                                                                     .left,

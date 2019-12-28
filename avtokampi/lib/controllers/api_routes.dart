@@ -29,6 +29,7 @@ class ApiRoutes {
     static const STORITVE_KAMPA_KATEGORIJE = 'https://api.kampiraj.ga/api/StoritveKampa/kategorije';
 
     static const UPORABNIKI = 'https://api.kampiraj.ga/api/Uporabniki/%s';
+    static const UPORABNIKI_PO_IMENU = 'https://api.kampiraj.ga/api/Uporabniki/%s/username';
     static const UPORABNIKI_MNENJA_ZA_KAMP = 'https://api.kampiraj.ga/api/Uporabniki/avtokamp/%s/mnenja';
     static const UPORABNIKI_MNENJA = 'https://api.kampiraj.ga/api/Uporabniki/%s/mnenja';
     static const UPORABNIKI_MNENJE = 'https://api.kampiraj.ga/api/Uporabniki/%s/mnenje';

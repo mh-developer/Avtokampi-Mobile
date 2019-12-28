@@ -57,6 +57,8 @@ class Category {
                         lessonCount: a.nazivLokacije,
                         money: hotelListData.perNight,
                         rating: hotelListData.rating,
+                        avtokamp: avtokamp,
+                        hotelListData: hotelListData
                     ),);
                 }
             }

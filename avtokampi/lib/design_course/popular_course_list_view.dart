@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/design_course/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category_kampirno_mesto.dart';
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
@@ -77,6 +78,8 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
                                         category: popularCourseList[index],
                                         animation: animation,
                                         animationController: animationController,
+                                        avtokamp: popularCourseList[index].avtokamp,
+                                        hotelListData: popularCourseList[index].hotelListData,
                                     );
                                 },
                             ),
@@ -99,13 +102,15 @@ class CategoryView extends StatelessWidget {
         this.category,
         this.animationController,
         this.animation,
-        this.callback})
+        this.callback, this.avtokamp, this.hotelListData})
         : super(key: key);
 
     final VoidCallback callback;
     final Category category;
     final AnimationController animationController;
     final Animation<dynamic> animation;
+    final Avtokamp avtokamp;
+    final HotelListData hotelListData;
 
     @override
     Widget build(BuildContext context) {
@@ -120,7 +125,9 @@ class CategoryView extends StatelessWidget {
                         child: InkWell(
                             splashColor: Colors.transparent,
                             onTap: () {
-                                callback();
+                                Navigator.push<dynamic>(context,
+                                    MaterialPageRoute<dynamic>(
+                                        builder: (BuildContext context) => CourseInfoScreen(hotelListData, avtokamp)));
                             },
                             child: SizedBox(
                                 height: 280,

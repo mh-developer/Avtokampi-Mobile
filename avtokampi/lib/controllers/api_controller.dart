@@ -183,6 +183,31 @@ class ApiController {
         }
     }
 
+
+    Future<Response> getUserData() async {
+        try {
+            String url = sprintf(ApiRoutes.UPORABNIKI_PO_IMENU, [globals.currentUser.email]);
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            Response response = await get(url, headers: headers);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> addOpinion(int uporabnikId, int avtokampId, String mnenje, int ocena) async {
+        try {
+            String url = sprintf(ApiRoutes.UPORABNIKI_MNENJE, [avtokampId]);
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            String json = '{"mnenje": "$mnenje", "ocena": $ocena, "avtokamp": $avtokampId, "uporabnik": $uporabnikId}';
+            print("To je json: $json");
+            Response response = await post(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
     Future<Response> testBearer() async {
         try {
             String url = ApiRoutes.CENIKI_ZA_KAMP;

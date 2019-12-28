@@ -2,8 +2,8 @@ import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatefulWidget {
-  @override
-  _HelpScreenState createState() => _HelpScreenState();
+    @override
+    _HelpScreenState createState() => _HelpScreenState();
 }
 
 class _HelpScreenState extends State<HelpScreen> {

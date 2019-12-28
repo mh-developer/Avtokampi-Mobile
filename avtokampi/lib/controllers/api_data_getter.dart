@@ -14,6 +14,7 @@ import 'package:best_flutter_ui_templates/models/Slika.dart';
 import 'package:best_flutter_ui_templates/models/StatusRezervacije.dart';
 import 'package:best_flutter_ui_templates/models/Storitev.dart';
 import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
+import 'package:best_flutter_ui_templates/models/Uporabnik.dart';
 import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -276,8 +277,21 @@ class ApiDataGetter {
         });
     }
 
+    getPodatkiZaUporabnika() {
+        Response response;
+        apiController.getUserData().then((apiResponse) {
+            response = apiResponse;
+        }).whenComplete(() {
+            if (response.statusCode == 200) {
+                globals.currentUser = Uporabnik.fromJson(json.decode(response.body));
+            }
+            print("Uporabnik: ${globals.currentUser.toString()}");
+        });
+    }
+
     setGlobals() async {
         if (!globals.dataLoaded) {
+            await getPodatkiZaUporabnika();
             await getAvtokampi();
             //await getCeniki();
             await getDrzave();
@@ -294,6 +308,8 @@ class ApiDataGetter {
             await getVrsteKampiranj();
             globals.dataLoaded = true;
             print("KONČNI PODATKI:");
+            print("Uporabnik: ${globals.currentUser.toString()}");
+            print("Uporabnik-pravice: ${globals.currentUser.pravica.toString()}");
             print("Avtokampi: ${globals.avtokampi.toString()}");
             print("Ceniki: ${globals.ceniki.toString()}");
             print("Drzave: ${globals.drzave.toString()}");

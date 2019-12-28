@@ -138,10 +138,27 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                                     animationController: animationController,
                                                                     listData: homeList[index],
                                                                     callBack: () {
-                                                                        if (globals
-                                                                            .currentUser
-                                                                            .pravica !=
-                                                                            2) {
+                                                                        if (homeList[index].imagePath == 'assets/images/dodaj_ikona.png' || homeList[index].imagePath == 'assets/images/modify.png') {
+                                                                            if (globals.currentUser.pravica != 3) {
+                                                                                Navigator
+                                                                                    .push<
+                                                                                    dynamic>(
+                                                                                    context,
+                                                                                    MaterialPageRoute<
+                                                                                        dynamic>(
+                                                                                        builder: (
+                                                                                            BuildContext context) =>
+                                                                                        homeList[index]
+                                                                                            .navigateScreen
+
+
+                                                                                    ),
+                                                                                );
+                                                                            } else {
+                                                                                _showDialog(
+                                                                                    context);
+                                                                            }
+                                                                        } else {
                                                                             Navigator
                                                                                 .push<
                                                                                 dynamic>(
@@ -156,9 +173,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
                                                                                 ),
                                                                             );
-                                                                        } else {
-                                                                            _showDialog(
-                                                                                context);
                                                                         }
                                                                     },
                                                                 );
