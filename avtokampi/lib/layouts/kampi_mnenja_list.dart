@@ -60,11 +60,13 @@ class _KampiListState extends State<KampiList> {
             this.izbranaOcena.toInt()).then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
-            if (response.statusCode == 201) {
+            if (response.statusCode == 200) {
                 globals.mnenja.add(new Mnenje.novo(mnenje, izbranaOcena.toInt(), uporabnikId, avtokampId));
+                this.mnenje = "";
                 print("Mnenje je bilo uspešno dodano!");
                 _ackAlert();
             } else {
+                this.mnenje = "";
                 print("Mnenje ni bilo uspešno dodano!");
                 _ackAlert2();
             }
@@ -233,7 +235,6 @@ class _KampiListState extends State<KampiList> {
                                         onPressed: () {
                                             addMnenje();
                                             Navigator.pop(context);
-                                            this.mnenje = "";
                                         },
                                     ),
                                 )
