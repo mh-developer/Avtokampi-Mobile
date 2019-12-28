@@ -23,6 +23,14 @@ class Rezervacija {
         this.vrstaKampiranja,
         this.statusRezervacije);
 
+    Rezervacija.nova(this.datumOd,
+        this.datumDo,
+        this.uporabnik,
+        this.avtokamp,
+        this.kampirnoMesto,
+        this.vrstaKampiranja,
+        this.statusRezervacije);
+
     static Rezervacija fromJson(json) {
         Rezervacija r = new Rezervacija.nov();
         r.id = json['cenikId'];

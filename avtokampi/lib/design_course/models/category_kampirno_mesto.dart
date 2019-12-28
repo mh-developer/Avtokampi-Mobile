@@ -6,6 +6,7 @@ import 'package:best_flutter_ui_templates/models/Mnenje.dart';
 
 class Category {
     Category({
+        this.id = 0,
         this.title = '',
         this.imagePath = '',
         this.lessonCount = '',
@@ -29,6 +30,7 @@ class Category {
                         cena += 40;
                     }
                     kampirnaMestaList.add(Category(
+                        id: kampirnoMesto.id,
                         imagePath: 'assets/images/ikona2.png',
                         title: kampirnoMesto.naziv,
                         lessonCount: kampirnoMesto.velikost,
@@ -71,6 +73,7 @@ class Category {
     String title;
     String lessonCount;
     int money;
+    int id;
     double rating;
     String imagePath;
     KampirnoMesto kampirnoMesto;

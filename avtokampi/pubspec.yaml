@@ -38,6 +38,7 @@ dependencies:
   grouped_list: ^1.2.1
   easy_web_view: ^1.0.1
   flutter_rating: ^0.0.2
+  date_range_picker: ^1.0.5
 
 dev_dependencies:
   flutter_test:

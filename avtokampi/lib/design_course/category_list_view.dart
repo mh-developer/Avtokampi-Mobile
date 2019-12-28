@@ -5,6 +5,7 @@ import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.da
 import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -84,6 +85,7 @@ class _CategoryListViewState extends State<CategoryListView>
 
                                     return CategoryView(
                                         category: categoryList[index],
+                                        avtokamp: avtokamp,
                                         animation: animation,
                                         animationController: animationController,
                                         callback: () {
@@ -105,13 +107,22 @@ class CategoryView extends StatelessWidget {
         this.category,
         this.animationController,
         this.animation,
-        this.callback})
+        this.callback, this.avtokamp})
         : super(key: key);
 
     final VoidCallback callback;
     final Category category;
     final AnimationController animationController;
     final Animation<dynamic> animation;
+    final Avtokamp avtokamp;
+
+    KampirnoMesto getKampirnoMestoById(int id) {
+        for (KampirnoMesto kampirnoMesto in globals.kampirnaMesta) {
+            if (kampirnoMesto.id == id) {
+                return kampirnoMesto;
+            }
+        }
+    }
 
     @override
     Widget build(BuildContext context) {
@@ -129,7 +140,7 @@ class CategoryView extends StatelessWidget {
                                 Navigator.push<dynamic>(context,
                                     MaterialPageRoute<dynamic>(
                                         builder: (BuildContext context) =>
-                                            ReservationForm()));
+                                            ReservationForm.drug(izbraniKamp: avtokamp, izbranoKampirnoMesto: getKampirnoMestoById(category.id), preValued: true,)));
                             },
                             child: SizedBox(
                                 width: 280,
