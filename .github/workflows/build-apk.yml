@@ -29,8 +29,36 @@ jobs:
         run: flutter build apk --debug
         working-directory: avtokampi
       
-      - name: Prepare apk artifact for download
-        uses: actions/upload-artifact@v1
+#       - name: Prepare apk artifact for download
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: apk-debug.apk
+#           path: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
+
+      - name: Remove old apk files
+        uses: appleboy/ssh-action@master
         with:
-          name: apk-debug.apk
-          path: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: rm -rf ~/apk-debug/*
+
+      - name: Copy new apk file via ssh (uses password)
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
+          target: "~/apk-debug/"
+      
+      - name: Create an APK prerelease
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "APK prerelease"
+          files: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
