@@ -29,8 +29,16 @@ jobs:
         run: flutter build apk --debug
         working-directory: avtokampi
       
-      - name: Prepare apk artifact for download
-        uses: actions/upload-artifact@v1
+#       - name: Prepare apk artifact for download
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: apk-debug.apk
+#           path: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
+      
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: apk-debug.apk
-          path: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "APK prerelease"
+          files: "avtokampi/build/app/outputs/apk/debug/*.apk"
