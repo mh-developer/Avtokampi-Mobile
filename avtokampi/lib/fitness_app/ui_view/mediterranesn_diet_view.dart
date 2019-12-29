@@ -766,7 +766,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                 .only(
                                                                                 top: 6),
                                                                             child: Text(
-                                                                                '${globals.kategorijeStoritev.length.toString()} storitev',
+                                                                                '${globals.storitve.length.toString()} storitev',
                                                                                 textAlign: TextAlign
                                                                                     .center,
                                                                                 style: TextStyle(
