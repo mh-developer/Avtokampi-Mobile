@@ -254,4 +254,28 @@ class ApiController {
             throw(e);
         }
     }
+
+    Future<Response> deleteAvtokamp(int kampId) async {
+        try {
+            String url = sprintf(ApiRoutes.AVTOKAMP, [kampId]);
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            Response response = await delete(url, headers: headers);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> modifyAvtokamp(String naziv, String nazivLokacije, String naslovKampa, String telefon, String opis, int regija) async {
+        try {
+            String url = ApiRoutes.AVTOKAMP;
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            String json = '{"naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
+            print("JSON: $json");
+            Response response = await put(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
 }
