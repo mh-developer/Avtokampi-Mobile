@@ -2,11 +2,15 @@ import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/custom_drawer/drawer_user_controller.dart';
 import 'package:best_flutter_ui_templates/custom_drawer/home_drawer.dart';
 import 'package:best_flutter_ui_templates/help_screen.dart';
+import 'package:best_flutter_ui_templates/hotel_booking/hotel_home_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/home_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/invite_friend_screen.dart';
+import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
+
+import 'kampi_mnenja_list.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
     @override
@@ -63,15 +67,15 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
                 });
             } else if (drawerIndex == DrawerIndex.Help) {
                 setState(() {
-                    screenView = HelpScreen();
+                    screenView = HotelHomeScreen();
                 });
             } else if (drawerIndex == DrawerIndex.FeedBack) {
                 setState(() {
-                    screenView = FeedbackScreen();
+                    screenView = KampiList();
                 });
             } else if (drawerIndex == DrawerIndex.Invite) {
                 setState(() {
-                    screenView = InviteFriend();
+                    screenView = ReservationForm();
                 });
             } else {
                 setState(() {

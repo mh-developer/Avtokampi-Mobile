@@ -36,24 +36,18 @@ class _HomeDrawerState extends State<HomeDrawer> {
             ),
             DrawerList(
                 index: DrawerIndex.Help,
-                labelName: 'Pomoč',
-                isAssetsImage: true,
-                imageName: 'assets/images/supportIcon.png',
+                labelName: 'Avtokampi',
+                icon: Icon(Icons.list),
             ),
             DrawerList(
                 index: DrawerIndex.FeedBack,
-                labelName: 'FeedBack',
+                labelName: 'Mnenje',
                 icon: Icon(Icons.help),
             ),
             DrawerList(
                 index: DrawerIndex.Invite,
-                labelName: 'Povabi prijatelje',
-                icon: Icon(Icons.group),
-            ),
-            DrawerList(
-                index: DrawerIndex.Share,
-                labelName: 'Oceni aplikacijo',
-                icon: Icon(Icons.share),
+                labelName: 'Rezerviraj kamp',
+                icon: Icon(Icons.receipt),
             ),
             DrawerList(
                 index: DrawerIndex.About,
@@ -258,9 +252,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                             color: widget.screenIndex ==
                                                 listData.index
                                                 ? Colors.blue
-                                                : AppTheme.nearlyBlack),
-                                    )
-                                        : Icon(listData.icon.icon,
+                                                : AppTheme.nearlyBlack),) : Icon(listData.icon.icon,
                                         color: widget.screenIndex ==
                                             listData.index
                                             ? Colors.blue
