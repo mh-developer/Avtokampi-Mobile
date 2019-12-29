@@ -19,6 +19,7 @@ class ApiRoutes {
     static const KAMPIRNA_MESTA_UREDI_BRISI = 'https://api.kampiraj.ga/api/KampirnaMesta/%s/%s';
     static const KAMPIRNA_MESTA_KATEGORIJE = 'https://api.kampiraj.ga/api/KampirnaMesta/kategorije';
     static const KAMPIRNA_MESTA_STORITVE = 'https://api.kampiraj.ga/api/%s/KampirnoMesto';
+    static const KAMPIRNA_MESTA_STORITVE_DODAJANJE = 'https://api.kampiraj.ga/api/StoritveKampa/%s/KampirnoMesto';
 
     static const REZERVACIJE = 'https://api.kampiraj.ga/api/Rezervacije/%s/uporabnik';
     static const REZERVACIJE_DODAJ = 'https://api.kampiraj.ga/api/Rezervacije';

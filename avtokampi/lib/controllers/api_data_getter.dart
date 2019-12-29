@@ -169,13 +169,12 @@ class ApiDataGetter {
 
     getRezervacije() {
         Response response;
-        apiController.getRegije().then((apiResponse) {
+        apiController.getRezervacijeForUser().then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                globals.rezervacije =
-                    l.map((model) => Rezervacija.fromJson(model)).toList();
+                globals.rezervacije = l.map((model) => Rezervacija.fromJson(model)).toList();
             }
             print("Rezervacije: ${globals.rezervacije.toString()}");
         });
@@ -299,6 +298,7 @@ class ApiDataGetter {
                 globals.currentUser = Uporabnik.fromJson(json.decode(response.body));
             }
             print("Uporabnik: ${globals.currentUser.toString()}");
+            getRezervacije();
         });
     }
 
@@ -313,7 +313,6 @@ class ApiDataGetter {
             await getKategorijeStoritev();
             //await getMnenja();
             await getRegije();
-            await getRezervacije();
             //await getSlike();
             await getStatusiRezervacij();
             await getStoritve();

@@ -9,6 +9,8 @@ class StoritevKampirnegaMesta {
 
     StoritevKampirnegaMesta(this.id, this.kampirnoMesto, this.storitev);
 
+    StoritevKampirnegaMesta.nova(this.kampirnoMesto, this.storitev);
+
     static StoritevKampirnegaMesta fromJson(json) {
         StoritevKampirnegaMesta skm = new StoritevKampirnegaMesta.nov();
         skm.id = json['storitevKampirnegaMestaId'];

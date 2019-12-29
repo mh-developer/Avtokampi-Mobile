@@ -120,6 +120,7 @@ class ApiController {
     Future<Response> getRezervacijeForUser() async {
         try {
             String url = sprintf(ApiRoutes.REZERVACIJE, [globals.currentUser.id.toString()]);
+            print("URL JE: " + url);
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
             Response response = await get(url, headers: headers);
             return response;
@@ -235,6 +236,18 @@ class ApiController {
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
             String json = '{"naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
             print("JSON: $json");
+            Response response = await post(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> addPrijavaNaStoritev(int kampirnoMesto, int storitev) async {
+        try {
+            String url = sprintf(ApiRoutes.KAMPIRNA_MESTA_STORITVE_DODAJANJE, [kampirnoMesto]);
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            String json = '{"kampirnoMesto": $kampirnoMesto, "storitev": "$storitev"}';
             Response response = await post(url, headers: headers, body: json);
             return response;
         } catch (e) {

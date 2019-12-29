@@ -33,16 +33,16 @@ class Rezervacija {
 
     static Rezervacija fromJson(json) {
         Rezervacija r = new Rezervacija.nov();
-        r.id = json['cenikId'];
-        r.datumOd = json['datumOd'];
-        r.datumDo = json['datumDo'];
+        r.id = json['rezervacijaId'];
+        r.datumOd = json['trajanjeOd'];
+        r.datumDo = json['trajanjeDo'];
         r.createdAt = json['createdAt'];
         r.updatedAt = json['updatedAt'];
-        r.avtokamp = json['uporabnik'];
+        r.uporabnik = json['uporabnik'];
         r.avtokamp = json['avtokamp'];
-        r.avtokamp = json['kampirnoMesto'];
-        r.avtokamp = json['vrstaKampiranja'];
-        r.avtokamp = json['statusRezervacije'];
+        r.kampirnoMesto = json['kampirnoMesto'];
+        r.vrstaKampiranja = json['vrstaKampiranja'];
+        r.statusRezervacije = json['statusRezervacije'];
         return r;
     }
 }
