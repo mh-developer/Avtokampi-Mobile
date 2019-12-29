@@ -80,7 +80,7 @@ class _ReservationFormState extends State<ReservationForm> {
         apiController.addCampReservation(trenutniUporabnik, izbraniKamp.id, izbranoKampirnoMesto.id, izbranaVrstaKampiranja.id, izbraniDatumOd, izbraniDatumDo).then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
-            if (response.statusCode == 200) {
+            if (response.statusCode == 201) {
                 globals.rezervacije.add(new Rezervacija.nova(izbraniDatumOd, izbraniDatumDo, trenutniUporabnik, izbraniKamp.id, izbranoKampirnoMesto.id, izbranaVrstaKampiranja.id, 1));
                 print("Rezervacija je bila uspešno dodana!");
                 _ackAlert();
