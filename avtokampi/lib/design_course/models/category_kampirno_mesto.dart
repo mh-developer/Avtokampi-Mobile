@@ -1,8 +1,15 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/hotel_booking/model/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:best_flutter_ui_templates/models/Cenik.dart';
+import 'package:best_flutter_ui_templates/models/Drzava.dart';
 import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:best_flutter_ui_templates/models/Mnenje.dart';
+import 'package:best_flutter_ui_templates/models/Regija.dart';
+import 'package:best_flutter_ui_templates/models/Slika.dart';
 
 class Category {
     Category({
@@ -14,14 +21,63 @@ class Category {
         this.rating = 0.0,
         this.kampirnoMesto,
         this.hotelListData,
-        this.avtokamp
+        this.avtokamp,
+        this.blobSlika
     });
 
-    static List<Category> getKampirnaMestaForKamp(Avtokamp avtokamp, HotelListData hotelListData, int kategorija) {
+    static Uint8List getSlikaZaKamp(int kampId) {
+        for (Slika slika in globals.slike) {
+            if (slika.avtokamp == kampId) {
+                return base64Decode(slika.slika);
+            }
+        }
+        return base64Decode(globals.slike[0].slika);
+    }
+
+    static List<Cenik> getCenikiZaKamp(int kampId) {
+        List<Cenik> cenikiList = [];
+        for (Cenik c in globals.ceniki) {
+            if (c.avtokamp == kampId) {
+                cenikiList.add(c);
+            }
+        }
+        return cenikiList;
+    }
+
+    static List getStMnenjZaKamp(int kampId) {
+        List<Mnenje> mnenja = [];
+        int stMnenj = 0;
+        double povprecnaOcena = 0;
+        for (Mnenje m in globals.mnenja) {
+            if (m.avtokamp == kampId) {
+                stMnenj++;
+                mnenja.add(m);
+                povprecnaOcena += m.ocena;
+            }
+        }
+        return [stMnenj, povprecnaOcena / stMnenj, mnenja];
+    }
+
+    static String getDrzavaZaKamp(int regijaId) {
+        for (Regija r in globals.regije) {
+            if (r.id == regijaId) {
+                for (Drzava d in globals.drzave) {
+                    if (d.id == r.drzava) {
+                        return d.naziv;
+                    }
+                }
+            }
+        }
+        return "Hrvatska";
+    }
+
+    static List<Category> getKampirnaMestaForKamp(Avtokamp avtokamp,
+        HotelListData hotelListData, int kategorija) {
         List<Category> kampirnaMestaList = new List<Category>();
         if (globals.kampirnaMesta.isNotEmpty) {
             for (KampirnoMesto kampirnoMesto in globals.kampirnaMesta) {
-                if (kampirnoMesto.avtokamp == avtokamp.id && kampirnoMesto.kategorija == kategorija) {
+                if (kampirnoMesto.avtokamp == avtokamp.id &&
+                    kampirnoMesto.kategorija == kategorija) {
                     int cena = hotelListData.perNight;
                     if (kategorija == 2) {
                         cena += 20;
@@ -48,19 +104,39 @@ class Category {
         }
     }
 
-    static List<Category> getPopularniKampi(Avtokamp avtokamp, HotelListData hotelListData) {
+    static List<Category> getPopularniKampi(Avtokamp avtokamp,
+        HotelListData hotelListData) {
         List<Category> ostaliKampi = new List<Category>();
         if (globals.avtokampi.isNotEmpty) {
             for (Avtokamp a in globals.avtokampi) {
                 if (a.id != avtokamp.id) {
+                    List<Cenik> cenikiZaKamp = getCenikiZaKamp(a.id);
+                    int cena = 50;
+                    if (cenikiZaKamp.length != 0) {
+                        cena = cenikiZaKamp[0].cena.toInt();
+                    }
+                    List l = getStMnenjZaKamp(a.id);
+                    int stMnenj = l[0];
+                    double povprOcena = l[1];
+                    List<Mnenje> mnenja = l[2];
+                    Uint8List imageKampPath = getSlikaZaKamp(a.id);
                     ostaliKampi.add(Category(
-                        imagePath: 'assets/design_course/interFace1.png',
+                        blobSlika: imageKampPath,
                         title: a.naziv,
                         lessonCount: a.nazivLokacije,
                         money: hotelListData.perNight,
                         rating: hotelListData.rating,
-                        avtokamp: avtokamp,
-                        hotelListData: hotelListData
+                        avtokamp: a,
+                        hotelListData: HotelListData(
+                            imagePath: imageKampPath,
+                            titleTxt: a.naziv,
+                            subTxt: a.nazivLokacije,
+                            dist: getDrzavaZaKamp(a.regija),
+                            reviews: stMnenj,
+                            rating: povprOcena,
+                            perNight: cena,
+                            avtokamp: a,
+                            mnenja: mnenja)
                     ),);
                 }
             }
@@ -79,6 +155,7 @@ class Category {
     KampirnoMesto kampirnoMesto;
     HotelListData hotelListData;
     Avtokamp avtokamp;
+    Uint8List blobSlika;
 
     static List<Category> categoryList = <Category>[
         Category(

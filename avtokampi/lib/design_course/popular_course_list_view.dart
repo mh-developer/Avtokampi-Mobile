@@ -260,8 +260,7 @@ class CategoryView extends StatelessWidget {
                                                                 16.0)),
                                                         child: AspectRatio(
                                                             aspectRatio: 1.28,
-                                                            child: Image.memory(
-                                                                hotelListData.imagePath)),
+                                                            child: Image.memory(category.blobSlika)),
                                                     ),
                                                 ),
                                             ),
