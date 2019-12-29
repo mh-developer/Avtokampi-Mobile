@@ -235,7 +235,6 @@ class ApiController {
             String url = ApiRoutes.AVTOKAMP;
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
             String json = '{"naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
-            print("JSON: $json");
             Response response = await post(url, headers: headers, body: json);
             return response;
         } catch (e) {
@@ -266,12 +265,11 @@ class ApiController {
         }
     }
 
-    Future<Response> modifyAvtokamp(String naziv, String nazivLokacije, String naslovKampa, String telefon, String opis, int regija) async {
+    Future<Response> modifyAvtokamp(int kampId, String naziv, String nazivLokacije, String naslovKampa, String telefon, String opis, int regija) async {
         try {
-            String url = ApiRoutes.AVTOKAMP;
+            String url = sprintf(ApiRoutes.AVTOKAMP, [kampId]);
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
-            String json = '{"naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
-            print("JSON: $json");
+            String json = '{"avtokampId": $kampId, "naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
             Response response = await put(url, headers: headers, body: json);
             return response;
         } catch (e) {
