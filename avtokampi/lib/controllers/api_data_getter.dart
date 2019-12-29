@@ -174,7 +174,8 @@ class ApiDataGetter {
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                globals.rezervacije = l.map((model) => Rezervacija.fromJson(model)).toList();
+                globals.rezervacije =
+                    l.map((model) => Rezervacija.fromJson(model)).toList();
             }
             print("Rezervacije: ${globals.rezervacije.toString()}");
         });
@@ -224,7 +225,8 @@ class ApiDataGetter {
         }).whenComplete(() {
             if (response.statusCode == 200) {
                 Iterable l = json.decode(response.body);
-                globals.storitve = l.map((model) => Storitev.fromJson(model)).toList();
+                globals.storitve =
+                    l.map((model) => Storitev.fromJson(model)).toList();
             }
             print("Storitve: ${globals.storitve.toString()}");
         });
@@ -295,7 +297,8 @@ class ApiDataGetter {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
-                globals.currentUser = Uporabnik.fromJson(json.decode(response.body));
+                globals.currentUser =
+                    Uporabnik.fromJson(json.decode(response.body));
             }
             print("Uporabnik: ${globals.currentUser.toString()}");
             getRezervacije();
@@ -321,7 +324,8 @@ class ApiDataGetter {
             globals.dataLoaded = true;
             print("KONČNI PODATKI:");
             print("Uporabnik: ${globals.currentUser.toString()}");
-            print("Uporabnik-pravice: ${globals.currentUser.pravica.toString()}");
+            print(
+                "Uporabnik-pravice: ${globals.currentUser.pravica.toString()}");
             print("Avtokampi: ${globals.avtokampi.toString()}");
             print("Ceniki: ${globals.ceniki.toString()}");
             print("Drzave: ${globals.drzave.toString()}");

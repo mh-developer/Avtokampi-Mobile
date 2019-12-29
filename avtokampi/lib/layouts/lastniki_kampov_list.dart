@@ -1,12 +1,10 @@
 import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/spremeni_kamp_forma.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:http/http.dart';
-
-import 'home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -144,7 +142,8 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                     foregroundColor: Colors.white,
                                 ),
                                 title: new Text(globals.avtokampi[index].naziv),
-                                subtitle: new Text(globals.avtokampi[index].nazivLokacije),
+                                subtitle: new Text(
+                                    globals.avtokampi[index].nazivLokacije),
                             ),
                         ), onTap: () {
                             print(globals.avtokampi[index].id);
@@ -172,7 +171,10 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                     Navigator.push<dynamic>(
                                         context,
                                         MaterialPageRoute<dynamic>(
-                                            builder: (BuildContext context) => SpremeniKampForm(avtokamp: globals.avtokampi[index]),
+                                            builder: (BuildContext context) =>
+                                                SpremeniKampForm(
+                                                    avtokamp: globals
+                                                        .avtokampi[index]),
                                         ),
                                     );
                                 }
@@ -184,7 +186,8 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                 onTap: () {
                                     setState(() {
                                         globals.avtokampi.removeAt(index);
-                                        deleteKamp(context, globals.avtokampi[index].id);
+                                        deleteKamp(context,
+                                            globals.avtokampi[index].id);
                                     });
                                 }
                             ),

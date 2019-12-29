@@ -9,6 +9,7 @@ class KampiWeb extends StatefulWidget {
 class _KampiWebState extends State<KampiWeb> {
     String url = 'https://kampiraj.ga';
     int _currentIndex = 0;
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(

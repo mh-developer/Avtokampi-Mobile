@@ -1,8 +1,8 @@
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/category_list_view.dart';
 import 'package:best_flutter_ui_templates/layouts/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
+import 'package:best_flutter_ui_templates/layouts/popular_course_list_view.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +171,8 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         );
     }
 
-    Widget getButtonUI(CategoryType categoryTypeData, bool isSelected, int kategorija) {
+    Widget getButtonUI(CategoryType categoryTypeData, bool isSelected,
+        int kategorija) {
         String txt = '';
         if (CategoryType.osnovna == categoryTypeData) {
             txt = globals.kategorije[0].naziv;

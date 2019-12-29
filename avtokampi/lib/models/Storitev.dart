@@ -1,5 +1,3 @@
-
-
 class Storitev {
     int id;
     String naziv;

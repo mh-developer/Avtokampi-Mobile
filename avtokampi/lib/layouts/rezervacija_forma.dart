@@ -28,14 +28,20 @@ class MyApp extends StatelessWidget {
 class ReservationForm extends StatefulWidget {
     ReservationForm({Key key}) : super(key: key);
 
-    ReservationForm.drug({Key key, this.izbraniKamp, this.izbranoKampirnoMesto, this.preValued}) : super(key: key);
+    ReservationForm.drug(
+        {Key key, this.izbraniKamp, this.izbranoKampirnoMesto, this.preValued})
+        : super(key: key);
 
     Avtokamp izbraniKamp;
     KampirnoMesto izbranoKampirnoMesto;
     bool preValued = false;
 
     @override
-    _ReservationFormState createState() => preValued == false ? new _ReservationFormState() : new _ReservationFormState.drugi(izbraniKamp, izbranoKampirnoMesto);
+    _ReservationFormState createState() =>
+        preValued == false
+            ? new _ReservationFormState()
+            : new _ReservationFormState.drugi(
+            izbraniKamp, izbranoKampirnoMesto);
 }
 
 class _ReservationFormState extends State<ReservationForm> {
@@ -46,13 +52,16 @@ class _ReservationFormState extends State<ReservationForm> {
     _ReservationFormState.drugi(this.izbraniKamp, this.izbranoKampirnoMesto);
 
     Avtokamp izbraniKamp = globals.avtokampi[0];
-    KampirnoMesto izbranoKampirnoMesto = getKampirnaMestaZaKampStaticna(globals.avtokampi[0])[0];
+    KampirnoMesto izbranoKampirnoMesto = getKampirnaMestaZaKampStaticna(
+        globals.avtokampi[0])[0];
     VrstaKampiranja izbranaVrstaKampiranja = globals.vrsteKampiranj[0];
     String izbraniDatumOd = "2019-12-28T17:17:16.058Z";
     String izbraniDatumDo = "2019-12-30T17:17:16.058Z";
     int trenutniUporabnik = globals.currentUser.id;
-    TextEditingController txt1 = TextEditingController(text: "2019-12-28T17:17:16.058Z");
-    TextEditingController txt2 = TextEditingController(text: "2019-12-30T17:17:16.058Z");
+    TextEditingController txt1 = TextEditingController(
+        text: "2019-12-28T17:17:16.058Z");
+    TextEditingController txt2 = TextEditingController(
+        text: "2019-12-30T17:17:16.058Z");
 
     List<KampirnoMesto> getKampirnaMestaZaKamp(Avtokamp kamp) {
         List<KampirnoMesto> kampirnaMesta = [];
@@ -77,11 +86,21 @@ class _ReservationFormState extends State<ReservationForm> {
     addRezervacija() {
         ApiController apiController = new ApiController();
         Response response;
-        apiController.addCampReservation(trenutniUporabnik, izbraniKamp.id, izbranoKampirnoMesto.id, izbranaVrstaKampiranja.id, izbraniDatumOd, izbraniDatumDo).then((apiResponse) {
+        apiController.addCampReservation(
+            trenutniUporabnik, izbraniKamp.id, izbranoKampirnoMesto.id,
+            izbranaVrstaKampiranja.id, izbraniDatumOd, izbraniDatumDo).then((
+            apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 201) {
-                globals.rezervacije.add(new Rezervacija.nova(izbraniDatumOd, izbraniDatumDo, trenutniUporabnik, izbraniKamp.id, izbranoKampirnoMesto.id, izbranaVrstaKampiranja.id, 1));
+                globals.rezervacije.add(new Rezervacija.nova(
+                    izbraniDatumOd,
+                    izbraniDatumDo,
+                    trenutniUporabnik,
+                    izbraniKamp.id,
+                    izbranoKampirnoMesto.id,
+                    izbranaVrstaKampiranja.id,
+                    1));
                 print("Rezervacija je bila uspešno dodana!");
                 _ackAlert();
             } else {
@@ -201,7 +220,8 @@ class _ReservationFormState extends State<ReservationForm> {
                                     borderRadius: BorderRadius.circular(10.0)),
                                 onPressed: () async {
                                     final List<
-                                        DateTime> picked = await DateRagePicker.showDatePicker(
+                                        DateTime> picked = await DateRagePicker
+                                        .showDatePicker(
                                         context: context,
                                         initialFirstDate: new DateTime.now(),
                                         initialLastDate: (new DateTime.now())
@@ -211,10 +231,14 @@ class _ReservationFormState extends State<ReservationForm> {
                                     );
                                     if (picked != null) {
                                         setState(() {
-                                            txt1.text = picked[0].toIso8601String();
-                                            txt2.text = picked[1].toIso8601String();
-                                            izbraniDatumOd = picked[0].toIso8601String();
-                                            izbraniDatumDo = picked[1].toIso8601String();
+                                            txt1.text = picked[0]
+                                                .toIso8601String();
+                                            txt2.text = picked[1]
+                                                .toIso8601String();
+                                            izbraniDatumOd = picked[0]
+                                                .toIso8601String();
+                                            izbraniDatumDo = picked[1]
+                                                .toIso8601String();
                                         });
                                     }
                                 },
@@ -237,7 +261,9 @@ class _ReservationFormState extends State<ReservationForm> {
                                                         izbraniKamp = newValue;
                                                         state.didChange(
                                                             newValue);
-                                                        izbranoKampirnoMesto = getKampirnaMestaZaKamp(izbraniKamp)[0];
+                                                        izbranoKampirnoMesto =
+                                                        getKampirnaMestaZaKamp(
+                                                            izbraniKamp)[0];
                                                     });
                                                 },
                                                 items: globals.avtokampi.map((
@@ -273,7 +299,8 @@ class _ReservationFormState extends State<ReservationForm> {
                                                             newValue);
                                                     });
                                                 },
-                                                items: getKampirnaMestaZaKamp(izbraniKamp).map((
+                                                items: getKampirnaMestaZaKamp(
+                                                    izbraniKamp).map((
                                                     KampirnoMesto value) {
                                                     return new DropdownMenuItem(
                                                         value: value,

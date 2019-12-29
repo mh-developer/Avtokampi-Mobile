@@ -1,10 +1,8 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/layouts/drawer_user_controller.dart';
 import 'package:best_flutter_ui_templates/layouts/home_drawer.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/invite_friend_screen.dart';
+import 'package:best_flutter_ui_templates/layouts/hotel_home_screen.dart';
 import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
@@ -94,7 +92,8 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
                                     'APPLIKACIJA ZA KAMPIRANJE',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 22.0, fontWeight: FontWeight.w600),
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.w600),
                                 ),
                                 description: Text(
                                     'Aplikacija nudi pregled nad avtokampi, rezervacijo kampiranja, oddajo mnenj o kampih in še mnoge druge stvari.',

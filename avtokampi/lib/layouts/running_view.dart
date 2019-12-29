@@ -1,8 +1,7 @@
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/storitve_forma.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
 import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 import 'fintness_app_theme.dart';
@@ -28,7 +27,8 @@ class RunningView extends StatelessWidget {
     getSteviloStoritevZaUporabnika() {
         List<int> kampirnaMesta = getRezerviranaKampirnaMestaZaUporabnika();
         int stevilo = 0;
-        for (StoritevKampirnegaMesta storitevKampirnegaMesta in globals.storitveKampirnihMest) {
+        for (StoritevKampirnegaMesta storitevKampirnegaMesta in globals
+            .storitveKampirnihMest) {
             if (kampirnaMesta.contains(storitevKampirnegaMesta.kampirnoMesto)) {
                 stevilo++;
             }

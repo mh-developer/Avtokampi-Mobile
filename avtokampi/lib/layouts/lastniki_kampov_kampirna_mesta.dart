@@ -51,7 +51,8 @@ class LastnikiKampirnaMesta extends State<MyApp> {
 
                                 // Then show a snackbar.
                                 Scaffold.of(context)
-                                    .showSnackBar(SnackBar(content: Text("$item dismissed")));
+                                    .showSnackBar(
+                                    SnackBar(content: Text("$item dismissed")));
                             },
                             // Show a red background as the item is swiped away.
                             background: Container(color: Colors.red),

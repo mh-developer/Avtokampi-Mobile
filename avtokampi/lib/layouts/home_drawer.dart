@@ -135,7 +135,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                             top: 8, left: 4),
                                         child: Text((() {
                                             if (globals.currentUser != null) {
-                                                return globals.currentUser.email.toString();
+                                                return globals.currentUser.email
+                                                    .toString();
                                             }
                                             return "anze.luzar@gmail.com";
                                         })(),
@@ -252,7 +253,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                             color: widget.screenIndex ==
                                                 listData.index
                                                 ? Colors.blue
-                                                : AppTheme.nearlyBlack),) : Icon(listData.icon.icon,
+                                                : AppTheme.nearlyBlack),)
+                                        : Icon(listData.icon.icon,
                                         color: widget.screenIndex ==
                                             listData.index
                                             ? Colors.blue

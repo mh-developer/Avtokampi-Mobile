@@ -1,6 +1,6 @@
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/layouts/avtokamp_map.dart';
+import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:flutter/material.dart';
@@ -163,7 +163,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                             children: <Widget>[
                                 AspectRatio(
                                     aspectRatio: 1.2,
-                                    child: Image.memory(avtokampElement.imagePath),
+                                    child: Image.memory(
+                                        avtokampElement.imagePath),
                                 ),
                             ],
                         ),
@@ -414,53 +415,62 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                         width: 16,
                                                                     ),
                                                                     Expanded(
-                                                                        child: InkWell(child: Container(
-                                                                            height: 48,
-                                                                            decoration: BoxDecoration(
-                                                                                color: DesignCourseAppTheme
-                                                                                    .nearlyBlue,
-                                                                                borderRadius: const BorderRadius
-                                                                                    .all(
-                                                                                    Radius
-                                                                                        .circular(
-                                                                                        16.0),
+                                                                        child: InkWell(
+                                                                            child: Container(
+                                                                                height: 48,
+                                                                                decoration: BoxDecoration(
+                                                                                    color: DesignCourseAppTheme
+                                                                                        .nearlyBlue,
+                                                                                    borderRadius: const BorderRadius
+                                                                                        .all(
+                                                                                        Radius
+                                                                                            .circular(
+                                                                                            16.0),
+                                                                                    ),
+                                                                                    boxShadow: <
+                                                                                        BoxShadow>[
+                                                                                        BoxShadow(
+                                                                                            color: DesignCourseAppTheme
+                                                                                                .nearlyBlue
+                                                                                                .withOpacity(
+                                                                                                0.5),
+                                                                                            offset: const Offset(
+                                                                                                1.1,
+                                                                                                1.1),
+                                                                                            blurRadius: 10.0),
+                                                                                    ],
                                                                                 ),
-                                                                                boxShadow: <
-                                                                                    BoxShadow>[
-                                                                                    BoxShadow(
-                                                                                        color: DesignCourseAppTheme
-                                                                                            .nearlyBlue
-                                                                                            .withOpacity(
-                                                                                            0.5),
-                                                                                        offset: const Offset(
-                                                                                            1.1,
-                                                                                            1.1),
-                                                                                        blurRadius: 10.0),
-                                                                                ],
-                                                                            ),
-                                                                            child: Center(
-                                                                                child: Text(
-                                                                                    'REZERVIRAJ',
-                                                                                    textAlign: TextAlign
-                                                                                        .left,
-                                                                                    style: TextStyle(
-                                                                                        fontWeight: FontWeight
-                                                                                            .w600,
-                                                                                        fontSize: 18,
-                                                                                        letterSpacing: 0.0,
-                                                                                        color: DesignCourseAppTheme
-                                                                                            .nearlyWhite,
+                                                                                child: Center(
+                                                                                    child: Text(
+                                                                                        'REZERVIRAJ',
+                                                                                        textAlign: TextAlign
+                                                                                            .left,
+                                                                                        style: TextStyle(
+                                                                                            fontWeight: FontWeight
+                                                                                                .w600,
+                                                                                            fontSize: 18,
+                                                                                            letterSpacing: 0.0,
+                                                                                            color: DesignCourseAppTheme
+                                                                                                .nearlyWhite,
+                                                                                        ),
                                                                                     ),
                                                                                 ),
                                                                             ),
-                                                                        ), onTap: () {
-                                                                            Navigator.push<dynamic>(
-                                                                                context,
-                                                                                MaterialPageRoute<dynamic>(
-                                                                                    builder: (BuildContext context) => DesignCourseHomeScreen(avtokamp: avtokamp, hotelListData: avtokampElement,),
-                                                                                ),
-                                                                            );
-                                                                        },),
+                                                                            onTap: () {
+                                                                                Navigator
+                                                                                    .push<
+                                                                                    dynamic>(
+                                                                                    context,
+                                                                                    MaterialPageRoute<
+                                                                                        dynamic>(
+                                                                                        builder: (
+                                                                                            BuildContext context) =>
+                                                                                            DesignCourseHomeScreen(
+                                                                                                avtokamp: avtokamp,
+                                                                                                hotelListData: avtokampElement,),
+                                                                                    ),
+                                                                                );
+                                                                            },),
                                                                     )
                                                                 ],
                                                             ),

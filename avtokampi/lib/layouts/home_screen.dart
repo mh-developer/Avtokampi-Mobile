@@ -138,8 +138,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                                     animationController: animationController,
                                                                     listData: homeList[index],
                                                                     callBack: () {
-                                                                        if (homeList[index].imagePath == 'assets/images/dodaj_ikona.png' || homeList[index].imagePath == 'assets/images/modify.png') {
-                                                                            if (globals.currentUser.pravica != 3) {
+                                                                        if (homeList[index]
+                                                                            .imagePath ==
+                                                                            'assets/images/dodaj_ikona.png' ||
+                                                                            homeList[index]
+                                                                                .imagePath ==
+                                                                                'assets/images/modify.png') {
+                                                                            if (globals
+                                                                                .currentUser
+                                                                                .pravica !=
+                                                                                3) {
                                                                                 Navigator
                                                                                     .push<
                                                                                     dynamic>(

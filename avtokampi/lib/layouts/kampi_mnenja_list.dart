@@ -61,7 +61,8 @@ class _KampiListState extends State<KampiList> {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 200) {
-                globals.mnenja.add(new Mnenje.novo(mnenje, izbranaOcena.toInt(), uporabnikId, avtokampId));
+                globals.mnenja.add(new Mnenje.novo(
+                    mnenje, izbranaOcena.toInt(), uporabnikId, avtokampId));
                 this.mnenje = "";
                 print("Mnenje je bilo uspešno dodano!");
                 _ackAlert();

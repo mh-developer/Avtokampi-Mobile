@@ -48,7 +48,8 @@ class MyApp extends StatelessWidget {
                 ), textAlign: TextAlign.center,),
                 image: new Image.asset('assets/images/ikona.png'),
                 backgroundColor: Colors.black,
-                loadingText: new Text("Ne čakaj na maj, kampiraj zdaj!", style: new TextStyle(
+                loadingText: new Text(
+                    "Ne čakaj na maj, kampiraj zdaj!", style: new TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25.0,
                     color: Colors.yellow,

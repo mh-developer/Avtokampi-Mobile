@@ -1,10 +1,11 @@
+import 'dart:math' as math;
+
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/fintness_app_theme.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/models/Mnenje.dart';
 import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'dart:math' as math;
 
 class MediterranesnDietView extends StatelessWidget {
     final AnimationController animationController;
@@ -148,7 +149,9 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                                 SizedBox(
                                                                                                     width: 28,
                                                                                                     height: 28,
-                                                                                                    child: Icon(Icons.message),
+                                                                                                    child: Icon(
+                                                                                                        Icons
+                                                                                                            .message),
                                                                                                 ),
                                                                                                 Padding(
                                                                                                     padding:
@@ -279,7 +282,9 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                                 SizedBox(
                                                                                                     width: 28,
                                                                                                     height: 28,
-                                                                                                    child: Icon(Icons.book),
+                                                                                                    child: Icon(
+                                                                                                        Icons
+                                                                                                            .book),
                                                                                                 ),
                                                                                                 Padding(
                                                                                                     padding:
@@ -387,7 +392,9 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                 children: <
                                                                                     Widget>[
                                                                                     Text(
-                                                                                        '${(globals.mnenja.length *
+                                                                                        '${(globals
+                                                                                            .mnenja
+                                                                                            .length *
                                                                                             animation
                                                                                                 .value)
                                                                                             .toInt()}',
@@ -561,7 +568,10 @@ class MediterranesnDietView extends StatelessWidget {
                                                                         .only(
                                                                         top: 6),
                                                                     child: Text(
-                                                                        "${globals.avtokampi.length.toString()} kampov",
+                                                                        "${globals
+                                                                            .avtokampi
+                                                                            .length
+                                                                            .toString()} kampov",
                                                                         textAlign: TextAlign
                                                                             .center,
                                                                         style: TextStyle(
@@ -663,7 +673,10 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                 .only(
                                                                                 top: 6),
                                                                             child: Text(
-                                                                                "${globals.kampirnaMesta.length.toString()} mest",
+                                                                                "${globals
+                                                                                    .kampirnaMesta
+                                                                                    .length
+                                                                                    .toString()} mest",
                                                                                 textAlign: TextAlign
                                                                                     .center,
                                                                                 style: TextStyle(
@@ -766,7 +779,10 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                 .only(
                                                                                 top: 6),
                                                                             child: Text(
-                                                                                '${globals.storitve.length.toString()} storitev',
+                                                                                '${globals
+                                                                                    .storitve
+                                                                                    .length
+                                                                                    .toString()} storitev',
                                                                                 textAlign: TextAlign
                                                                                     .center,
                                                                                 style: TextStyle(

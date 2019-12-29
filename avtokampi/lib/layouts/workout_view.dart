@@ -101,7 +101,8 @@ class WorkoutView extends StatelessWidget {
                                                             padding: const EdgeInsets
                                                                 .only(left: 4),
                                                             child: Icon(
-                                                                Icons.help_outline,
+                                                                Icons
+                                                                    .help_outline,
                                                                 color: FintnessAppTheme
                                                                     .white,
                                                                 size: 16,

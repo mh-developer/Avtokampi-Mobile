@@ -2,8 +2,8 @@ import 'package:best_flutter_ui_templates/layouts/tabIcon_data.dart';
 import 'package:best_flutter_ui_templates/layouts/training_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'bottom_bar_view.dart';
 import '../layouts/fintness_app_theme.dart';
+import 'bottom_bar_view.dart';
 import 'my_diary_screen.dart';
 
 class FitnessAppHomeScreen extends StatefulWidget {

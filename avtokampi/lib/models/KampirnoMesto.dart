@@ -1,5 +1,3 @@
-
-
 class KampirnoMesto {
     int id;
     String naziv;

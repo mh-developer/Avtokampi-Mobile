@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/controllers/api_data_getter.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/navigation_home_screen.dart';
 import 'package:best_flutter_ui_templates/models/Uporabnik.dart';
@@ -34,7 +33,8 @@ class LoginScreen extends StatelessWidget {
                 return 'Wrong username or password!';
             }
             globals.jwtToken = json.decode(response.body)['token'];
-            globals.currentUser = Uporabnik(data.name, data.name, data.name, data.password);
+            globals.currentUser =
+                Uporabnik(data.name, data.name, data.name, data.password);
             globals.currentUser.pravica = 2;
             return null;
         });

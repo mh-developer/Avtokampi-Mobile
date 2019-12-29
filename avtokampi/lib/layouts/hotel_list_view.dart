@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/layouts/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
+import 'package:best_flutter_ui_templates/layouts/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/layouts/hotel_app_theme.dart';
 import 'package:best_flutter_ui_templates/models/Mnenje.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +83,8 @@ class HotelListView extends StatelessWidget {
                                 fontSize: 22.0, fontWeight: FontWeight.w600),
                         ),
                         description: Text(
-                            'Kamp ${kamp.titleTxt} je že med priljubljenimi! Če ga želite odstraniti kliknite Odstrani.',
+                            'Kamp ${kamp
+                                .titleTxt} je že med priljubljenimi! Če ga želite odstraniti kliknite Odstrani.',
                             textAlign: TextAlign.center,
                         ),
                         onOkButtonPressed: () {
@@ -114,7 +115,8 @@ class HotelListView extends StatelessWidget {
                             fontSize: 22.0, fontWeight: FontWeight.w600),
                     ),
                     description: Text(
-                        'S klikom na Ok bo kamp ${kamp.titleTxt} dodan med priljubljene!',
+                        'S klikom na Ok bo kamp ${kamp
+                            .titleTxt} dodan med priljubljene!',
                         textAlign: TextAlign.center,
                     ),
                     onOkButtonPressed: () {
@@ -174,7 +176,8 @@ class HotelListView extends StatelessWidget {
         Navigator.push<dynamic>(
             context,
             MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => CourseInfoScreen(hotelData, hotelData.avtokamp),
+                builder: (BuildContext context) =>
+                    CourseInfoScreen(hotelData, hotelData.avtokamp),
             ),
         );
     }
@@ -239,7 +242,8 @@ class HotelListView extends StatelessWidget {
                                                                     .center,
                                                                 crossAxisAlignment: CrossAxisAlignment
                                                                     .start,
-                                                                children: <Widget>[
+                                                                children: <
+                                                                    Widget>[
                                                                     Expanded(
                                                                         child: Container(
                                                                             child: Padding(
@@ -316,14 +320,18 @@ class HotelListView extends StatelessWidget {
                                                                                             ],
                                                                                         ),
                                                                                         Padding(
-                                                                                            padding: const EdgeInsets.only(top: 4),
+                                                                                            padding: const EdgeInsets
+                                                                                                .only(
+                                                                                                top: 4),
                                                                                             child: Row(
-                                                                                                children: <Widget>[
+                                                                                                children: <
+                                                                                                    Widget>[
                                                                                                     SmoothStarRating(
                                                                                                         allowHalfRating: true,
                                                                                                         spacing: 1,
                                                                                                         starCount: 5,
-                                                                                                        rating: hotelData.rating,
+                                                                                                        rating: hotelData
+                                                                                                            .rating,
                                                                                                         size: 20,
                                                                                                         color: HotelAppTheme
                                                                                                             .buildLightTheme()
@@ -332,8 +340,16 @@ class HotelListView extends StatelessWidget {
                                                                                                             .buildLightTheme()
                                                                                                             .primaryColor,
                                                                                                     ),
-                                                                                                    Text('    Število mnenj: ${hotelData.reviews.toString()}',
-                                                                                                        style: TextStyle(fontSize: 14, color: Colors.grey.withOpacity(0.8)),
+                                                                                                    Text(
+                                                                                                        '    Število mnenj: ${hotelData
+                                                                                                            .reviews
+                                                                                                            .toString()}',
+                                                                                                        style: TextStyle(
+                                                                                                            fontSize: 14,
+                                                                                                            color: Colors
+                                                                                                                .grey
+                                                                                                                .withOpacity(
+                                                                                                                0.8)),
                                                                                                     ),
                                                                                                 ],
                                                                                             ),

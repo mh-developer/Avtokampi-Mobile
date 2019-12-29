@@ -1,5 +1,3 @@
-
-
 class StoritevKampirnegaMesta {
     int id;
     int kampirnoMesto;

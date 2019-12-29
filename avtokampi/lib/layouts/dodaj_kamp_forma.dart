@@ -2,11 +2,7 @@ import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:best_flutter_ui_templates/models/Drzava.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:best_flutter_ui_templates/models/Regija.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
-import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
-import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:http/http.dart';
@@ -69,11 +65,17 @@ class _DodajKampFormState extends State<DodajKampForm> {
     addAvtokamp() {
         ApiController apiController = new ApiController();
         Response response;
-        apiController.addAvtokamp(nazivKampaKontroler.text, nazivLokacijaKampaKontroler.text, naslovKampaKontroler.text, telefonKampaKontroler.text, opisKampaKontroler.text, izbranaRegija.id).then((apiResponse) {
+        apiController.addAvtokamp(
+            nazivKampaKontroler.text, nazivLokacijaKampaKontroler.text,
+            naslovKampaKontroler.text, telefonKampaKontroler.text,
+            opisKampaKontroler.text, izbranaRegija.id).then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 201) {
-                globals.avtokampi.add(new Avtokamp.novi(nazivKampaKontroler.text, nazivLokacijaKampaKontroler.text, naslovKampaKontroler.text, telefonKampaKontroler.text, opisKampaKontroler.text, izbranaRegija.id));
+                globals.avtokampi.add(new Avtokamp.novi(
+                    nazivKampaKontroler.text, nazivLokacijaKampaKontroler.text,
+                    naslovKampaKontroler.text, telefonKampaKontroler.text,
+                    opisKampaKontroler.text, izbranaRegija.id));
                 print("Avtokamp je bil uspešno dodan!");
                 _ackAlert();
             } else {
@@ -225,10 +227,13 @@ class _DodajKampFormState extends State<DodajKampForm> {
                                                 isDense: true,
                                                 onChanged: (Drzava newValue) {
                                                     setState(() {
-                                                        izbranaDrzava = newValue;
+                                                        izbranaDrzava =
+                                                            newValue;
                                                         state.didChange(
                                                             newValue);
-                                                        izbranaRegija = getRegijeZaDrzavo(izbranaDrzava)[0];
+                                                        izbranaRegija =
+                                                        getRegijeZaDrzavo(
+                                                            izbranaDrzava)[0];
                                                     });
                                                 },
                                                 items: globals.drzave.map((
@@ -255,8 +260,7 @@ class _DodajKampFormState extends State<DodajKampForm> {
                                             child: new DropdownButton(
                                                 value: izbranaRegija,
                                                 isDense: true,
-                                                onChanged: (
-                                                    Regija newValue) {
+                                                onChanged: (Regija newValue) {
                                                     setState(() {
                                                         izbranaRegija =
                                                             newValue;
@@ -264,7 +268,8 @@ class _DodajKampFormState extends State<DodajKampForm> {
                                                             newValue);
                                                     });
                                                 },
-                                                items: getRegijeZaDrzavo(izbranaDrzava).map((
+                                                items: getRegijeZaDrzavo(
+                                                    izbranaDrzava).map((
                                                     Regija value) {
                                                     return new DropdownMenuItem(
                                                         value: value,

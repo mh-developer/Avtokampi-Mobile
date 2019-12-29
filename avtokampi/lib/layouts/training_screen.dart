@@ -1,4 +1,3 @@
-import 'package:best_flutter_ui_templates/layouts/area_list_view.dart';
 import 'package:best_flutter_ui_templates/layouts/running_view.dart';
 import 'package:best_flutter_ui_templates/layouts/title_view.dart';
 import 'package:best_flutter_ui_templates/layouts/workout_view.dart';

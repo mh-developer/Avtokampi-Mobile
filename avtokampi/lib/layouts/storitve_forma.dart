@@ -5,8 +5,6 @@ import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
 import 'package:best_flutter_ui_templates/models/Storitev.dart';
 import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
-import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
-import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:http/http.dart';
@@ -67,11 +65,13 @@ class _StoritveFormState extends State<StoritveForm> {
         }
     }
 
-    static List<KampirnoMesto> getRezerviranaKampirnaMestaZaUporabnikaStaticna() {
+    static List<
+        KampirnoMesto> getRezerviranaKampirnaMestaZaUporabnikaStaticna() {
         List<KampirnoMesto> kampirnaMesta = [];
         for (Rezervacija r in globals.rezervacije) {
             if (r.uporabnik == globals.currentUser.id) {
-                kampirnaMesta.add(getKampirnoMestoByIdStaticna(r.kampirnoMesto));
+                kampirnaMesta.add(
+                    getKampirnoMestoByIdStaticna(r.kampirnoMesto));
             }
         }
         return kampirnaMesta;
@@ -80,11 +80,14 @@ class _StoritveFormState extends State<StoritveForm> {
     addPrijavaNaStoritev() {
         ApiController apiController = new ApiController();
         Response response;
-        apiController.addPrijavaNaStoritev(izbranoKampirnoMesto.id, izbranaStoritev.id).then((apiResponse) {
+        apiController.addPrijavaNaStoritev(
+            izbranoKampirnoMesto.id, izbranaStoritev.id).then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 201) {
-                globals.storitveKampirnihMest.add(new StoritevKampirnegaMesta.nova(izbranoKampirnoMesto.id, izbranaStoritev.id));
+                globals.storitveKampirnihMest.add(
+                    new StoritevKampirnegaMesta.nova(
+                        izbranoKampirnoMesto.id, izbranaStoritev.id));
                 print("Storitev je bila uspešno dodana!");
                 _ackAlert();
             } else {
@@ -190,16 +193,19 @@ class _StoritveFormState extends State<StoritveForm> {
                                             child: new DropdownButton(
                                                 value: izbranoKampirnoMesto,
                                                 isDense: true,
-                                                onChanged: (KampirnoMesto newValue) {
+                                                onChanged: (
+                                                    KampirnoMesto newValue) {
                                                     setState(() {
-                                                        izbranoKampirnoMesto = newValue;
-                                                        izbranaStoritev = globals.storitve[0];
+                                                        izbranoKampirnoMesto =
+                                                            newValue;
+                                                        izbranaStoritev =
+                                                        globals.storitve[0];
                                                         state.didChange(
                                                             newValue);
                                                     });
                                                 },
-                                                items: getRezerviranaKampirnaMestaZaUporabnika().map((
-                                                    KampirnoMesto value) {
+                                                items: getRezerviranaKampirnaMestaZaUporabnika()
+                                                    .map((KampirnoMesto value) {
                                                     return new DropdownMenuItem(
                                                         value: value,
                                                         child: new Text(
@@ -222,8 +228,7 @@ class _StoritveFormState extends State<StoritveForm> {
                                             child: new DropdownButton(
                                                 value: izbranaStoritev,
                                                 isDense: true,
-                                                onChanged: (
-                                                    Storitev newValue) {
+                                                onChanged: (Storitev newValue) {
                                                     setState(() {
                                                         izbranaStoritev =
                                                             newValue;

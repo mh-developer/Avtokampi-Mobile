@@ -45,7 +45,8 @@ class _AvtokampiMapState extends State<AvtokampiMap> {
         try {
             BitmapDescriptor myIcon;
             await BitmapDescriptor.fromAssetImage(
-                ImageConfiguration(size: Size(12, 12)), 'assets/images/ikona.png')
+                ImageConfiguration(size: Size(12, 12)),
+                'assets/images/ikona.png')
                 .then((onValue) {
                 myIcon = onValue;
             });

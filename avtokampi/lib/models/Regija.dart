@@ -1,5 +1,3 @@
-
-
 class Regija {
     int id;
     String naziv;

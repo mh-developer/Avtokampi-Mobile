@@ -1,4 +1,3 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -48,15 +47,15 @@ class _AvtokampMapState extends State<AvtokampMap> {
     getData() async {
         try {
             List<Marker> _markers = [];
-                LatLng latLngMarker = LatLng(
-                    double.parse(avtokamp.koordinataX.toString()),
-                    double.parse(avtokamp.koordinataY.toString()));
-                _markers.add(Marker(
-                    markerId: MarkerId("marker${avtokamp.id}"),
-                    position: latLngMarker,
-                    infoWindow: InfoWindow(
-                        title: avtokamp.naziv.toString(),
-                    ),));
+            LatLng latLngMarker = LatLng(
+                double.parse(avtokamp.koordinataX.toString()),
+                double.parse(avtokamp.koordinataY.toString()));
+            _markers.add(Marker(
+                markerId: MarkerId("marker${avtokamp.id}"),
+                position: latLngMarker,
+                infoWindow: InfoWindow(
+                    title: avtokamp.naziv.toString(),
+                ),));
             setState(() {
                 markers = _markers;
             });

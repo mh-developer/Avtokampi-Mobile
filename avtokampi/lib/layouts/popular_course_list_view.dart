@@ -1,6 +1,6 @@
+import 'package:best_flutter_ui_templates/layouts/category_kampirno_mesto.dart';
 import 'package:best_flutter_ui_templates/layouts/course_info_screen_kampi.dart';
 import 'package:best_flutter_ui_templates/layouts/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/layouts/category_kampirno_mesto.dart';
 import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
@@ -16,7 +16,8 @@ class PopularCourseListView extends StatefulWidget {
     final HotelListData hotelListData;
 
     @override
-    _PopularCourseListViewState createState() => _PopularCourseListViewState(avtokamp, hotelListData);
+    _PopularCourseListViewState createState() =>
+        _PopularCourseListViewState(avtokamp, hotelListData);
 }
 
 class _PopularCourseListViewState extends State<PopularCourseListView>
@@ -78,8 +79,10 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
                                         category: popularCourseList[index],
                                         animation: animation,
                                         animationController: animationController,
-                                        avtokamp: popularCourseList[index].avtokamp,
-                                        hotelListData: popularCourseList[index].hotelListData,
+                                        avtokamp: popularCourseList[index]
+                                            .avtokamp,
+                                        hotelListData: popularCourseList[index]
+                                            .hotelListData,
                                     );
                                 },
                             ),
@@ -127,7 +130,9 @@ class CategoryView extends StatelessWidget {
                             onTap: () {
                                 Navigator.push<dynamic>(context,
                                     MaterialPageRoute<dynamic>(
-                                        builder: (BuildContext context) => CourseInfoScreen(hotelListData, avtokamp)));
+                                        builder: (BuildContext context) =>
+                                            CourseInfoScreen(
+                                                hotelListData, avtokamp)));
                             },
                             child: SizedBox(
                                 height: 280,
@@ -260,7 +265,9 @@ class CategoryView extends StatelessWidget {
                                                                 16.0)),
                                                         child: AspectRatio(
                                                             aspectRatio: 1.28,
-                                                            child: Image.memory(category.blobSlika)),
+                                                            child: Image.memory(
+                                                                category
+                                                                    .blobSlika)),
                                                     ),
                                                 ),
                                             ),
