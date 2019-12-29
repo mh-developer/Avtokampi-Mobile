@@ -150,6 +150,17 @@ class ApiController {
         }
     }
 
+    Future<Response> getStoritve() async {
+        try {
+            String url = ApiRoutes.STORITVE;
+            Map<String, String> headers = {"Content-type": "application/json"};
+            Response response = await get(url, headers: headers);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
     Future<Response> getStoritveForKamp(int avtokampId) async {
         try {
             String url = sprintf(ApiRoutes.STORITVE_KAMPA, [avtokampId.toString()]);
@@ -183,7 +194,6 @@ class ApiController {
         }
     }
 
-
     Future<Response> getUserData() async {
         try {
             String url = sprintf(ApiRoutes.UPORABNIKI_PO_IMENU, [globals.currentUser.email]);
@@ -212,6 +222,19 @@ class ApiController {
             String url = ApiRoutes.REZERVACIJE_DODAJ;
             Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
             String json = '{"trajanjeOd": "$datumOd", "trajanjeDo": "$datumDo", "avtokamp": $avtokampId, "kampirnoMesto": $kampirnoMestoId, "vrstaKampiranja": $vrstaKampiranjaid, "uporabnik": $uporabnikId, "statusRezervacije": 1}';
+            Response response = await post(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> addAvtokamp(String naziv, String nazivLokacije, String naslovKampa, String telefon, String opis, int regija) async {
+        try {
+            String url = ApiRoutes.AVTOKAMP;
+            Map<String, String> headers = {"Content-type": "application/json", "Authorization": "Bearer ${globals.jwtToken}"};
+            String json = '{"naziv": "$naziv", "nazivLokacije": "$nazivLokacije", "naslov": "$naslovKampa", "telefon": "$telefon", "opis": "$opis", "regija": $regija}';
+            print("JSON: $json");
             Response response = await post(url, headers: headers, body: json);
             return response;
         } catch (e) {

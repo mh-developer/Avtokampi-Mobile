@@ -21,7 +21,7 @@ class Mnenje {
         m.ocena = json['ocena'];
         m.createdAt = json['createdAt'];
         m.updatedAt = json['updatedAt'];
-        m.avtokamp = json['uporabnik'];
+        m.uporabnik = json['uporabnik'];
         m.avtokamp = json['avtokamp'];
         return m;
     }

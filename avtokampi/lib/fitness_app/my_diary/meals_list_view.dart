@@ -2,6 +2,7 @@ import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
 import 'package:best_flutter_ui_templates/fitness_app/models/meals_list_data.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 
 import '../../main.dart';
 
@@ -98,6 +99,38 @@ class MealsView extends StatelessWidget {
     final AnimationController animationController;
     final Animation<dynamic> animation;
 
+    Future<void> _ackAlert(BuildContext context, String mnenje) {
+        return showDialog(
+            context: context,
+            builder: (_) =>
+                NetworkGiffyDialog(
+                    key: Key("Network"),
+                    image: Image.network(
+                        "https://i.gifer.com/7N3o.gif",
+                        fit: BoxFit.cover,
+                    ),
+                    entryAnimation: EntryAnimation.BOTTOM,
+                    buttonOkText: Text("Ok"),
+                    buttonCancelText: Text("Nazaj"),
+                    title: Text(
+                        'MNENJE',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 22.0, fontWeight: FontWeight.w600),
+                    ),
+                    description: Text(
+                        mnenje,
+                        textAlign: TextAlign.center,
+                    ),
+                    onOkButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                    onCancelButtonPressed: () {
+                        Navigator.of(context).pop();
+                    },
+                ));
+    }
+
     @override
     Widget build(BuildContext context) {
         return AnimatedBuilder(
@@ -118,7 +151,7 @@ class MealsView extends StatelessWidget {
                                             left: 8,
                                             right: 8,
                                             bottom: 16),
-                                        child: Container(
+                                        child: InkWell(child: Container(
                                             decoration: BoxDecoration(
                                                 boxShadow: <BoxShadow>[
                                                     BoxShadow(
@@ -195,10 +228,7 @@ class MealsView extends StatelessWidget {
                                                                     children: <
                                                                         Widget>[
                                                                         Text(
-                                                                            mealsListData
-                                                                                .meals
-                                                                                .join(
-                                                                                '\n'),
+                                                                            "Klikni za ogled",
                                                                             style: TextStyle(
                                                                                 fontFamily: FintnessAppTheme
                                                                                     .fontName,
@@ -222,9 +252,10 @@ class MealsView extends StatelessWidget {
                                                                 .end,
                                                             children: <Widget>[
                                                                 Text(
-                                                                    mealsListData
-                                                                        .kacl
-                                                                        .toString(),
+                                                                    "Ocena: " +
+                                                                        mealsListData
+                                                                            .kacl
+                                                                            .toString(),
                                                                     textAlign: TextAlign
                                                                         .center,
                                                                     style: TextStyle(
@@ -232,70 +263,62 @@ class MealsView extends StatelessWidget {
                                                                             .fontName,
                                                                         fontWeight: FontWeight
                                                                             .w500,
-                                                                        fontSize: 24,
+                                                                        fontSize: 15,
                                                                         letterSpacing: 0.2,
                                                                         color: FintnessAppTheme
                                                                             .white,
                                                                     ),
                                                                 ),
-                                                                Padding(
-                                                                    padding: const EdgeInsets
-                                                                        .only(
-                                                                        left: 4,
-                                                                        bottom: 3),
-                                                                    child: Text(
-                                                                        'kcal',
-                                                                        style: TextStyle(
-                                                                            fontFamily:
-                                                                            FintnessAppTheme
-                                                                                .fontName,
-                                                                            fontWeight: FontWeight
-                                                                                .w500,
-                                                                            fontSize: 10,
-                                                                            letterSpacing: 0.2,
-                                                                            color: FintnessAppTheme
-                                                                                .white,
-                                                                        ),
-                                                                    ),
-                                                                ),
                                                             ],
                                                         )
-                                                            : Container(
-                                                            decoration: BoxDecoration(
-                                                                color: FintnessAppTheme
-                                                                    .nearlyWhite,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                boxShadow: <
-                                                                    BoxShadow>[
-                                                                    BoxShadow(
-                                                                        color: FintnessAppTheme
-                                                                            .nearlyBlack
-                                                                            .withOpacity(
-                                                                            0.4),
-                                                                        offset: Offset(
-                                                                            8.0,
-                                                                            8.0),
-                                                                        blurRadius: 8.0),
-                                                                ],
-                                                            ),
-                                                            child: Padding(
-                                                                padding: const EdgeInsets
-                                                                    .all(6.0),
-                                                                child: Icon(
-                                                                    Icons.add,
-                                                                    color: HexColor(
-                                                                        mealsListData
-                                                                            .endColor),
-                                                                    size: 24,
+                                                            : InkWell(
+                                                            child: Container(
+                                                                decoration: BoxDecoration(
+                                                                    color: FintnessAppTheme
+                                                                        .nearlyWhite,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                    boxShadow: <
+                                                                        BoxShadow>[
+                                                                        BoxShadow(
+                                                                            color: FintnessAppTheme
+                                                                                .nearlyBlack
+                                                                                .withOpacity(
+                                                                                0.4),
+                                                                            offset: Offset(
+                                                                                8.0,
+                                                                                8.0),
+                                                                            blurRadius: 8.0),
+                                                                    ],
                                                                 ),
-                                                            ),
-                                                        ),
+                                                                child: Padding(
+                                                                    padding: const EdgeInsets
+                                                                        .all(
+                                                                        6.0),
+                                                                    child: Icon(
+                                                                        Icons
+                                                                            .add,
+                                                                        color: HexColor(
+                                                                            mealsListData
+                                                                                .endColor),
+                                                                        size: 24,
+                                                                    ),
+                                                                ),
+                                                            ), onTap: () {
+                                                            _ackAlert(context,
+                                                                mealsListData
+                                                                    .meals);
+                                                        },),
                                                     ],
                                                 ),
                                             ),
                                         ),
-                                    ),
+                                            onDoubleTap: () {
+                                                _ackAlert(context,
+                                                    mealsListData
+                                                        .meals);
+                                            },
+                                        )),
                                     Positioned(
                                         top: 0,
                                         left: 0,

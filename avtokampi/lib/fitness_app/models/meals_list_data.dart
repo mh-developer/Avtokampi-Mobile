@@ -16,7 +16,7 @@ class MealsListData {
     String titleTxt;
     String startColor;
     String endColor;
-    List<String> meals;
+    String meals;
     int kacl;
 
     static Avtokamp getKampById(int kampId) {
@@ -35,13 +35,10 @@ class MealsListData {
                     imagePath: 'assets/images/mnenje_list_ikona.png',
                     titleTxt: getKampById(m.avtokamp).naziv,
                     kacl: m.ocena,
-                    meals: <String>[m.mnenje],
-                    startColor: '#FE95B6',
-                    endColor: '#FF5287',));
+                    meals: m.mnenje,
+                    startColor: '#6F72CA',
+                    endColor: '#1E1466',));
             }
-        }
-        if (mnenja.length == 0) {
-            return tabIconsList;
         }
         return mnenja;
     }
@@ -51,7 +48,7 @@ class MealsListData {
             imagePath: 'assets/fitness_app/breakfast.png',
             titleTxt: 'Breakfast',
             kacl: 525,
-            meals: <String>['Bread,', 'Peanut butter,', 'Apple'],
+            meals: 'Bread',
             startColor: '#FA7D82',
             endColor: '#FFB295',
         ),
@@ -59,7 +56,7 @@ class MealsListData {
             imagePath: 'assets/fitness_app/lunch.png',
             titleTxt: 'Lunch',
             kacl: 602,
-            meals: <String>['Salmon,', 'Mixed veggies,', 'Avocado'],
+            meals: 'Salmon,',
             startColor: '#738AE6',
             endColor: '#5C5EDD',
         ),
@@ -67,7 +64,7 @@ class MealsListData {
             imagePath: 'assets/fitness_app/snack.png',
             titleTxt: 'Snack',
             kacl: 0,
-            meals: <String>['Recommend:', '800 kcal'],
+            meals: 'Recommend:',
             startColor: '#FE95B6',
             endColor: '#FF5287',
         ),
@@ -75,7 +72,7 @@ class MealsListData {
             imagePath: 'assets/fitness_app/dinner.png',
             titleTxt: 'Dinner',
             kacl: 0,
-            meals: <String>['Recommend:', '703 kcal'],
+            meals: 'Recommend:',
             startColor: '#6F72CA',
             endColor: '#1E1466',
         ),

@@ -40,7 +40,7 @@ class ApiDataGetter {
             getMnenja();
             getSlike();
             getKampirnaMesta();
-            getStoritve();
+            //getStoritveKampa();
         });
     }
 
@@ -219,6 +219,19 @@ class ApiDataGetter {
     }
 
     getStoritve() {
+        Response response;
+        apiController.getStoritve().then((apiResponse) {
+            response = apiResponse;
+        }).whenComplete(() {
+            if (response.statusCode == 200) {
+                Iterable l = json.decode(response.body);
+                globals.storitve = l.map((model) => Storitev.fromJson(model)).toList();
+            }
+            print("Storitve: ${globals.storitve.toString()}");
+        });
+    }
+
+    getStoritveKampa() {
         for (Avtokamp avtokamp in globals.avtokampi) {
             Response response;
             apiController.getStoritveForKamp(avtokamp.id).then((apiResponse) {
@@ -303,7 +316,7 @@ class ApiDataGetter {
             await getRezervacije();
             //await getSlike();
             await getStatusiRezervacij();
-            //await getStoritve();
+            await getStoritve();
             //await getStoritveKampirnihMest();
             await getVrsteKampiranj();
             globals.dataLoaded = true;

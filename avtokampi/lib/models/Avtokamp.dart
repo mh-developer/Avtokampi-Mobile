@@ -19,6 +19,8 @@ class Avtokamp {
         this.nazivLokacije, this.koordinataX, this.koordinataY, this.isActive,
         this.createdAt, this.updatedAt, this.regija);
 
+    Avtokamp.novi(this.naziv, this.nazivLokacije, this.naslov, this.telefon, this.opis, this.regija);
+
     static Avtokamp fromJson(json) {
         Avtokamp a = new Avtokamp.nov();
         a.id = json['avtokampId'];
