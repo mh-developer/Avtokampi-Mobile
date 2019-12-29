@@ -4,7 +4,7 @@ import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
-import '../model/homelist.dart';
+import 'homelist.dart';
 
 class MyHomePage extends StatefulWidget {
     const MyHomePage({Key key}) : super(key: key);
