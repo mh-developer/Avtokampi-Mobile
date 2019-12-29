@@ -1,13 +1,17 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:best_flutter_ui_templates/models/Cenik.dart';
 import 'package:best_flutter_ui_templates/models/Drzava.dart';
 import 'package:best_flutter_ui_templates/models/Mnenje.dart';
 import 'package:best_flutter_ui_templates/models/Regija.dart';
+import 'package:best_flutter_ui_templates/models/Slika.dart';
 
 class HotelListData {
     HotelListData({
-        this.imagePath = '',
+        this.imagePath,
         this.titleTxt = '',
         this.subTxt = "",
         this.dist = "",
@@ -18,7 +22,7 @@ class HotelListData {
         this.mnenja
     });
 
-    String imagePath;
+    Uint8List imagePath;
     String titleTxt;
     String subTxt;
     String dist;
@@ -27,6 +31,15 @@ class HotelListData {
     int perNight;
     Avtokamp avtokamp;
     List<Mnenje> mnenja;
+
+    static Uint8List getSlikaZaKamp(int kampId) {
+        for (Slika slika in globals.slike) {
+            if (slika.avtokamp == kampId) {
+                return base64Decode(slika.slika);
+            }
+        }
+        return base64Decode(globals.slike[0].slika);
+    }
 
     static List<Cenik> getCenikiZaKamp(int kampId) {
         List<Cenik> cenikiList = [];
@@ -79,7 +92,7 @@ class HotelListData {
                 double povprOcena = l[1];
                 List<Mnenje> mnenja = l[2];
                 avtokampiList.add(HotelListData(
-                    imagePath: 'assets/hotel/hotel_1.png',
+                    imagePath: getSlikaZaKamp(kamp.id),
                     titleTxt: kamp.naziv,
                     subTxt: kamp.nazivLokacije,
                     dist: getDrzavaZaKamp(kamp.regija),
@@ -89,57 +102,55 @@ class HotelListData {
                     avtokamp: kamp,
                     mnenja: mnenja));
             }
-        } else {
-            avtokampiList = hotelList;
         }
         return avtokampiList;
     }
 
-    static List<HotelListData> hotelList = <HotelListData>[
-        HotelListData(
-            imagePath: 'assets/hotel/hotel_1.png',
-            titleTxt: 'Grand Royal Hotel',
-            subTxt: 'Wembley, London',
-            dist: "Hrvaška",
-            reviews: 80,
-            rating: 4.4,
-            perNight: 180,
-        ),
-        HotelListData(
-            imagePath: 'assets/hotel/hotel_2.png',
-            titleTxt: 'Queen Hotel',
-            subTxt: 'Wembley, London',
-            dist: "Hrvaška",
-            reviews: 74,
-            rating: 4.5,
-            perNight: 200,
-        ),
-        HotelListData(
-            imagePath: 'assets/hotel/hotel_3.png',
-            titleTxt: 'Grand Royal Hotel',
-            subTxt: 'Wembley, London',
-            dist: "Hrvaška",
-            reviews: 62,
-            rating: 4.0,
-            perNight: 60,
-        ),
-        HotelListData(
-            imagePath: 'assets/hotel/hotel_4.png',
-            titleTxt: 'Queen Hotel',
-            subTxt: 'Wembley, London',
-            dist: "Hrvaška",
-            reviews: 90,
-            rating: 4.4,
-            perNight: 170,
-        ),
-        HotelListData(
-            imagePath: 'assets/hotel/hotel_5.png',
-            titleTxt: 'Grand Royal Hotel',
-            subTxt: 'Wembley, London',
-            dist: "Hrvaška",
-            reviews: 240,
-            rating: 4.5,
-            perNight: 200,
-        ),
-    ];
+//    static List<HotelListData> hotelList = <HotelListData>[
+//        HotelListData(
+//            imagePath: 'assets/hotel/hotel_1.png',
+//            titleTxt: 'Grand Royal Hotel',
+//            subTxt: 'Wembley, London',
+//            dist: "Hrvaška",
+//            reviews: 80,
+//            rating: 4.4,
+//            perNight: 180,
+//        ),
+//        HotelListData(
+//            imagePath: 'assets/hotel/hotel_2.png',
+//            titleTxt: 'Queen Hotel',
+//            subTxt: 'Wembley, London',
+//            dist: "Hrvaška",
+//            reviews: 74,
+//            rating: 4.5,
+//            perNight: 200,
+//        ),
+//        HotelListData(
+//            imagePath: 'assets/hotel/hotel_3.png',
+//            titleTxt: 'Grand Royal Hotel',
+//            subTxt: 'Wembley, London',
+//            dist: "Hrvaška",
+//            reviews: 62,
+//            rating: 4.0,
+//            perNight: 60,
+//        ),
+//        HotelListData(
+//            imagePath: 'assets/hotel/hotel_4.png',
+//            titleTxt: 'Queen Hotel',
+//            subTxt: 'Wembley, London',
+//            dist: "Hrvaška",
+//            reviews: 90,
+//            rating: 4.4,
+//            perNight: 170,
+//        ),
+//        HotelListData(
+//            imagePath: 'assets/hotel/hotel_5.png',
+//            titleTxt: 'Grand Royal Hotel',
+//            subTxt: 'Wembley, London',
+//            dist: "Hrvaška",
+//            reviews: 240,
+//            rating: 4.5,
+//            perNight: 200,
+//        ),
+//    ];
 }
