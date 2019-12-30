@@ -1,4 +1,4 @@
-name: Build and release iOS artifact
+name: Build and release iOS ipa artifact
 
 on: [push] 
 
@@ -41,12 +41,30 @@ jobs:
       - name: Rename payload zip archive to ipa archive
         run: mv Payload.zip Payload.ipa
       
+      - name: Remove old ipa files
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: rm -rf ~/ipa-debug/*
+
+      - name: Copy new ipa file via ssh (uses password)
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "Payload.ipa"
+          target: "~/ipa-debug/"
+      
       - name: Create an iOS prerelease
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "ios-latest"
           prerelease: true
-          title: "iOS prerelease"
+          title: "iOS IPA prerelease"
           files: "Payload.ipa"
-
