@@ -58,7 +58,7 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "landroid-atest"
           prerelease: true
-          title: "APK prerelease"
+          title: "Android prerelease"
           files: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
