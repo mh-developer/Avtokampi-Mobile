@@ -13,7 +13,7 @@ class PopularFilterListData {
             isSelected: false,
         ),
         PopularFilterListData(
-            titleTxt: 'Živalim prijazno',
+            titleTxt: 'Živali',
             isSelected: false,
         ),
         PopularFilterListData(
@@ -21,7 +21,7 @@ class PopularFilterListData {
             isSelected: true,
         ),
         PopularFilterListData(
-            titleTxt: 'Športne površine',
+            titleTxt: 'Šport',
             isSelected: false,
         ),
         PopularFilterListData(

@@ -319,7 +319,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                                                                         left: 8,
                                                                                                         bottom: 3),
                                                                                                     child: Text(
-                                                                                                        '(rezerviranih)',
+                                                                                                        '',
                                                                                                         textAlign: TextAlign
                                                                                                             .center,
                                                                                                         style: TextStyle(

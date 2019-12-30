@@ -251,7 +251,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                     style: TextStyle(
                                                                         fontWeight: FontWeight
                                                                             .w200,
-                                                                        fontSize: 22,
+                                                                        fontSize: 17,
                                                                         letterSpacing: 0.27,
                                                                         color: DesignCourseAppTheme
                                                                             .nearlyBlue,
@@ -271,7 +271,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                                 style: TextStyle(
                                                                                     fontWeight: FontWeight
                                                                                         .w200,
-                                                                                    fontSize: 22,
+                                                                                    fontSize: 17,
                                                                                     letterSpacing: 0.27,
                                                                                     color: DesignCourseAppTheme
                                                                                         .grey,
@@ -282,7 +282,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                                                     .star,
                                                                                 color: DesignCourseAppTheme
                                                                                     .nearlyBlue,
-                                                                                size: 24,
+                                                                                size: 18,
                                                                             ),
                                                                         ],
                                                                     ),
@@ -296,7 +296,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                                         opacity: opacity1,
                                                         child: Padding(
                                                             padding: const EdgeInsets
-                                                                .all(8),
+                                                                .all(4),
                                                             child: Row(
                                                                 children: <
                                                                     Widget>[
@@ -557,7 +557,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
 
     Widget getTimeBoxUI(String text1, String txt2) {
         return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4.0),
             child: Container(
                 decoration: BoxDecoration(
                     color: DesignCourseAppTheme.nearlyWhite,

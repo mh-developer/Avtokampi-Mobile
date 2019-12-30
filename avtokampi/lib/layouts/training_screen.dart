@@ -1,6 +1,11 @@
+import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/running_view.dart';
 import 'package:best_flutter_ui_templates/layouts/title_view.dart';
 import 'package:best_flutter_ui_templates/layouts/workout_view.dart';
+import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
+import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
+import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
 import 'package:flutter/material.dart';
 
 import '../layouts/fintness_app_theme.dart';
@@ -21,9 +26,11 @@ class _TrainingScreenState extends State<TrainingScreen>
     List<Widget> listViews = <Widget>[];
     final ScrollController scrollController = ScrollController();
     double topBarOpacity = 0.0;
+    //List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
 
     @override
     void initState() {
+        //storitveKampirnihMest = getStoritveZaUporabnika();
         topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController,
@@ -83,6 +90,19 @@ class _TrainingScreenState extends State<TrainingScreen>
             ),
         );
         listViews.add(
+            TitleView(
+                titleTxt: 'Prijave na storitve',
+                subTxt: 'Več',
+                animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+                    CurvedAnimation(
+                        parent: widget.animationController,
+                        curve:
+                        Interval((1 / count) * 0, 1.0,
+                            curve: Curves.fastOutSlowIn))),
+                animationController: widget.animationController,
+            ),
+        );
+        listViews.add(
             RunningView(
                 animation: Tween<double>(begin: 0.0, end: 1.0).animate(
                     CurvedAnimation(
@@ -93,6 +113,62 @@ class _TrainingScreenState extends State<TrainingScreen>
                 animationController: widget.animationController,
             ),
         );
+//        listViews.add(ListView.builder(
+//            padding: const EdgeInsets.all(4),
+//            itemCount: storitveKampirnihMest.length,
+//            itemBuilder: (BuildContext context, int index) {
+//                return Container(
+//                    height: 50,
+//                    color: Colors.deepOrange,
+//                    child: Center(child: Text('Avtokamp: ${getKampById(
+//                        getKampirnoMestoById(
+//                            storitveKampirnihMest[index].kampirnoMesto)
+//                            .avtokamp)
+//                        .naziv}, Kampirno mesto:${getKampirnoMestoById(
+//                        storitveKampirnihMest[index].kampirnoMesto)
+//                        .naziv}, Storitev ${storitveKampirnihMest[index]}',
+//                        style: TextStyle(fontSize: 10),)),
+//                );
+//            }
+//        ));
+    }
+
+    List<StoritevKampirnegaMesta> getStoritveZaUporabnika() {
+        List<int> kampirnaMesta = getRezerviranaKampirnaMestaZaUporabnika();
+        List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
+        for (StoritevKampirnegaMesta storitevKampirnegaMesta in globals
+            .storitveKampirnihMest) {
+            if (kampirnaMesta.contains(storitevKampirnegaMesta.kampirnoMesto)) {
+                storitveKampirnihMest.add(storitevKampirnegaMesta);
+            }
+        }
+        return storitveKampirnihMest;
+    }
+
+    KampirnoMesto getKampirnoMestoById(mestoId) {
+        for (KampirnoMesto kampirnoMesto in globals.kampirnaMesta) {
+            if (kampirnoMesto.id == mestoId) {
+                return kampirnoMesto;
+            }
+        }
+    }
+
+    Avtokamp getKampById(int kampId) {
+        for (Avtokamp avtokamp in globals.avtokampi) {
+            if (avtokamp.id == kampId) {
+                return avtokamp;
+            }
+        }
+    }
+
+    List<int> getRezerviranaKampirnaMestaZaUporabnika() {
+        List<int> kampirnaMesta = [];
+        for (Rezervacija r in globals.rezervacije) {
+            if (r.uporabnik == globals.currentUser.id) {
+                kampirnaMesta.add(r.kampirnoMesto);
+            }
+        }
+        return kampirnaMesta;
     }
 
     Future<bool> getData() async {

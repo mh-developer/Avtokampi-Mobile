@@ -341,7 +341,7 @@ class HotelListView extends StatelessWidget {
                                                                                                             .primaryColor,
                                                                                                     ),
                                                                                                     Text(
-                                                                                                        '    Število mnenj: ${hotelData
+                                                                                                        '   Mnenj: ${hotelData
                                                                                                             .reviews
                                                                                                             .toString()}',
                                                                                                         style: TextStyle(

@@ -583,7 +583,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                     child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                            'Število najdenih kampov: ${hotelList
+                                            'Najdenih kampov: ${hotelList
                                                 .length}',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w100,

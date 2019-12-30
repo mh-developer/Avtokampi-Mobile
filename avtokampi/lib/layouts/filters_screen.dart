@@ -17,7 +17,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     List<PopularFilterListData> accomodationListData =
         PopularFilterListData.accomodationList;
 
-    RangeValues _values = const RangeValues(100, 600);
+    RangeValues _values = const RangeValues(10, 60);
     double distValue = 50.0;
 
     @override

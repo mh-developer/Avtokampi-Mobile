@@ -43,13 +43,6 @@ class _AvtokampiMapState extends State<AvtokampiMap> {
 
     getData() async {
         try {
-            BitmapDescriptor myIcon;
-            await BitmapDescriptor.fromAssetImage(
-                ImageConfiguration(size: Size(12, 12)),
-                'assets/images/ikona.png')
-                .then((onValue) {
-                myIcon = onValue;
-            });
             List<Marker> _markers = [];
             for (Avtokamp a in globals.avtokampi) {
                 LatLng latLngMarker = LatLng(
@@ -58,7 +51,7 @@ class _AvtokampiMapState extends State<AvtokampiMap> {
                 _markers.add(Marker(
                     markerId: MarkerId("marker${a.id}"),
                     position: latLngMarker,
-                    icon: myIcon,
+                    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
                     infoWindow: InfoWindow(
                         title: a.naziv.toString(),
                     ),));
