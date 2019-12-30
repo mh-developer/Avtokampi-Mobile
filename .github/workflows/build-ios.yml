@@ -46,8 +46,8 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           command: rm -rf ~/ipa-debug/*
           
       - name: Copy new ipa file via ssh (uses password)
