@@ -33,7 +33,7 @@ jobs:
         run: mkdir Payload
       
       - name: Copy Runner.app directory to Payload folder
-        run: cp "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app" Payload
+        run: cp -R "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app" Payload
       
       - name: Compress Payload to zip
         run: zip -r Payload.zip Payload
