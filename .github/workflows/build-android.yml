@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build and release Android apk artifact
 
 on: [push] 
 
@@ -58,7 +58,7 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "landroid-atest"
+          automatic_release_tag: "android-latest"
           prerelease: true
-          title: "Android prerelease"
+          title: "Android APK prerelease"
           files: "avtokampi/build/app/outputs/apk/debug/app-debug.apk"
