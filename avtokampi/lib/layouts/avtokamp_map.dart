@@ -46,13 +46,28 @@ class _AvtokampMapState extends State<AvtokampMap> {
 
     getData() async {
         try {
+            BitmapDescriptor myIcon;
+            await BitmapDescriptor.fromAssetImage(
+                ImageConfiguration(size: Size(12, 12)),
+                'assets/images/ikona.png')
+                .then((onValue) {
+                myIcon = onValue;
+            });
             List<Marker> _markers = [];
             LatLng latLngMarker = LatLng(
-                double.parse(avtokamp.koordinataX.toString()),
-                double.parse(avtokamp.koordinataY.toString()));
+                45.815399, 15.966568
+            );
+            try {
+                latLngMarker = LatLng(
+                    double.parse(avtokamp.koordinataX.toString()),
+                    double.parse(avtokamp.koordinataY.toString()));
+            } catch (e) {
+                print(e.toString());
+            }
             _markers.add(Marker(
                 markerId: MarkerId("marker${avtokamp.id}"),
                 position: latLngMarker,
+                icon: myIcon,
                 infoWindow: InfoWindow(
                     title: avtokamp.naziv.toString(),
                 ),));

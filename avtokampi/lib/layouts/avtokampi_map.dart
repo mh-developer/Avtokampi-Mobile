@@ -46,12 +46,18 @@ class _AvtokampiMapState extends State<AvtokampiMap> {
             List<Marker> _markers = [];
             for (Avtokamp a in globals.avtokampi) {
                 LatLng latLngMarker = LatLng(
-                    double.parse(a.koordinataX.toString()),
-                    double.parse(a.koordinataY.toString()));
+                    45.815399, 15.966568
+                );
+                try {
+                    latLngMarker = LatLng(
+                        double.parse(a.koordinataX.toString()),
+                        double.parse(a.koordinataY.toString()));
+                } catch (e) {
+                    print(e.toString());
+                }
                 _markers.add(Marker(
                     markerId: MarkerId("marker${a.id}"),
                     position: latLngMarker,
-                    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
                     infoWindow: InfoWindow(
                         title: a.naziv.toString(),
                     ),));
