@@ -29,6 +29,15 @@ jobs:
         run: flutter build ios --debug --no-codesign
         working-directory: avtokampi
       
+      - name: ls
+        run: ls -l "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos"
+        
+      - name: as
+        run: xcodebuild -workspace avtokampi/ios/Runner.xcworkspace -scheme Runner -sdk iphoneos -configuration Release archive -archivePath /Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app/Runner.xcarchive
+      
+      - name: lala
+        run: xcodebuild -exportArchive -archivePath /Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app/Runner.xcarchive -exportOptionsPlist exportOptions.plist -exportPath /Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/Runner.ipa
+      
       - name: Create an iOS prerelease
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -36,5 +45,5 @@ jobs:
           automatic_release_tag: "ios-latest"
           prerelease: true
           title: "iOS prerelease"
-          files: "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos"
+          files: "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app"
 
