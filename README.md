@@ -25,10 +25,10 @@ following:
 - Install and configure your Android Emulator
 - [Editor setup](https://flutter.dev/docs/get-started/editor)
 
-## Installation and running the APK
+## Installation and running the APK/IPA
 
-To install the app directly to your mobile device go to repository releases and download
-the latest (pre)release APK file and then install it on your mobile phone (if the apk installation
+To install the app directly to your Android mobile device or Iphone go to repository releases and download
+the latest (pre)release APK/IPA file and then install it on your mobile phone (if the apk installation
 fails switch to airplane mode and then try installing it again).
 
 ## Purpose of the app
