@@ -36,5 +36,5 @@ jobs:
           automatic_release_tag: "ios-latest"
           prerelease: true
           title: "iOS prerelease"
-          files: "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos/Runner.app"
+          files: "/Users/runner/runners/2.163.1/work/Avtokampi-Mobile/Avtokampi-Mobile/avtokampi/build/ios/iphoneos"
 
