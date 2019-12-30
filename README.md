@@ -1,7 +1,5 @@
 # Mobile app for camping
 
-[Camping Logo](https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/images/ikona.png?raw=true)
-
 <p align="center">
   <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/images/ikona.png?raw=true"/>
 </p>
@@ -11,10 +9,10 @@ This is a mobile camping app written in Flutter and Dart for a school term paper
 Table of contents
 =================
 
-[Prerequisites](#prerequisites)
-[Installation and running the APK](#installation-and-running-the-apk)
-[Purpose of the app](#purpose-of-the-app)
-[Gallery of screenshots](#application-screenshots)
+- [Prerequisites](#prerequisites)
+- [Installation and running the APK](#installation-and-running-the-apk)
+- [Purpose of the app](#purpose-of-the-app)
+- [Gallery of screenshots](#application-screenshots)
 
 ## Prerequisites
 
@@ -25,7 +23,7 @@ following:
 - [Flutter and Dart](https://flutter.dev/docs/get-started/install)
 - Dart and Flutter plugins in Android Studio
 - Install and configure your Android Emulator
-- [Editor setup]((https://flutter.dev/docs/get-started/editor))
+- [Editor setup](https://flutter.dev/docs/get-started/editor)
 
 ## Installation and running the APK
 
