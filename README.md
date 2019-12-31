@@ -13,6 +13,7 @@ Table of contents
 - [Installation and running the APK](#installation-and-running-the-apk)
 - [Purpose of the app](#purpose-of-the-app)
 - [Gallery of screenshots](#application-screenshots)
+- [Live presentation](#live-presentation-using-scrcpy)
 
 ## Prerequisites
 
@@ -25,11 +26,16 @@ following:
 - Install and configure your Android Emulator
 - [Editor setup](https://flutter.dev/docs/get-started/editor)
 
+If there are some problems with running the app you should check if every installation was done successfully.
+You can do that by running `flutter doctor`. If the problem persists try running `flutter clean`. 
+To generate an apk by yourself run `flutter build apk` and for ipa file `flutter build ios` (works only on Mac with Xcode).
+
 ## Installation and running the APK/IPA
 
-To install the app directly to your Android mobile device or Iphone go to repository releases and download
-the latest (pre)release APK/IPA file and then install it on your mobile phone (if the apk installation
-fails switch to airplane mode and then try installing it again).
+Building of the artifacts is handled by two Github Action workflows - one for Android and one for iOS. 
+To install the app directly to your Android mobile  device or Iphone go to repository releases and 
+download the latest (pre)release APK/IPA file and then  install it on your mobile phone (if the apk 
+installation fails switch to airplane mode and then try installing it again).
 
 ## Purpose of the app
 
@@ -78,3 +84,8 @@ Below you can see some application screenshots (taken on Pixel 3a API 28 emulato
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/27.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/28.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/29.png?raw=true" width="23%"></img> 
+
+## Live Presentation using `scrcpy`
+
+To present the Android App via PC, you can use [scrcpy](https://github.com/Genymobile/scrcpy) application
+that runs on Linux, Windows and Mac.

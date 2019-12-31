@@ -23,6 +23,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
     AnimationController animationController;
     List<HotelListData> hotelList = [];
     final ScrollController _scrollController = ScrollController();
+    String filter = "";
 
     DateTime startDate = DateTime.now();
     DateTime endDate = DateTime.now().add(const Duration(days: 5));
@@ -204,12 +205,26 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                                                             .fastOutSlowIn)));
                                                             animationController
                                                                 .forward();
-                                                            return HotelListView(
+                                                            return filter ==
+                                                                null ||
+                                                                filter == ""
+                                                                ? HotelListView(
                                                                 callback: () {},
                                                                 hotelData: hotelList[index],
                                                                 animation: animation,
                                                                 animationController: animationController,
-                                                            );
+                                                            )
+                                                                : hotelList[index]
+                                                                .titleTxt
+                                                                .contains(
+                                                                filter)
+                                                                ? HotelListView(
+                                                                callback: () {},
+                                                                hotelData: hotelList[index],
+                                                                animation: animation,
+                                                                animationController: animationController,
+                                                            )
+                                                                : new Container();
                                                         },
                                                     ),
                                                 ),
@@ -490,7 +505,11 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                     padding: const EdgeInsets.only(
                                         left: 16, right: 16, top: 4, bottom: 4),
                                     child: TextField(
-                                        onChanged: (String txt) {},
+                                        onChanged: (String txt) {
+                                            setState(() {
+                                                filter = txt;
+                                            });
+                                        },
                                         style: const TextStyle(
                                             fontSize: 18,
                                         ),
