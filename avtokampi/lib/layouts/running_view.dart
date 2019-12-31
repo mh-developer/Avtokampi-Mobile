@@ -1,4 +1,5 @@
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
+import 'package:best_flutter_ui_templates/layouts/narocene_storitve_list.dart';
 import 'package:best_flutter_ui_templates/layouts/storitve_forma.dart';
 import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
 import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
@@ -175,6 +176,16 @@ class RunningView extends StatelessWidget {
                                                             builder: (
                                                                 BuildContext context) =>
                                                                 StoritveForm(),
+                                                        ),
+                                                    );
+                                                }, onDoubleTap: () {
+                                                    Navigator.push<dynamic>(
+                                                        context,
+                                                        MaterialPageRoute<
+                                                            dynamic>(
+                                                            builder: (
+                                                                BuildContext context) =>
+                                                                NaroceneStoritveList(),
                                                         ),
                                                     );
                                                 },),

@@ -26,6 +26,7 @@ class _TrainingScreenState extends State<TrainingScreen>
     List<Widget> listViews = <Widget>[];
     final ScrollController scrollController = ScrollController();
     double topBarOpacity = 0.0;
+
     //List<StoritevKampirnegaMesta> storitveKampirnihMest = [];
 
     @override

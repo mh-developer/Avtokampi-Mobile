@@ -1,6 +1,5 @@
 import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
 import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
 import 'package:best_flutter_ui_templates/models/Storitev.dart';
@@ -35,7 +34,6 @@ class StoritveForm extends StatefulWidget {
 class _StoritveFormState extends State<StoritveForm> {
     final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
-    Avtokamp izbraniKamp = globals.avtokampi[0];
     KampirnoMesto izbranoKampirnoMesto = getRezerviranaKampirnaMestaZaUporabnikaStaticna()[0];
     Storitev izbranaStoritev = globals.storitve[0];
 
@@ -198,8 +196,6 @@ class _StoritveFormState extends State<StoritveForm> {
                                                     setState(() {
                                                         izbranoKampirnoMesto =
                                                             newValue;
-                                                        izbranaStoritev =
-                                                        globals.storitve[0];
                                                         state.didChange(
                                                             newValue);
                                                     });
