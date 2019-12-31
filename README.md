@@ -41,6 +41,7 @@ provide the following activities:
 - view of camps on Google Maps
 - reservation of camps and camping spaces
 - application to different activities inside the camp
+- list of applications for camping activities
 - adding your personal opinion based on your stay in camps
 - user statistics (view your reservations and opinions)
 - adding a new camp for camping owners
