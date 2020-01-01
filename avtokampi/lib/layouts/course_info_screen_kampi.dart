@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:best_flutter_ui_templates/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/layouts/avtokamp_map.dart';
 import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
 import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
 import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
+import 'package:best_flutter_ui_templates/models/Slika.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 
@@ -33,6 +37,9 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
 
     HotelListData avtokampElement;
     Avtokamp avtokamp;
+    List<Uint8List> slike = [];
+    Image slika;
+    int indeksSlike = 0;
 
     _CourseInfoScreenState();
 
@@ -115,6 +122,19 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                 ));
     }
 
+    List<Uint8List> getSlikeZaKamp(int kampId) {
+        List<Uint8List> slike = [];
+        for (Slika slika in globals.slike) {
+            if (slika.avtokamp == kampId) {
+                slike.add(base64Decode(slika.slika));
+            }
+        }
+        if (slike.isEmpty) {
+            slike.add(base64Decode(globals.slike[0].slika));
+        }
+        return slike;
+    }
+
     @override
     void initState() {
         animationController = AnimationController(
@@ -123,6 +143,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
             parent: animationController,
             curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
         setData();
+        slika = Image.memory(avtokampElement.imagePath);
+        slike = getSlikeZaKamp(avtokamp.id);
         super.initState();
     }
 
@@ -161,11 +183,21 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                     children: <Widget>[
                         Column(
                             children: <Widget>[
-                                AspectRatio(
+                                InkWell(child: AspectRatio(
                                     aspectRatio: 1.2,
-                                    child: Image.memory(
-                                        avtokampElement.imagePath),
+                                    child: slika,
                                 ),
+                                    onTap: () {
+                                        setState(() {
+                                            if (slike.length > 1) {
+                                                print("lalal");
+                                                indeksSlike++;
+                                                slika = Image.memory(
+                                                    slike[indeksSlike %
+                                                        slike.length]);
+                                            }
+                                        });
+                                    },)
                             ],
                         ),
                         Positioned(
