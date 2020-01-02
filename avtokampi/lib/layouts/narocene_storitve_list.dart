@@ -1,8 +1,8 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/storitve_forma.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/Storitev.dart';
-import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/storitve_forma.dart';
+import 'package:avtokampi/models/KampirnoMesto.dart';
+import 'package:avtokampi/models/Storitev.dart';
+import 'package:avtokampi/models/StoritevKampirnegaMesta.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

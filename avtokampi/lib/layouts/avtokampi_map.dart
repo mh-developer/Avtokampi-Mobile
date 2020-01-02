@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/Avtokamp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 

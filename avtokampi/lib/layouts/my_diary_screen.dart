@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/layouts/fintness_app_theme.dart';
-import 'package:best_flutter_ui_templates/layouts/meals_list_view.dart';
-import 'package:best_flutter_ui_templates/layouts/mediterranesn_diet_view.dart';
-import 'package:best_flutter_ui_templates/layouts/title_view.dart';
+import 'package:avtokampi/layouts/fintness_app_theme.dart';
+import 'package:avtokampi/layouts/meals_list_view.dart';
+import 'package:avtokampi/layouts/mediterranesn_diet_view.dart';
+import 'package:avtokampi/layouts/title_view.dart';
 import 'package:flutter/material.dart';
 
 class MyDiaryScreen extends StatefulWidget {

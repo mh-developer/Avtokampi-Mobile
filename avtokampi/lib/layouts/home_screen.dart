@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/controllers/api_data_getter.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
+import 'package:avtokampi/app_theme.dart';
+import 'package:avtokampi/controllers/api_data_getter.dart';
+import 'package:avtokampi/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 

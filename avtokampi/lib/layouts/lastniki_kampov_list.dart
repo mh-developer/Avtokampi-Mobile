@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/spremeni_kamp_forma.dart';
+import 'package:avtokampi/controllers/api_controller.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/spremeni_kamp_forma.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';

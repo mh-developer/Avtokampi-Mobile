@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/controllers/api_routes.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
+import 'package:avtokampi/controllers/api_routes.dart';
+import 'package:avtokampi/globals.dart' as globals;
 import 'package:http/http.dart';
 import 'package:sprintf/sprintf.dart';
 

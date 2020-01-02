@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/layouts/category_kampirno_mesto.dart';
-import 'package:best_flutter_ui_templates/layouts/course_info_screen_kampi.dart';
-import 'package:best_flutter_ui_templates/layouts/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
-import 'package:best_flutter_ui_templates/main.dart';
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
+import 'package:avtokampi/layouts/category_kampirno_mesto.dart';
+import 'package:avtokampi/layouts/course_info_screen_kampi.dart';
+import 'package:avtokampi/layouts/design_course_app_theme.dart';
+import 'package:avtokampi/layouts/hotel_list_data.dart';
+import 'package:avtokampi/main.dart';
+import 'package:avtokampi/models/Avtokamp.dart';
 import 'package:flutter/material.dart';
 
 class PopularCourseListView extends StatefulWidget {

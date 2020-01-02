@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/layouts/tabIcon_data.dart';
-import 'package:best_flutter_ui_templates/layouts/training_screen.dart';
+import 'package:avtokampi/layouts/tabIcon_data.dart';
+import 'package:avtokampi/layouts/training_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../layouts/fintness_app_theme.dart';

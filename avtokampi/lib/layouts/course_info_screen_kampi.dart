@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/avtokamp_map.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/Slika.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/avtokamp_map.dart';
+import 'package:avtokampi/layouts/hotel_list_data.dart';
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/KampirnoMesto.dart';
+import 'package:avtokampi/models/Slika.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 

@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/layouts/fintness_app_theme.dart';
-import 'package:best_flutter_ui_templates/layouts/wave_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:avtokampi/layouts/fintness_app_theme.dart';
+import 'package:avtokampi/layouts/wave_view.dart';
+import 'package:avtokampi/main.dart';
 import 'package:flutter/material.dart';
 
 class WaterView extends StatefulWidget {

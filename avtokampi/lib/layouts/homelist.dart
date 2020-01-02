@@ -1,11 +1,11 @@
-import 'package:best_flutter_ui_templates/layouts/avtokampi_map.dart';
-import 'package:best_flutter_ui_templates/layouts/dodaj_kamp_forma.dart';
-import 'package:best_flutter_ui_templates/layouts/fitness_app_home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/kampi_mnenja_list.dart';
-import 'package:best_flutter_ui_templates/layouts/kampi_web_view.dart';
-import 'package:best_flutter_ui_templates/layouts/lastniki_kampov_list.dart';
-import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
+import 'package:avtokampi/layouts/avtokampi_map.dart';
+import 'package:avtokampi/layouts/dodaj_kamp_forma.dart';
+import 'package:avtokampi/layouts/fitness_app_home_screen.dart';
+import 'package:avtokampi/layouts/hotel_home_screen.dart';
+import 'package:avtokampi/layouts/kampi_mnenja_list.dart';
+import 'package:avtokampi/layouts/kampi_web_view.dart';
+import 'package:avtokampi/layouts/lastniki_kampov_list.dart';
+import 'package:avtokampi/layouts/rezervacija_forma.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeList {

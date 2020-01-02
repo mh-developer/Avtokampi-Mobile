@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/login_register.dart';
+import 'package:avtokampi/app_theme.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/login_register.dart';
 import 'package:flutter/material.dart';
 
 class HomeDrawer extends StatefulWidget {

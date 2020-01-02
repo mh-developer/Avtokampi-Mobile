@@ -1,11 +1,11 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/running_view.dart';
-import 'package:best_flutter_ui_templates/layouts/title_view.dart';
-import 'package:best_flutter_ui_templates/layouts/workout_view.dart';
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
-import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/running_view.dart';
+import 'package:avtokampi/layouts/title_view.dart';
+import 'package:avtokampi/layouts/workout_view.dart';
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/KampirnoMesto.dart';
+import 'package:avtokampi/models/Rezervacija.dart';
+import 'package:avtokampi/models/StoritevKampirnegaMesta.dart';
 import 'package:flutter/material.dart';
 
 import '../layouts/fintness_app_theme.dart';

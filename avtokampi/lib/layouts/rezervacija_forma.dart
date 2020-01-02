@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
-import 'package:best_flutter_ui_templates/models/VrstaKampiranja.dart';
+import 'package:avtokampi/controllers/api_controller.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/KampirnoMesto.dart';
+import 'package:avtokampi/models/Rezervacija.dart';
+import 'package:avtokampi/models/VrstaKampiranja.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';

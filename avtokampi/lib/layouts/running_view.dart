@@ -1,8 +1,8 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/narocene_storitve_list.dart';
-import 'package:best_flutter_ui_templates/layouts/storitve_forma.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
-import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/narocene_storitve_list.dart';
+import 'package:avtokampi/layouts/storitve_forma.dart';
+import 'package:avtokampi/models/Rezervacija.dart';
+import 'package:avtokampi/models/StoritevKampirnegaMesta.dart';
 import 'package:flutter/material.dart';
 
 import 'fintness_app_theme.dart';

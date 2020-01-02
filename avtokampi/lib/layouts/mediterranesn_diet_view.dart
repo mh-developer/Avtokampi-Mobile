@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/fintness_app_theme.dart';
-import 'package:best_flutter_ui_templates/main.dart';
-import 'package:best_flutter_ui_templates/models/Mnenje.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/fintness_app_theme.dart';
+import 'package:avtokampi/main.dart';
+import 'package:avtokampi/models/Mnenje.dart';
+import 'package:avtokampi/models/Rezervacija.dart';
 import 'package:flutter/material.dart';
 
 class MediterranesnDietView extends StatelessWidget {

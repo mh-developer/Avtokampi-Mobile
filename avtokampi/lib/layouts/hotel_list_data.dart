@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/Cenik.dart';
-import 'package:best_flutter_ui_templates/models/Drzava.dart';
-import 'package:best_flutter_ui_templates/models/Mnenje.dart';
-import 'package:best_flutter_ui_templates/models/Regija.dart';
-import 'package:best_flutter_ui_templates/models/Slika.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/Cenik.dart';
+import 'package:avtokampi/models/Drzava.dart';
+import 'package:avtokampi/models/Mnenje.dart';
+import 'package:avtokampi/models/Regija.dart';
+import 'package:avtokampi/models/Slika.dart';
 
 class HotelListData {
     HotelListData({

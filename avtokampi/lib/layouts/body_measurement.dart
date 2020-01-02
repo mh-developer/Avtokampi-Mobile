@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/layouts/fintness_app_theme.dart';
+import 'package:avtokampi/layouts/fintness_app_theme.dart';
 import 'package:flutter/material.dart';
 
 class BodyMeasurementView extends StatelessWidget {

@@ -1,6 +1,6 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/Mnenje.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/Mnenje.dart';
 
 class MealsListData {
     MealsListData({

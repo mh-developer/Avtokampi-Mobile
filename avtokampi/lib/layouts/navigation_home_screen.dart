@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/layouts/drawer_user_controller.dart';
-import 'package:best_flutter_ui_templates/layouts/home_drawer.dart';
-import 'package:best_flutter_ui_templates/layouts/home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_home_screen.dart';
-import 'package:best_flutter_ui_templates/layouts/rezervacija_forma.dart';
+import 'package:avtokampi/app_theme.dart';
+import 'package:avtokampi/layouts/drawer_user_controller.dart';
+import 'package:avtokampi/layouts/home_drawer.dart';
+import 'package:avtokampi/layouts/home_screen.dart';
+import 'package:avtokampi/layouts/hotel_home_screen.dart';
+import 'package:avtokampi/layouts/rezervacija_forma.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/navigation_home_screen.dart';
-import 'package:best_flutter_ui_templates/models/Uporabnik.dart';
+import 'package:avtokampi/controllers/api_controller.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/navigation_home_screen.dart';
+import 'package:avtokampi/models/Uporabnik.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_login/flutter_login.dart';

@@ -1,10 +1,10 @@
 import 'dart:ui';
 
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/avtokampi_map.dart';
-import 'package:best_flutter_ui_templates/layouts/calendar_popup_view.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_list_data.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_list_view.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/avtokampi_map.dart';
+import 'package:avtokampi/layouts/calendar_popup_view.dart';
+import 'package:avtokampi/layouts/hotel_list_data.dart';
+import 'package:avtokampi/layouts/hotel_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';

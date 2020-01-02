@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/KampirnoMesto.dart';
-import 'package:best_flutter_ui_templates/models/Rezervacija.dart';
-import 'package:best_flutter_ui_templates/models/Storitev.dart';
-import 'package:best_flutter_ui_templates/models/StoritevKampirnegaMesta.dart';
+import 'package:avtokampi/controllers/api_controller.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/KampirnoMesto.dart';
+import 'package:avtokampi/models/Rezervacija.dart';
+import 'package:avtokampi/models/Storitev.dart';
+import 'package:avtokampi/models/StoritevKampirnegaMesta.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:http/http.dart';

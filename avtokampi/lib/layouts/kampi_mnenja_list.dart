@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/controllers/api_controller.dart';
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/models/Avtokamp.dart';
-import 'package:best_flutter_ui_templates/models/Mnenje.dart';
+import 'package:avtokampi/controllers/api_controller.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/Mnenje.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';

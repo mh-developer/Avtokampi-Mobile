@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/layouts/course_info_screen_kampi.dart';
-import 'package:best_flutter_ui_templates/layouts/hotel_app_theme.dart';
-import 'package:best_flutter_ui_templates/models/Mnenje.dart';
+import 'package:avtokampi/globals.dart' as globals;
+import 'package:avtokampi/layouts/course_info_screen_kampi.dart';
+import 'package:avtokampi/layouts/hotel_app_theme.dart';
+import 'package:avtokampi/models/Mnenje.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';

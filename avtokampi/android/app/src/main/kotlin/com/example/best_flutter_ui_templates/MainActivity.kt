@@ -1,4 +1,4 @@
-package com.example.best_flutter_ui_templates
+package com.example.avtokampi
 
 import android.os.Bundle
 
