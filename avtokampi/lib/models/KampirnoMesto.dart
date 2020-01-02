@@ -12,6 +12,9 @@ class KampirnoMesto {
     KampirnoMesto(this.id, this.naziv, this.velikost, this.createdAt,
         this.updatedAt, this.avtokamp, this.kategorija);
 
+    KampirnoMesto.novo(this.naziv, this.velikost, this.avtokamp,
+        this.kategorija);
+
     static KampirnoMesto fromJson(json) {
         KampirnoMesto km = new KampirnoMesto.nov();
         km.id = json['kampirnoMestoId'];

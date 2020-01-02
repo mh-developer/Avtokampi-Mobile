@@ -344,4 +344,53 @@ class ApiController {
             throw(e);
         }
     }
+
+    Future<Response> addKampirnoMesto(String naziv, String velikost,
+        int avtokamp, int kategorija) async {
+        try {
+            String url = sprintf(ApiRoutes.KAMPIRNA_MESTA_NOVO, [avtokamp]);
+            Map<String, String> headers = {
+                "Content-type": "application/json",
+                "Authorization": "Bearer ${globals.jwtToken}"
+            };
+            String json = '{"naziv": "$naziv", "velikost": "$velikost", "avtokamp": $avtokamp, "kategorija": $kategorija}';
+            Response response = await post(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> deleteKampirnoMesto(int kampId,
+        int kampirnoMestoId) async {
+        try {
+            String url = sprintf(ApiRoutes.KAMPIRNA_MESTA_UREDI_BRISI,
+                [kampId, kampirnoMestoId]);
+            Map<String, String> headers = {
+                "Content-type": "application/json",
+                "Authorization": "Bearer ${globals.jwtToken}"
+            };
+            Response response = await delete(url, headers: headers);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
+
+    Future<Response> modifyKampirnoMesto(int kampirnoMestoId, String naziv,
+        String velikost, int avtokamp, int kategorija) async {
+        try {
+            String url = sprintf(ApiRoutes.KAMPIRNA_MESTA_UREDI_BRISI,
+                [avtokamp, kampirnoMestoId]);
+            Map<String, String> headers = {
+                "Content-type": "application/json",
+                "Authorization": "Bearer ${globals.jwtToken}"
+            };
+            String json = '{"kampirnoMestoId": $kampirnoMestoId, "naziv": "$naziv", "velikost": "$velikost", "avtokamp": $avtokamp, "kategorija": $kategorija}';
+            Response response = await put(url, headers: headers, body: json);
+            return response;
+        } catch (e) {
+            throw(e);
+        }
+    }
 }

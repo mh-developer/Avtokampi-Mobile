@@ -1,11 +1,14 @@
 import 'package:avtokampi/controllers/api_controller.dart';
 import 'package:avtokampi/globals.dart' as globals;
-import 'package:avtokampi/layouts/lastniki_kampov_list_kampirna_mesta.dart';
-import 'package:avtokampi/layouts/spremeni_kamp_forma.dart';
+import 'package:avtokampi/layouts/spremeni_kampirno_mesto_forma.dart';
+import 'package:avtokampi/models/Avtokamp.dart';
+import 'package:avtokampi/models/KampirnoMesto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:http/http.dart';
+
+import 'dodaj_kampirno_mesto_forma.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,19 +21,52 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 primarySwatch: Colors.blue,
             ),
-            home: LastnikiKampovList(),
+            home: LastnikiKampovListKampirnaMesta(),
         );
     }
 }
 
-class LastnikiKampovList extends StatefulWidget {
-    LastnikiKampovList({Key key}) : super(key: key);
+class LastnikiKampovListKampirnaMesta extends StatefulWidget {
+    LastnikiKampovListKampirnaMesta({Key key, this.kampId}) : super(key: key);
+
+    final int kampId;
 
     @override
-    _LastnikiKampovList createState() => new _LastnikiKampovList();
+    _LastnikiKampovListKampirnaMesta createState() =>
+        new _LastnikiKampovListKampirnaMesta(kampId);
 }
 
-class _LastnikiKampovList extends State<LastnikiKampovList> {
+class _LastnikiKampovListKampirnaMesta
+    extends State<LastnikiKampovListKampirnaMesta> {
+    int kampId;
+    List<KampirnoMesto> kampirnaMestaList = [];
+
+    _LastnikiKampovListKampirnaMesta(this.kampId);
+
+    @override
+    void initState() {
+        super.initState();
+        kampirnaMestaList = getKampirnaMestaZaKamp();
+    }
+
+    Avtokamp getKampById(int kampId) {
+        for (Avtokamp avtokamp in globals.avtokampi) {
+            if (avtokamp.id == kampId) {
+                return avtokamp;
+            }
+        }
+    }
+
+    getKampirnaMestaZaKamp() {
+        List<KampirnoMesto> kampirnaMesta = [];
+        for (KampirnoMesto km in globals.kampirnaMesta) {
+            if (km.avtokamp == kampId) {
+                kampirnaMesta.add(km);
+            }
+        }
+        return kampirnaMesta;
+    }
+
     Color getColor(int index) {
         if (index % 4 == 0) return Colors.brown;
         if (index % 3 == 0) return Colors.green;
@@ -38,17 +74,19 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
         return Colors.red;
     }
 
-    deleteKamp(BuildContext context, int kampId) {
+    deleteKampirnoMesto(BuildContext context, int kampirnoMestoId) {
         ApiController apiController = new ApiController();
         Response response;
-        apiController.deleteAvtokamp(kampId).then((apiResponse) {
+        apiController
+            .deleteKampirnoMesto(kampId, kampirnoMestoId)
+            .then((apiResponse) {
             response = apiResponse;
         }).whenComplete(() {
             if (response.statusCode == 204) {
-                print("Kamp uspešno izbrisan!");
+                print("Kampirno mesto uspešno izbrisano!");
                 _ackAlert(context);
             } else {
-                print("Kamp ni bil uspešno izbrisan!");
+                print("Kampirno mesto ni bilo uspešno izbrisan!");
                 _ackAlert2(context);
             }
         });
@@ -121,10 +159,10 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-                title: Text('SPREMINJANJE VNOSOV'),
+                title: Text('KAMPIRNA MESTA'),
             ),
             body: ListView.builder(
-                itemCount: globals.avtokampi.length,
+                itemCount: kampirnaMestaList.length,
                 itemBuilder: (context, index) {
                     return Slidable(
                         child: new InkWell(
@@ -137,39 +175,16 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                         foregroundColor: Colors.white,
                                     ),
                                     title: new Text(
-                                        globals.avtokampi[index].naziv),
+                                        kampirnaMestaList[index].naziv),
                                     subtitle: new Text(
-                                        globals.avtokampi[index].nazivLokacije),
+                                        kampirnaMestaList[index].velikost),
                                 ),
                             ),
                             onTap: () {
-                                print(globals.avtokampi[index].id);
+                                print(kampirnaMestaList[index].id);
                             }),
                         key: ValueKey(index),
                         actionPane: SlidableDrawerActionPane(),
-                        actions: <Widget>[
-                            IconSlideAction(
-                                caption: 'Mesta',
-                                color: Colors.green,
-                                icon: Icons.filter_tilt_shift,
-                                onTap: () {
-                                    Navigator.push<dynamic>(
-                                        context,
-                                        MaterialPageRoute<dynamic>(
-                                            builder: (BuildContext context) =>
-                                                LastnikiKampovListKampirnaMesta(
-                                                    kampId: globals
-                                                        .avtokampi[index].id,
-                                                ),
-                                        ));
-                                },
-                            ),
-                            IconSlideAction(
-                                caption: 'Storitve',
-                                color: Colors.blue,
-                                icon: Icons.wifi,
-                            ),
-                        ],
                         secondaryActions: <Widget>[
                             IconSlideAction(
                                 caption: 'Popravi',
@@ -180,10 +195,9 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                         context,
                                         MaterialPageRoute<dynamic>(
                                             builder: (BuildContext context) =>
-                                                SpremeniKampForm(
-                                                    avtokamp: globals
-                                                        .avtokampi[index]),
-                                        ),
+                                                SpremeniKampirnoMestoForm(
+                                                    kampirnoMesto: kampirnaMestaList[index],
+                                                    kamp: getKampById(kampId))),
                                     );
                                 }),
                             IconSlideAction(
@@ -192,9 +206,10 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                                 icon: Icons.delete,
                                 onTap: () {
                                     setState(() {
-                                        globals.avtokampi.removeAt(index);
-                                        deleteKamp(context,
-                                            globals.avtokampi[index].id);
+                                        globals.kampirnaMesta.remove(
+                                            kampirnaMestaList[index]);
+                                        deleteKampirnoMesto(context,
+                                            kampirnaMestaList[index].id);
                                     });
                                 }),
                         ],
@@ -203,6 +218,19 @@ class _LastnikiKampovList extends State<LastnikiKampovList> {
                         ),
                     );
                 },
+            ),
+            floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                    Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) =>
+                                DodajKampirnoMestoForm(),
+                        ),
+                    );
+                },
+                child: Icon(Icons.add),
+                backgroundColor: Colors.green,
             ),
         );
     }

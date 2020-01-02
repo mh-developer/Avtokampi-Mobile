@@ -180,7 +180,7 @@ class _SpremeniKampFormState extends State<SpremeniKampForm> {
                             fontSize: 22.0, fontWeight: FontWeight.w600),
                     ),
                     description: Text(
-                        'Avrokamp žal ni bil uspešno spremenjen!',
+                        'Avtokamp žal ni bil uspešno spremenjen!',
                         textAlign: TextAlign.center,
                     ),
                     onOkButtonPressed: () {
@@ -196,7 +196,7 @@ class _SpremeniKampFormState extends State<SpremeniKampForm> {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: new AppBar(
-                title: new Text("SPEMEMBA KAMPA"),
+                title: new Text("SPREMEMBA KAMPA"),
             ),
             body: new SafeArea(
                 top: false,
