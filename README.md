@@ -90,6 +90,7 @@ Below you can see some application screenshots (taken on Pixel 3a API 28 emulato
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/26.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/27.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/28.png?raw=true" width="23%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/29.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/30.png?raw=true" width="23%"></img>
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/31.png?raw=true" width="23%"></img>
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/32.png?raw=true" width="23%"></img>
@@ -110,10 +111,9 @@ Here you can observe some animated images (gifs) taken from this mobile app with
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/dark.gif" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/items.gif" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/calendar.gif" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/map.gif" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/slider.gif" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/user.gif" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/favourites.gif" width="23%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/map.gif" width="33%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/slider.gif" width="33%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/user.gif" width="33%"></img> 
 
 ## Live Presentation using `scrcpy`
 
