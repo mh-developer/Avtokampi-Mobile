@@ -52,15 +52,20 @@ provide the following activities:
 - user statistics (view your reservations and opinions)
 - adding a new camp for camping owners
 - modifying and erasing camps for camping owners
+- adding, modifying and deleting camping spaces
+
+The app has light mode in most activities, but on Android 10 (API 29) you can try to enable 
+"Dark mode" display of apps and this will turn some views darker.
 
 ## Application Screenshots
 
-Below you can see some application screenshots (taken on Pixel 3a API 28 emulator device):
+Below you can see some application screenshots (taken on Pixel 3a API 28 emulator device and Pixel 3a XL API 29 - for testing dark mode):
 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/1.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/2.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/3.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/4.png?raw=true" width="23%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/5.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/6.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/7.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/8.png?raw=true" width="23%"></img> 
@@ -84,7 +89,13 @@ Below you can see some application screenshots (taken on Pixel 3a API 28 emulato
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/26.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/27.png?raw=true" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/28.png?raw=true" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/29.png?raw=true" width="23%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/30.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/31.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/32.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/33.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/34.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/35.png?raw=true" width="23%"></img>
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/slike_aplikacije/36.png?raw=true" width="23%"></img>
 
 ## Live Presentation using `scrcpy`
 
