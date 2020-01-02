@@ -36,6 +36,9 @@ class MyApp extends StatelessWidget {
                 textTheme: AppTheme.textTheme,
                 platform: TargetPlatform.android,
             ),
+            darkTheme: ThemeData(
+                brightness: Brightness.dark,
+            ),
             home: new SplashScreen(
                 seconds: 4,
                 navigateAfterSeconds: new LoginScreen(),
