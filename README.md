@@ -114,7 +114,7 @@ Here you can observe some animated images (gifs) taken from this mobile app with
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/map.gif" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/slider.gif" width="23%"></img> 
 <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/user.gif" width="23%"></img> 
-<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/favourites.gif" width="33%"></img> 
+<img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/gifs/favourites.gif" width="23%"></img> 
 
 ## Live Presentation using `scrcpy`
 
