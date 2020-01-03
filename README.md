@@ -1,7 +1,9 @@
 # Mobile app for camping
 
 <p align="center">
-  <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/images/ikona.png?raw=true"/>
+  <img src="https://www.codemate.com/wp-content/uploads/2016/02/flutter-logo-round.png" width="33%"/>
+  <img src="https://github.com/mh-developer/Avtokampi-Mobile/blob/master/avtokampi/assets/images/ikona.png?raw=true" width="33%"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png" width="33%"/>
 </p>
 
 This is a mobile camping app written in Flutter and Dart for a school term paper/seminar assignment.
