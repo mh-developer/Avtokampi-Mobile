@@ -27,7 +27,7 @@ dependencies:
   smooth_star_rating: ^1.0.3
   intl: ^0.16.0
   flutter_login: ^1.0.10+1
-  http: ^0.12.0+2
+  http: ">=0.12.0+2 <0.14.0"
   sprintf: ^4.0.0
   splashscreen: ^1.2.0
   flutter_email_sender: ^2.2.2
